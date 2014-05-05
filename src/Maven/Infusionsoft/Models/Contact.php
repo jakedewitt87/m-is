@@ -11,7 +11,7 @@ class Contact extends BaseModel
 		'FirstName' => ['first_name', 'firstName'],
 		'LastName' => ['last_name', 'lastName'],
 		'Email' => 'email',
-		'Phone1' => 'phone',
+		'Phone1' => ['phone', 'phone_number'],
 		'StreetAddress1' => ['address', 'address1'],
 		'StreetAddress2' => 'address2',
 		'City' => 'city',
