@@ -4,6 +4,12 @@
     "require": {
         "infusionsoft/php-isdk": "dev-master"
     },
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "git@github.com:infusionsoft/PHP-iSDK.git"
+		}
+	],
 	"autoload": {
 		"psr-0": {
 			"Maven": "src/"
