@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f2700c32-2db3-4c7d-8c60-a18bf9827de8" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Definitions/TablesDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Definitions/TablesDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Exceptions/InfusionsoftException.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Exceptions/InfusionsoftException.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Infusionsoft.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Infusionsoft.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/ActionSequence.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/ActionSequence.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/AffResource.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/AffResource.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Affiliate.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Affiliate.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/BaseModel.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/BaseModel.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/CCharge.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/CCharge.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/CProgram.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/CProgram.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Campaign.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Campaign.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/CampaignStep.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/CampaignStep.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Campaignee.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Campaignee.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Company.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Company.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Contact.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Contact.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/ContactAction.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/ContactAction.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/ContactGroup.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/ContactGroup.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/ContactGroupAssign.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/ContactGroupAssign.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/ContactGroupCategory.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/ContactGroupCategory.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/CreditCard.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/CreditCard.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/DataFormField.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/DataFormField.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/DataFormGroup.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/DataFormGroup.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/DataFormTab.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/DataFormTab.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ActionSequenceDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ActionSequenceDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/AffResourceDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/AffResourceDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/AffiliateDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/AffiliateDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/BaseDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/BaseDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/CChargeDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/CChargeDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/CProgramDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/CProgramDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/CampaignDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/CampaignDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/CampaignStepDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/CampaignStepDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/CampaigneeDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/CampaigneeDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/CompanyDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/CompanyDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ContactActionDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ContactActionDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ContactDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ContactDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ContactGroupAssignDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ContactGroupAssignDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ContactGroupCategoryDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ContactGroupCategoryDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ContactGroupDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ContactGroupDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/CreditCardDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/CreditCardDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/DataFormFieldDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/DataFormFieldDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/DataFormGroupDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/DataFormGroupDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/DataFormTabDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/DataFormTabDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ExpenseDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ExpenseDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/FileBoxDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/FileBoxDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/GroupAssignDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/GroupAssignDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/InvoiceDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/InvoiceDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/InvoiceItemDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/InvoiceItemDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/InvoicePaymentDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/InvoicePaymentDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/JobDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/JobDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/JobRecurringInstanceDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/JobRecurringInstanceDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/LeadDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/LeadDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/LeadSourceCategoryDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/LeadSourceCategoryDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/LeadSourceDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/LeadSourceDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/LeadSourceExpenseDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/LeadSourceExpenseDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/LeadSourceRecurringExpenseDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/LeadSourceRecurringExpenseDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/MtgLeadDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/MtgLeadDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/OrderItemDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/OrderItemDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/PayPlanDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/PayPlanDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/PayPlanItemDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/PayPlanItemDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/PaymentDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/PaymentDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ProductCategoryAssignDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ProductCategoryAssignDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ProductCategoryDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ProductCategoryDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ProductDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ProductDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ProductInterestBundleDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ProductInterestBundleDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ProductInterestDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ProductInterestDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ProductOptValueDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ProductOptValueDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ProductOptionDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ProductOptionDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/RecurringOrderDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/RecurringOrderDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/RecurringOrderWithContactDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/RecurringOrderWithContactDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/ReferralDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/ReferralDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/SavedFilterDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/SavedFilterDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/StageDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/StageDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/StageMoveDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/StageMoveDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/StatusDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/StatusDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/SubscriptionPlanDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/SubscriptionPlanDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/TemplateDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/TemplateDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/TicketDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/TicketDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/TicketStageDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/TicketStageDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/TicketTypeDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/TicketTypeDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/UserDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/UserDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Definitions/UserGroupDefinition.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Definitions/UserGroupDefinition.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Expense.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Expense.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/FileBox.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/FileBox.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/GroupAssign.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/GroupAssign.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Invoice.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Invoice.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/InvoiceItem.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/InvoiceItem.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/InvoicePayment.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/InvoicePayment.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Job.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Job.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/JobRecurringInstance.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/JobRecurringInstance.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Lead.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Lead.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/LeadSource.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/LeadSource.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/LeadSourceCategory.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/LeadSourceCategory.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/LeadSourceExpense.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/LeadSourceExpense.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/LeadSourceRecurringExpense.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/LeadSourceRecurringExpense.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/MtgLead.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/MtgLead.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/OrderItem.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/OrderItem.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/PayPlan.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/PayPlan.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/PayPlanItem.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/PayPlanItem.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Payment.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Payment.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Product.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Product.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/ProductCategory.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/ProductCategory.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/ProductCategoryAssign.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/ProductCategoryAssign.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/ProductInterest.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/ProductInterest.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/ProductInterestBundle.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/ProductInterestBundle.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/ProductOptValue.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/ProductOptValue.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/ProductOption.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/ProductOption.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/RecurringOrder.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/RecurringOrder.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/RecurringOrderWithContact.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/RecurringOrderWithContact.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Referral.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Referral.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/SavedFilter.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/SavedFilter.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Stage.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Stage.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/StageMove.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/StageMove.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Status.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Status.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/SubscriptionPlan.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/SubscriptionPlan.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Template.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Template.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/Ticket.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/Ticket.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/TicketStage.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/TicketStage.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/TicketType.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/TicketType.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/User.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/User.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Models/UserGroup.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Models/UserGroup.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Services/BaseService.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Services/BaseService.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Services/FieldService.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Services/FieldService.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Services/SubscriptionService.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Services/SubscriptionService.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Maven/Infusionsoft/Services/TableService.php" afterPath="$PROJECT_DIR$/src/Maven/Infusionsoft/Services/TableService.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+    </list>
+    <ignored path="maveninfusionsoftsdk.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="maveninfusionsoftsdk" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="composer.json" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="6" selection-start="236" selection-end="236" vertical-scroll-proportion="0.17502917" vertical-offset="0" max-vertical-offset="857">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/composer.json" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="22" />
+    <option name="width" value="1920" />
+    <option name="height" value="999" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="maveninfusionsoftsdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="maveninfusionsoftsdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="maveninfusionsoftsdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="maveninfusionsoftsdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="maveninfusionsoftsdk" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Maven" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Infusionsoft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f2700c32-2db3-4c7d-8c60-a18bf9827de8" name="Default" comment="" />
+      <created>1399322096300</created>
+      <updated>1399322096300</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="22" width="1920" height="999" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32960597" sideWeight="0.5" order="-1" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USERS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="6" selection-start="236" selection-end="236" vertical-scroll-proportion="0.17502917" vertical-offset="0" max-vertical-offset="857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+

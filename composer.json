@@ -4,6 +4,11 @@
     "require": {
         "infusionsoft/php-isdk": "dev-master"
     },
+	"autoload": {
+		"psr-0": {
+			"Maven": "src/"
+		}
+	},
     "authors": [
         {
             "name": "Andrew Steele",
