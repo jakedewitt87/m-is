@@ -1,0 +1,13 @@
+{
+    "name": "marketingmavens/maven-infusionsoft-sdk",
+    "description": "Marketing Mavens Infusionsoft SDK",
+    "require": {
+        "infusionsoft/php-isdk": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Andrew Steele",
+            "email": "andrew@marketingmavens.com"
+        }
+    ]
+}
