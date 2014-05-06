@@ -4,7 +4,7 @@ namespace Maven\Infusionsoft;
 /**
  * Class Infusionsoft
  *
- * @package Maven\Infusionsoft
+ * @package \Maven\Infusionsoft
  * @property \iSDK SDK
  * @property \Maven\Infusionsoft\Services\FieldService FieldService
  * @property \Maven\Infusionsoft\Services\SubscriptionService SubscriptionService

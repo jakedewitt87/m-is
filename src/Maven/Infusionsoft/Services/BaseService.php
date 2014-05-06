@@ -15,4 +15,10 @@ class BaseService
 		$this->SDK = $sdk;
 	}
 
+	public function currentTime($timezone = 'America/New_York')
+	{
+		$currentTime = new \DateTime('now', new \DateTimeZone($timezone));
+		return $currentTime->format('Ymd\TH:i:s');
+	}
+
 }
