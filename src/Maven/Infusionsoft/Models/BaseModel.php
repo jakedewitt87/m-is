@@ -200,6 +200,10 @@ abstract class BaseModel
 	{
 		$returnArray = array();
 		foreach ($originalArray as $key => $value) {
+            if(strpos($key, '_') === 0) {
+                $returnArray[$key] = $value;
+                continue;
+            }
 			if (in_array($key, $filterArray)) $returnArray[$key] = $value;
 		}
 		return $returnArray;
