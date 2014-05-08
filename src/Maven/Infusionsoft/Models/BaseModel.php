@@ -1,6 +1,8 @@
 <?php
 namespace Maven\Infusionsoft\Models;
 
+use Maven\Infusionsoft\Services\TableService;
+
 abstract class BaseModel
 {
     public static $table;
@@ -13,14 +15,82 @@ abstract class BaseModel
 		$this->SDK = $sdk;
 	}
 
-	public function find($id)
+    /**
+     * @param $id
+     *
+     * @return mixed
+     * @throws \Exception
+     */public function find($id)
 	{
 		$response = $this->SDK->dsQuery($this::$table, 1, 0, ['Id' => $id], $this->getReadFields());
 		if (!is_array($response)) throw new \Exception('Unexpected response when attempting to locate model: '.$response, 400);
 		return $response[0];
 	}
 
-	public function update($id, $updateData)
+    /**
+     * @param $id
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function findWithCustom($id)
+    {
+        $response = $this->SDK->dsLoad($this::$table, $id, array_merge($this->getReadFields(), $this->getCustomFields()));
+        if(!is_array($response)) throw new \Exception('Unexpected response when loading this object');
+
+        return $response;
+    }
+
+    /**
+     * Returns all the results of a query, all pages
+     *
+     * @param array $query
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function get(array $query)
+    {
+        $page = 0;
+        $data = [];
+        do {
+            $response = $this->SDK->dsQuery($this::$table, 1000, $page++, $query, $this->getReadFields());
+            if(!is_array($response)) throw new \Exception('Error: '. $response);
+            $data = array_merge($data, $response);
+        } while(sizeof($response) == 1000 );
+
+        return $data;
+    }
+
+    /**
+     * Returns all the results of a query, all pages with custom fields
+     * @param array $query
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function getWithCustom(array $query)
+    {
+        $page = 0;
+        $data = [];
+        $fields = array_merge($this->getReadFields(), $this->getCustomFields());
+        do {
+            $response = $this->SDK->dsQuery($this::$table, 1000, $page++, $query, $fields);
+            if(!is_array($response)) throw new \Exception('Error: '. $response);
+            $data = array_merge($data, $response);
+        } while(sizeof($response) == 1000 );
+
+        return $data;
+    }
+
+    /**
+     * @param int $id
+     * @param array $updateData
+     *
+     * @return int
+     * @throws \Exception
+     */
+    public function update($id, $updateData)
 	{
 		$updateData = $this->getFilteredArray($updateData, $this->getEditFields());
 		$response = $this->SDK->dsUpdate($this::$table, $id, $updateData);
@@ -28,26 +98,54 @@ abstract class BaseModel
 		return $response;
 	}
 
-	public function getInfusionsoftArray($inputArray)
+    /**
+     * @param $inputArray
+     *
+     * @return mixed
+     */public function getInfusionsoftArray($inputArray)
 	{
 		return $this->filterArrayKeys($this::$fieldMap, $inputArray);
 	}
 
+    /**
+     * @return array
+     */
     public function getAddFields()
     {
         return $this->getFieldsWithAccess('Add');
     }
 
+    /**
+     * @return array
+     */
     public function getEditFields()
     {
         return $this->getFieldsWithAccess('Edit');
     }
 
+    /**
+     * @return array
+     */
     public function getReadFields()
     {
         return $this->getFieldsWithAccess('Read');
     }
 
+    /**
+     * @return array
+     */
+    public function getCustomFields()
+    {
+        $TableService = new TableService($this->SDK);
+        return $TableService->getTableCustomFields($this::$table);
+    }
+
+    /**
+     * @param      $accessType
+     * @param bool $withDefinition
+     *
+     * @return array
+     */
     public function getFieldsWithAccess($accessType, $withDefinition = false)
     {
         $returnFields = array ();
@@ -65,6 +163,9 @@ abstract class BaseModel
         return $returnFields;
     }
 
+    /**
+     * @return mixed
+     */
     protected function getDefinition()
     {
         $className = 'Maven\Infusionsoft\Models\Definitions\\' . $this::$table . 'Definition';
@@ -72,6 +173,11 @@ abstract class BaseModel
         return new $className();
     }
 
+    /**
+     * @param $fieldName
+     *
+     * @return array
+     */
     public function getLaravelFieldType($fieldName)
     {
         $tableDefinition = $this->getDefinition();
