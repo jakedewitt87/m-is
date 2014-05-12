@@ -9,9 +9,63 @@ namespace Maven\Infusionsoft;
  * @property \Maven\Infusionsoft\Services\FieldService FieldService
  * @property \Maven\Infusionsoft\Services\SubscriptionService SubscriptionService
  * @property \Maven\Infusionsoft\Services\TableService TableService
+ * @property \Maven\Infusionsoft\Models\ActionSequence ActionSequence
+ * @property \Maven\Infusionsoft\Models\Affiliate Affiliate
+ * @property \Maven\Infusionsoft\Models\AffResource AffResource
+ * @property \Maven\Infusionsoft\Models\Campaign Campaign
+ * @property \Maven\Infusionsoft\Models\Campaignee Campaignee
+ * @property \Maven\Infusionsoft\Models\CampaignStep CampaignStep
+ * @property \Maven\Infusionsoft\Models\CCharge CCharge
+ * @property \Maven\Infusionsoft\Models\Company Company
  * @property \Maven\Infusionsoft\Models\Contact Contact
+ * @property \Maven\Infusionsoft\Models\ContactAction ContactAction
+ * @property \Maven\Infusionsoft\Models\ContactGroup ContactGroup
+ * @property \Maven\Infusionsoft\Models\ContactGroupAssign ContactGroupAssign
+ * @property \Maven\Infusionsoft\Models\ContactGroupCategory ContactGroupCategory
+ * @property \Maven\Infusionsoft\Models\CProgram CProgram
  * @property \Maven\Infusionsoft\Models\CreditCard CreditCard
+ * @property \Maven\Infusionsoft\Models\DataFormField DataFormField
+ * @property \Maven\Infusionsoft\Models\DataFormGroup DataFormGroup
+ * @property \Maven\Infusionsoft\Models\DataFormTab DataFormTab
+ * @property \Maven\Infusionsoft\Models\Expense Expense
+ * @property \Maven\Infusionsoft\Models\FileBox FileBox
+ * @property \Maven\Infusionsoft\Models\GroupAssign GroupAssign
+ * @property \Maven\Infusionsoft\Models\Invoice Invoice
+ * @property \Maven\Infusionsoft\Models\InvoiceItem InvoiceItem
+ * @property \Maven\Infusionsoft\Models\InvoicePayment InvoicePayment
+ * @property \Maven\Infusionsoft\Models\Job Job
+ * @property \Maven\Infusionsoft\Models\JobRecurringInstance JobRecurringInstance
+ * @property \Maven\Infusionsoft\Models\Lead Lead
+ * @property \Maven\Infusionsoft\Models\LeadSource LeadSource
+ * @property \Maven\Infusionsoft\Models\LeadSourceCategory LeadSourceCategory
+ * @property \Maven\Infusionsoft\Models\LeadSourceExpense LeadSourceExpense
+ * @property \Maven\Infusionsoft\Models\LeadSourceRecurringExpense LeadSourceRecurringExpense
+ * @property \Maven\Infusionsoft\Models\MtgLead MtgLead
+ * @property \Maven\Infusionsoft\Models\OrderItem OrderItem
+ * @property \Maven\Infusionsoft\Models\Payment Payment
+ * @property \Maven\Infusionsoft\Models\PayPlan PayPlan
+ * @property \Maven\Infusionsoft\Models\PayPlanItem PayPlanItem
+ * @property \Maven\Infusionsoft\Models\Product Product
+ * @property \Maven\Infusionsoft\Models\ProductCategory ProductCategory
+ * @property \Maven\Infusionsoft\Models\ProductCategoryAssign ProductCategoryAssign
+ * @property \Maven\Infusionsoft\Models\ProductInterest ProductInterest
+ * @property \Maven\Infusionsoft\Models\ProductInterestBundle ProductInterestBundle
+ * @property \Maven\Infusionsoft\Models\ProductOption ProductOption
+ * @property \Maven\Infusionsoft\Models\ProductOptValue ProductOptValue
  * @property \Maven\Infusionsoft\Models\RecurringOrder RecurringOrder
+ * @property \Maven\Infusionsoft\Models\RecurringOrderWithContact RecurringOrderWithContact
+ * @property \Maven\Infusionsoft\Models\Referral Referral
+ * @property \Maven\Infusionsoft\Models\SavedFilter SavedFilter
+ * @property \Maven\Infusionsoft\Models\Stage Stage
+ * @property \Maven\Infusionsoft\Models\StageMove StageMove
+ * @property \Maven\Infusionsoft\Models\Status Status
+ * @property \Maven\Infusionsoft\Models\SubscriptionPlan SubscriptionPlan
+ * @property \Maven\Infusionsoft\Models\Template Template
+ * @property \Maven\Infusionsoft\Models\Ticket Ticket
+ * @property \Maven\Infusionsoft\Models\TicketStage TicketStage
+ * @property \Maven\Infusionsoft\Models\TicketType TicketType
+ * @property \Maven\Infusionsoft\Models\User User
+ * @property \Maven\Infusionsoft\Models\UserGroup UserGroup
  */
 class Infusionsoft
 {
