@@ -2,7 +2,7 @@
 
 class SubscriptionService extends BaseService
 {
-	public function addAndChargeSubscription($contactId, $subscriptionPlanId, $subscriptionPrice, $creditCardId, $merchantAccountId, $orderNotes = '')
+	public function addAndChargeSubscription($contactId, $subscriptionPlanId, $subscriptionPrice, $creditCardId, $merchantAccountId, $orderNotes = '', $affiliateId = 0)
 	{
 		$subscriptionId = $this->SDK->addRecurringAdv($contactId,
 			true,
@@ -12,7 +12,7 @@ class SubscriptionService extends BaseService
 			true,
 			intval($merchantAccountId),
 			intval($creditCardId),
-			0,
+			$affiliateId,
 			0
 		);
 		if (!is_numeric($subscriptionId) || $subscriptionId <= 0)  throw new \Exception('Unable to create new subscription: '.$subscriptionId, 400);

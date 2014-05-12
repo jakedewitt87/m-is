@@ -3,9 +3,9 @@ namespace Maven\Infusionsoft\Services;
 
 class InvoiceService extends BaseService
 {
-	public function addAndChargeOrder($contactId, $products, $creditCardId, $merchantAccountId, $orderNotes = '')
+	public function addAndChargeOrder($contactId, $products, $creditCardId, $merchantAccountId, $orderNotes = '', $affiliateId = 0)
 	{
-		$orderId = $this->SDK->blankOrder($contactId, $orderNotes, $this->currentTime(), 0, 0);
+		$orderId = $this->SDK->blankOrder($contactId, $orderNotes, $this->currentTime(), $affiliateId, $affiliateId);
 		if (!is_numeric($orderId) || $orderId <= 0) throw new \Exception('Unable to create new order: '.$orderId, 400);
 
 		foreach ($products as $product) {
