@@ -3,7 +3,7 @@ namespace Maven\Infusionsoft\Services;
 
 class InvoiceService extends BaseService
 {
-	public function addAndChargeOrder($contactId, $products, $creditCardId, $merchantAccountId, $orderNotes = '', $affiliateId = 0)
+	public function addOrder($contactId, $products, $orderNotes = '', $affiliateId = 0)
 	{
 		$orderId = $this->SDK->blankOrder($contactId, $orderNotes, $this->currentTime(), $affiliateId, $affiliateId);
 		if (!is_numeric($orderId) || $orderId <= 0) throw new \Exception('Unable to create new order: '.$orderId, 400);
@@ -16,6 +16,13 @@ class InvoiceService extends BaseService
 			}
 		}
 
+		return $orderId;
+	}
+
+	public function addAndChargeOrder($contactId, $products, $creditCardId, $merchantAccountId, $orderNotes = '', $affiliateId = 0)
+	{
+		$orderId = $this->addOrder($contactId, $products, $orderNotes, $affiliateId);
+		if (!$orderId) throw new \Exception('Unable to create new order during addAndChargeOrder: '.$orderId);
 		$chargeResponse = $this->SDK->chargeInvoice($orderId, $orderNotes, $creditCardId, $merchantAccountId, false);
 		if (!$chargeResponse || !is_array($chargeResponse)) throw new \Exception('Unexpected response when attempting to charge invoice: '.$chargeResponse);
 		if ($chargeResponse['Successful'] != true) {
@@ -24,4 +31,26 @@ class InvoiceService extends BaseService
 
 		return $orderId;
 	}
+
+	public function addAndChargePaymentPlan($contactId, $products, $creditCardId, $merchantAccountId, $numberOfPayments = 1, $daysBetween = 30, $orderNotes = '', $affiliateId = 0)
+	{
+		$defaultMaxRetry = $this->SDK->dsGetSetting('Order', 'defaultmaxretry');
+		$defaultDays = $this->SDK->dsGetSetting('Order', 'defaultnumdaysbetween');
+
+		$orderId = $this->addOrder($contactId, $products, $orderNotes, $affiliateId);
+		if (!$orderId) throw new \Exception('Unable to create new order during addAndChargeOrder: '.$orderId);
+		$added = $this->SDK->payPlan($orderId, true, $creditCardId, $merchantAccountId, intval($defaultMaxRetry), intval($defaultDays), (float) 0, $this->currentTime(), $this->currentTime(), $numberOfPayments, $daysBetween);
+		if (!$added) throw new \Exception('Unable to add payment plan to invoice '.$orderId.': '.$added);
+
+		$chargeResponse = $this->SDK->chargeInvoice($orderId, $orderNotes, $creditCardId, $merchantAccountId, false);
+		if (!$chargeResponse || !is_array($chargeResponse)) throw new \Exception('Unexpected response when attempting to charge invoice: '.$chargeResponse);
+		if ($chargeResponse['Successful'] != true) {
+			throw new \Exception('Unable to charge payment on invoice: '.$chargeResponse['Message']);
+		}
+
+		return $orderId;
+	}
+
+
+
 }

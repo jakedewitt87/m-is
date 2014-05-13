@@ -59,7 +59,8 @@ class Contact extends BaseModel
 		if (is_array($contactId)) $contactId = empty($contactId['Id']) ? 0 : $contactId['Id']; // Attempt to find an ID from a contact array
 		if (!is_numeric($contactId)) $contactId = 0; // Default to zero
 		$contactData = $this->getFilteredArray($contactData, $this->getEditFields()); // Remove any fields from their input that are not editable
-		$newContactId = $contactId ? $this->SDK->updateCon($contactId, $contactData) : $this->SDK->addCon($contactData);
+		$contact = $this->getFirstByArray($contactData);
+		$newContactId = $contact ? $this->SDK->updateCon($contact['Id'], $contactData) : $this->SDK->addCon($contactData);
         if (is_int($newContactId)) {
             $contactData['Id'] = $newContactId;
 
