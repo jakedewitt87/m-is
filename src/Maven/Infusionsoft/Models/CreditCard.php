@@ -55,5 +55,14 @@ class CreditCard extends BaseModel
 		return $creditCardId;
 	}
 
+	public function getNewestByContact($contactId)
+	{
+		$creditCard = $this->SDK->dsQueryOrderBy($this::$table, 1, 0, ['ContactId' => $contactId, 'Status' => 3], $this->getReadFields(), 'Id', false);
+		if (!is_array($creditCard)) {
+			throw new \Exception('Unexpected response when attempting to find most recent credit card for contact '.$contactId.': '.$creditCard);
+		}
+		return $creditCard ? $creditCard[0] : [];
+	}
+
 }
 

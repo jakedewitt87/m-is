@@ -24,7 +24,7 @@ abstract class BaseModel
 	{
 		$response = $this->SDK->dsQuery($this::$table, 1, 0, ['Id' => $id], $this->getReadFields());
 		if (!is_array($response)) throw new \Exception('Unexpected response when attempting to locate model: '.$response, 400);
-		return $response[0];
+		return $response ? $response[0] : [];
 	}
 
     /**

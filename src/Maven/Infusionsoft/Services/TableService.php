@@ -26,6 +26,13 @@ class TableService extends BaseService
         return $fullTables;
     }
 
+	public function getAllTableFields($tableName, $accessType = 'Add')
+	{
+		$tableFields = $this->getTableFields($tableName, $accessType);
+		$customFields = $this->getTableCustomFields($tableName);
+		return array_merge($tableFields, $customFields);
+	}
+
     public function getTableCustomFields($tableName)
     {
         $tableFormId = $this->getFormIdByTableName($tableName);

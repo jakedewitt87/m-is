@@ -116,6 +116,11 @@ class Infusionsoft
 		}
 	}
 
+	public function infusionDateTime($time = 'now', $timezone = 'America/New_York')
+	{
+		return (new \DateTime($time, new \DateTimeZone($timezone)))->format('Ymd\TH:i:s');
+	}
+
 	/**
 	 * Get the SDK
 	 *
