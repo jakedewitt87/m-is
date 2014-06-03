@@ -8,24 +8,28 @@ abstract class BaseModel
     public static $table;
     public static $fieldMap = [];
     public static $fields = [];
-	public $SDK;
+    public $SDK;
 
-	public function __construct(\iSDK $sdk)
-	{
-		$this->SDK = $sdk;
-	}
+    public function __construct(\iSDK $sdk)
+    {
+        $this->SDK = $sdk;
+    }
 
     /**
      * @param $id
      *
      * @return mixed
      * @throws \Exception
-     */public function find($id)
-	{
-		$response = $this->SDK->dsQuery($this::$table, 1, 0, ['Id' => $id], $this->getReadFields());
-		if (!is_array($response)) throw new \Exception('Unexpected response when attempting to locate model: '.$response, 400);
-		return $response ? $response[0] : [];
-	}
+     */
+    public function find($id)
+    {
+        $response = $this->SDK->dsQuery($this::$table, 1, 0, ['Id' => $id], $this->getReadFields());
+        if (!is_array($response)) {
+            throw new \Exception('Unexpected response when attempting to locate model: ' . $response, 400);
+        }
+
+        return $response ? $response[0] : [];
+    }
 
     /**
      * @param $id
@@ -36,37 +40,68 @@ abstract class BaseModel
     public function findWithCustom($id)
     {
         $response = $this->SDK->dsLoad($this::$table, $id, array_merge($this->getReadFields(), $this->getCustomFields()));
-        if(!is_array($response)) throw new \Exception('Unexpected response when loading this object');
+        if (!is_array($response)) throw new \Exception('Unexpected response when loading this object');
 
         return $response;
     }
 
-	/**
-	 * Returns all the results of a query, all pages
-	 * @param array $query
-	 * @param null  $table
-	 * @param array $returnFields
-	 *
-	 * @return array
-	 * @throws \Exception
-	 */
-	public function get(array $query, $table = null, $returnFields = [])
+    /**
+     * Returns all the results of a query, all pages
+     *
+     * @param array $query
+     * @param null  $table
+     * @param array $returnFields
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function get(array $query, $table = null, $returnFields = [])
     {
         $page = 0;
         $data = [];
-		$table = $table ? : $this::$table;
-		$returnFields = $returnFields ? : $this->getReadFields();
+        $table = $table ? : $this::$table;
+        $returnFields = $returnFields ? : $this->getReadFields();
         do {
             $response = $this->SDK->dsQuery($table, 1000, $page++, $query, $returnFields);
-            if(!is_array($response)) throw new \Exception('Error: '. $response);
+            if (!is_array($response)) throw new \Exception('Error: ' . $response);
             $data = array_merge($data, $response);
-        } while(sizeof($response) == 1000 );
+        } while (sizeof($response) == 1000);
+
+        return $data;
+    }
+
+
+    /**
+     * Just like the get method except you can sort / order it by
+     * a field of choice
+     *
+     * @param array  $query
+     * @param string $orderBy
+     * @param bool   $ascending
+     * @param null   $table
+     * @param array  $returnFields
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function getOrderBy(array $query, $orderBy = 'Id', $ascending = true, $table = null, $returnFields = [])
+    {
+        $page = 0;
+        $data = [];
+        $table = $table ? : $this::$table;
+        $returnFields = $returnFields ? : $this->getReadFields();
+        do {
+            $response = $this->SDK->dsQueryOrderBy($table, 1000, $page++, $query, $returnFields, $orderBy, $ascending);
+            if (!is_array($response)) throw new \Exception('Error: ' . $response);
+            $data = array_merge($data, $response);
+        } while (sizeof($response) == 1000);
 
         return $data;
     }
 
     /**
      * Returns all the results of a query, all pages with custom fields
+     *
      * @param array $query
      *
      * @return array
@@ -79,36 +114,38 @@ abstract class BaseModel
         $fields = array_merge($this->getReadFields(), $this->getCustomFields());
         do {
             $response = $this->SDK->dsQuery($this::$table, 1000, $page++, $query, $fields);
-            if(!is_array($response)) throw new \Exception('Error: '. $response);
+            if (!is_array($response)) throw new \Exception('Error: ' . $response);
             $data = array_merge($data, $response);
-        } while(sizeof($response) == 1000 );
+        } while (sizeof($response) == 1000);
 
         return $data;
     }
 
     /**
-     * @param int $id
+     * @param int   $id
      * @param array $updateData
      *
      * @return int
      * @throws \Exception
      */
     public function update($id, $updateData)
-	{
-		$updateData = $this->getFilteredArray($updateData, $this->getEditFields());
-		$response = $this->SDK->dsUpdate($this::$table, $id, $updateData);
-		if (!is_numeric($response)) throw new \Exception('Unexpected response when attempting to update model: '.$response, 400);
-		return $response;
-	}
+    {
+        $updateData = $this->getFilteredArray($updateData, $this->getEditFields());
+        $response = $this->SDK->dsUpdate($this::$table, $id, $updateData);
+        if (!is_numeric($response)) throw new \Exception('Unexpected response when attempting to update model: ' . $response, 400);
+
+        return $response;
+    }
 
     /**
      * @param $inputArray
      *
      * @return mixed
-     */public function getInfusionsoftArray($inputArray)
-	{
-		return $this->filterArrayKeys($this::$fieldMap, $inputArray);
-	}
+     */
+    public function getInfusionsoftArray($inputArray)
+    {
+        return $this->filterArrayKeys($this::$fieldMap, $inputArray);
+    }
 
     /**
      * @return array
@@ -140,6 +177,7 @@ abstract class BaseModel
     public function getCustomFields()
     {
         $TableService = new TableService($this->SDK);
+
         return $TableService->getTableCustomFields($this::$table);
     }
 
@@ -256,73 +294,81 @@ abstract class BaseModel
         return $return;
     }
 
-	/**
-	 * Given a fieldMap array which contains keys of new names, and values of possible inputs - it will return a filtered version of the second array
-	 * @param $fieldMap Array containing keys of your desired array, and values of the possible names to look for
-	 * @param $inputArray
-	 *
-	 * @return mixed
-	 */
-	public function filterArrayKeys($fieldMap, $inputArray)
-	{
-		$ifsArray = [];
-		foreach ($fieldMap as $ifsField => $localField) {
-			if (is_array($localField)) {
-				foreach ($localField as $localFieldName) {
-					if (isset($inputArray[$localFieldName])) {
-						$ifsArray[$ifsField] = $inputArray[$localFieldName];
-					} else {
-						$ifsArray[$ifsField] = isset($ifsArray[$ifsField]) ? $ifsArray[$ifsField] : null;
-					}
-				}
-			} else {
-				if (isset($inputArray[$localField])) {
-					$ifsArray[$ifsField] = $inputArray[$localField];
-				} else {
-					$ifsArray[$ifsField] = isset($ifsArray[$ifsField]) ? $ifsArray[$ifsField] : null;
-				}
-			}
-		}
-		return $this->removeNullValues($ifsArray);
-	}
+    /**
+     * Given a fieldMap array which contains keys of new names, and values of possible inputs - it will return a filtered version of the second array
+     *
+     * @param $fieldMap Array containing keys of your desired array, and values of the possible names to look for
+     * @param $inputArray
+     *
+     * @return mixed
+     */
+    public function filterArrayKeys($fieldMap, $inputArray)
+    {
+        $ifsArray = [];
+        foreach ($fieldMap as $ifsField => $localField) {
+            if (is_array($localField)) {
+                foreach ($localField as $localFieldName) {
+                    if (isset($inputArray[$localFieldName])) {
+                        $ifsArray[$ifsField] = $inputArray[$localFieldName];
+                    } else {
+                        $ifsArray[$ifsField] = isset($ifsArray[$ifsField]) ? $ifsArray[$ifsField] : null;
+                    }
+                }
+            } else {
+                if (isset($inputArray[$localField])) {
+                    $ifsArray[$ifsField] = $inputArray[$localField];
+                } else {
+                    $ifsArray[$ifsField] = isset($ifsArray[$ifsField]) ? $ifsArray[$ifsField] : null;
+                }
+            }
+        }
 
-	/**
-	 * Remove any null values from the array and returns it
-	 * @param $array
-	 *
-	 * @return mixed
-	 */
-	protected function removeNullValues($array)
-	{
-		foreach ($array as $field => $value) if ($value === null) unset($array[$field]);
-		return $array;
-	}
+        return $this->removeNullValues($ifsArray);
+    }
 
-	/**
-	 * Get an array containing only the objects which exist in the second array
-	 * @param $originalArray Array of data
-	 * @param $filterArray Array of allowed keys
-	 *
-	 * @return array A filtered array
-	 */
-	protected function getFilteredArray($originalArray, $filterArray)
-	{
-		$returnArray = array();
-		foreach ($originalArray as $key => $value) {
-            if(strpos($key, '_') === 0) {
+    /**
+     * Remove any null values from the array and returns it
+     *
+     * @param $array
+     *
+     * @return mixed
+     */
+    protected function removeNullValues($array)
+    {
+        foreach ($array as $field => $value) if ($value === null) unset($array[$field]);
+
+        return $array;
+    }
+
+    /**
+     * Get an array containing only the objects which exist in the second array
+     *
+     * @param $originalArray Array of data
+     * @param $filterArray   Array of allowed keys
+     *
+     * @return array A filtered array
+     */
+    protected function getFilteredArray($originalArray, $filterArray)
+    {
+        $returnArray = array ();
+        foreach ($originalArray as $key => $value) {
+            if (strpos($key, '_') === 0) {
                 $returnArray[$key] = $value;
                 continue;
             }
-			if (in_array($key, $filterArray)) $returnArray[$key] = $value;
-		}
-		return $returnArray;
-	}
+            if (in_array($key, $filterArray)) $returnArray[$key] = $value;
+        }
 
-	public function getIdArray($array) {
-		$returnArray = [];
-		foreach ($array as $value) {
-			if (!empty($value['Id'])) $returnArray[$value['Id']] = $value;
-		}
-		return $returnArray;
-	}
+        return $returnArray;
+    }
+
+    public function getIdArray($array)
+    {
+        $returnArray = [];
+        foreach ($array as $value) {
+            if (!empty($value['Id'])) $returnArray[$value['Id']] = $value;
+        }
+
+        return $returnArray;
+    }
 }
