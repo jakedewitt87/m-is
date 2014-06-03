@@ -9,6 +9,8 @@ namespace Maven\Infusionsoft;
  * @property \Maven\Infusionsoft\Services\FieldService FieldService
  * @property \Maven\Infusionsoft\Services\SubscriptionService SubscriptionService
  * @property \Maven\Infusionsoft\Services\TableService TableService
+ * @property \Maven\Infusionsoft\Services\SettingService SettingService
+ * @property \Maven\Infusionsoft\Services\InvoiceService InvoiceService
  * @property \Maven\Infusionsoft\Models\ActionSequence ActionSequence
  * @property \Maven\Infusionsoft\Models\Affiliate Affiliate
  * @property \Maven\Infusionsoft\Models\AffResource AffResource

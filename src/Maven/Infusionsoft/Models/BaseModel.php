@@ -41,20 +41,23 @@ abstract class BaseModel
         return $response;
     }
 
-    /**
-     * Returns all the results of a query, all pages
-     *
-     * @param array $query
-     *
-     * @return array
-     * @throws \Exception
-     */
-    public function get(array $query)
+	/**
+	 * Returns all the results of a query, all pages
+	 * @param array $query
+	 * @param null  $table
+	 * @param array $returnFields
+	 *
+	 * @return array
+	 * @throws \Exception
+	 */
+	public function get(array $query, $table = null, $returnFields = [])
     {
         $page = 0;
         $data = [];
+		$table = $table ? : $this::$table;
+		$returnFields = $returnFields ? : $this->getReadFields();
         do {
-            $response = $this->SDK->dsQuery($this::$table, 1000, $page++, $query, $this->getReadFields());
+            $response = $this->SDK->dsQuery($table, 1000, $page++, $query, $returnFields);
             if(!is_array($response)) throw new \Exception('Error: '. $response);
             $data = array_merge($data, $response);
         } while(sizeof($response) == 1000 );
@@ -311,6 +314,14 @@ abstract class BaseModel
                 continue;
             }
 			if (in_array($key, $filterArray)) $returnArray[$key] = $value;
+		}
+		return $returnArray;
+	}
+
+	public function getIdArray($array) {
+		$returnArray = [];
+		foreach ($array as $value) {
+			if (!empty($value['Id'])) $returnArray[$value['Id']] = $value;
 		}
 		return $returnArray;
 	}
