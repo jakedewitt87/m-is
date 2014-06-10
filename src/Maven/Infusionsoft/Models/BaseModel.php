@@ -102,21 +102,27 @@ abstract class BaseModel
     /**
      * Returns all the results of a query, all pages with custom fields
      *
-     * @param array $query
+     * @param array  $query
+     * @param string $orderBy
+     * @param bool   $asc
      *
-     * @return array
      * @throws \Exception
+     * @return array
      */
-    public function getWithCustom(array $query)
+    public function getWithCustom(array $query, $orderBy = 'Id', $asc = true)
     {
+        $fields = array_merge($this->getReadFields(), $this->getCustomFields());
+        $sort = in_array($orderBy, $fields)? : false;
         $page = 0;
         $data = [];
         $fields = array_merge($this->getReadFields(), $this->getCustomFields());
         do {
-            $response = $this->SDK->dsQuery($this::$table, 1000, $page++, $query, $fields);
-            if (!is_array($response)) throw new \Exception('Error: ' . $response);
+            $response = $sort ?
+                $this->SDK->dsQueryOrderBy($this::$table, 1000, $page++, $query, $fields, $orderBy, $asc) :
+                $this->SDK->dsQuery($this::$table, 1000, $page++, $query, $fields);
+            if(!is_array($response)) throw new \Exception('Error: '. $response);
             $data = array_merge($data, $response);
-        } while (sizeof($response) == 1000);
+        } while(sizeof($response) == 1000 );
 
         return $data;
     }
