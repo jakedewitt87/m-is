@@ -52,5 +52,24 @@ class InvoiceService extends BaseService
 	}
 
 
+    /**
+     * @param       $invoiceId
+     * @param array $jobData
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function updateJobByInvoiceId($invoiceId, $jobData = [])
+    {
+        $invoice = $this->SDK->dsLoad('Invoice', $invoiceId, ['JobId']);
+        if(!isset($invoice['JobId'])) throw new \Exception('Error updating order');
+
+        $jobId = $this->SDK->dsUpdate('Job', $invoice['JobId'], $jobData);
+        $jobData['Id'] = $jobId;
+
+        return $jobData;
+    }
+
+
 
 }
