@@ -24,7 +24,7 @@ class InvoiceService extends BaseService
 		$orderId = $this->addOrder($contactId, $products, $orderNotes, $affiliateId);
 		if (!$orderId) throw new \Exception('Unable to create new order during addAndChargeOrder: '.$orderId);
 		$chargeResponse = $this->SDK->chargeInvoice($orderId, $orderNotes, $creditCardId, $merchantAccountId, false);
-		if (!$chargeResponse || !is_array($chargeResponse)) throw new \Exception('Unexpected response when attempting to charge invoice: '.$chargeResponse);
+		if (!$chargeResponse || !is_array($chargeResponse) || empty($chargeResponse)) throw new \Exception('Unexpected response when attempting to charge invoice id: '.$orderId);
 		if ($chargeResponse['Successful'] != true) {
 			throw new \Exception('Unable to charge payment on invoice: '.$chargeResponse['Message']);
 		}
