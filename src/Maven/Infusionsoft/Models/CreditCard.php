@@ -1,9 +1,20 @@
 <?php namespace Maven\Infusionsoft\Models;
 
+/**
+ * Class CreditCard
+ *
+ * @package Maven\Infusionsoft\Models
+ */
 class CreditCard extends BaseModel {
 
+    /**
+     * @var string
+     */
     public static $table = 'CreditCard';
 
+    /**
+     * @var array
+     */
     public static $fieldMap = [
         'ContactId'       => ['ContactId', 'infusionsoft_contact_id'],
         'BillName'        => ['card_name', 'billing_name_on_card'],
@@ -25,6 +36,13 @@ class CreditCard extends BaseModel {
         'CardType'        => ['card_type', 'billing_card_type'],
     ];
 
+    /**
+     * @param $contactId
+     * @param $userInput
+     *
+     * @return array
+     * @throws \Exception
+     */
     public function validateAndAddCreditCard($contactId, $userInput)
     {
         $validationResponse = $this->SDK->validateCard($this->getFilteredArray($userInput, $this->getAddFields()));
@@ -34,6 +52,13 @@ class CreditCard extends BaseModel {
         return $this->getOrAddCreditCard($contactId, $userInput);
     }
 
+    /**
+     * @param $contactId
+     * @param $creditCardData
+     *
+     * @return array
+     * @throws \Exception
+     */
     public function getOrAddCreditCard($contactId, $creditCardData)
     {
         $creditCardData['ContactId'] = $contactId; // Add ContactID to CC Data
@@ -55,6 +80,12 @@ class CreditCard extends BaseModel {
         return ['Id' => $creditCardId] + $insertArray;
     }
 
+    /**
+     * @param $contactId
+     *
+     * @return array
+     * @throws \Exception
+     */
     public function getNewestByContact($contactId)
     {
         $creditCard = $this->SDK->dsQueryOrderBy($this::$table, 1, 0, ['ContactId' => $contactId, 'Status' => 3], $this->getReadFields(), 'Id', false);
@@ -66,6 +97,13 @@ class CreditCard extends BaseModel {
         return $creditCard ? $creditCard[0] : [];
     }
 
+    /**
+     * @param $creditCardId
+     * @param $creditCardData
+     *
+     * @return mixed
+     * @throws \Exception
+     */
     public function updateAndValidateCard($creditCardId, $creditCardData)
     {
         $insertArray = $this->getFilteredArray($creditCardData, $this->getEditFields());
@@ -83,7 +121,9 @@ class CreditCard extends BaseModel {
             throw new \Exception('Credit card validation failed: ' . $validationResponse['Message']);
         }
 
-        return $creditCardId;
+        $creditCardData = $this->find($creditCardId);
+
+        return $creditCardData;
     }
 
 }
