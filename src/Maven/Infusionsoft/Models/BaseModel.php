@@ -34,22 +34,24 @@ abstract class BaseModel {
     }
 
     /**
-     * @param array  $query
-     * @param string $orderBy
+     * @param array $query
+     * @param array $extraFields
+     *
+     * @throws \Exception
      *
      * @return array
-     * @throws \Exception
      */
-    public function findLast($query, $orderBy = 'Id')
+    public function findLast($query, $extraFields = [])
     {
-        $response = $this->SDK->dsQueryOrderBy($this::$table, 1, 0, $query, $this->getReadFields(), $orderBy, false);
+        $fields = array_merge($this->getReadFields(), $extraFields);
+        $response = $this->SDK->dsQueryOrderBy($this::$table, 1, 0, $query, $fields, 'Id', false);
 
         if (! is_array($response))
         {
             throw new Exception('Unexpected response when attempting to locate model: ' . $response, 400);
         }
 
-        return $response ? $response[0] : [];
+        return !empty($response) ? $response[0] : [];
 
     }
 
