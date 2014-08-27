@@ -123,6 +123,16 @@ abstract class BaseModel {
         return $data;
     }
 
+    public function getFirstBy(array $query, $orderBy, $ascending = true, $table = null, $returnFields = [])
+    {
+        $table = $table ? : $this::$table;
+        $returnFields = $returnFields ? : $this->getReadFields();
+        $response = $this->SDK->dsQueryOrderBy($table, 1, 0, $query, $returnFields, $orderBy, $ascending);
+        if (!is_array($response)) throw new \Exception('Error: ' . $response);
+
+        return isset($response[0]) ? $response[0] : [];
+    }
+
     /**
      * Returns all the results of a query, all pages with custom fields
      *

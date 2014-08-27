@@ -24,7 +24,7 @@ class InvoiceService extends BaseService
 		$orderId = $this->addOrder($contactId, $products, $orderNotes, $affiliateId);
 		if (!$orderId) throw new \Exception('Unable to create new order during addAndChargeOrder: '.$orderId);
 		$chargeResponse = $this->SDK->chargeInvoice($orderId, $orderNotes, $creditCardId, $merchantAccountId, false);
-		if (!$chargeResponse || !is_array($chargeResponse)) throw new \Exception('Unexpected response when attempting to charge invoice: '.$chargeResponse);
+		if (!$chargeResponse || !is_array($chargeResponse) || empty($chargeResponse)) throw new \Exception('Unexpected response when attempting to charge invoice id: '.$orderId);
 		if ($chargeResponse['Successful'] != true) {
 			throw new \Exception('Unable to charge payment on invoice: '.$chargeResponse['Message']);
 		}
@@ -50,6 +50,25 @@ class InvoiceService extends BaseService
 
 		return $orderId;
 	}
+
+
+    /**
+     * @param       $invoiceId
+     * @param array $jobData
+     *
+     * @return array
+     * @throws \Exception
+     */
+    public function updateJobByInvoiceId($invoiceId, $jobData = [])
+    {
+        $invoice = $this->SDK->dsLoad('Invoice', $invoiceId, ['JobId']);
+        if(!isset($invoice['JobId'])) throw new \Exception('Error updating order');
+
+        $jobId = $this->SDK->dsUpdate('Job', $invoice['JobId'], $jobData);
+        $jobData['Id'] = $jobId;
+
+        return $jobData;
+    }
 
 
 
