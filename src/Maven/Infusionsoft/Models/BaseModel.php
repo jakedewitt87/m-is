@@ -1,10 +1,11 @@
 <?php
 namespace Maven\Infusionsoft\Models;
 
+use Exception;
 use Maven\Infusionsoft\Services\TableService;
 
-abstract class BaseModel
-{
+abstract class BaseModel {
+
     public static $table;
     public static $fieldMap = [];
     public static $fields = [];
@@ -19,28 +20,49 @@ abstract class BaseModel
      * @param $id
      *
      * @return mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public function find($id)
     {
         $response = $this->SDK->dsQuery($this::$table, 1, 0, ['Id' => $id], $this->getReadFields());
-        if (!is_array($response)) {
-            throw new \Exception('Unexpected response when attempting to locate model: ' . $response, 400);
+        if (! is_array($response))
+        {
+            throw new Exception('Unexpected response when attempting to locate model: ' . $response, 400);
         }
 
         return $response ? $response[0] : [];
     }
 
     /**
-     * @param $id
+     * @param array  $query
+     * @param string $orderBy
      *
      * @return array
      * @throws \Exception
      */
+    public function findLast($query, $orderBy = 'Id')
+    {
+        $response = $this->SDK->dsQueryOrderBy($this::$table, 1, 0, $query, $this->getReadFields(), $orderBy, false);
+
+        if (! is_array($response))
+        {
+            throw new Exception('Unexpected response when attempting to locate model: ' . $response, 400);
+        }
+
+        return $response ? $response[0] : [];
+
+    }
+
+    /**
+     * @param $id
+     *
+     * @return array
+     * @throws Exception
+     */
     public function findWithCustom($id)
     {
         $response = $this->SDK->dsLoad($this::$table, $id, array_merge($this->getReadFields(), $this->getCustomFields()));
-        if (!is_array($response)) throw new \Exception('Unexpected response when loading this object');
+        if (! is_array($response)) throw new Exception('Unexpected response when loading this object');
 
         return $response;
     }
@@ -53,7 +75,7 @@ abstract class BaseModel
      * @param array $returnFields
      *
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function get(array $query, $table = null, $returnFields = [])
     {
@@ -61,9 +83,10 @@ abstract class BaseModel
         $data = [];
         $table = $table ? : $this::$table;
         $returnFields = $returnFields ? : $this->getReadFields();
-        do {
-            $response = $this->SDK->dsQuery($table, 1000, $page++, $query, $returnFields);
-            if (!is_array($response)) throw new \Exception('Error: ' . $response);
+        do
+        {
+            $response = $this->SDK->dsQuery($table, 1000, $page ++, $query, $returnFields);
+            if (! is_array($response)) throw new Exception('Error: ' . $response);
             $data = array_merge($data, $response);
         } while (sizeof($response) == 1000);
 
@@ -82,7 +105,7 @@ abstract class BaseModel
      * @param array  $returnFields
      *
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function getOrderBy(array $query, $orderBy = 'Id', $ascending = true, $table = null, $returnFields = [])
     {
@@ -90,9 +113,10 @@ abstract class BaseModel
         $data = [];
         $table = $table ? : $this::$table;
         $returnFields = $returnFields ? : $this->getReadFields();
-        do {
-            $response = $this->SDK->dsQueryOrderBy($table, 1000, $page++, $query, $returnFields, $orderBy, $ascending);
-            if (!is_array($response)) throw new \Exception('Error: ' . $response);
+        do
+        {
+            $response = $this->SDK->dsQueryOrderBy($table, 1000, $page ++, $query, $returnFields, $orderBy, $ascending);
+            if (! is_array($response)) throw new Exception('Error: ' . $response);
             $data = array_merge($data, $response);
         } while (sizeof($response) == 1000);
 
@@ -106,23 +130,24 @@ abstract class BaseModel
      * @param string $orderBy
      * @param bool   $asc
      *
-     * @throws \Exception
+     * @throws Exception
      * @return array
      */
     public function getWithCustom(array $query, $orderBy = 'Id', $asc = true)
     {
         $fields = array_merge($this->getReadFields(), $this->getCustomFields());
-        $sort = in_array($orderBy, $fields)? : false;
+        $sort = in_array($orderBy, $fields) ? : false;
         $page = 0;
         $data = [];
         $fields = array_merge($this->getReadFields(), $this->getCustomFields());
-        do {
+        do
+        {
             $response = $sort ?
-                $this->SDK->dsQueryOrderBy($this::$table, 1000, $page++, $query, $fields, $orderBy, $asc) :
-                $this->SDK->dsQuery($this::$table, 1000, $page++, $query, $fields);
-            if(!is_array($response)) throw new \Exception('Error: '. $response);
+                $this->SDK->dsQueryOrderBy($this::$table, 1000, $page ++, $query, $fields, $orderBy, $asc) :
+                $this->SDK->dsQuery($this::$table, 1000, $page ++, $query, $fields);
+            if (! is_array($response)) throw new Exception('Error: ' . $response);
             $data = array_merge($data, $response);
-        } while(sizeof($response) == 1000 );
+        } while (sizeof($response) == 1000);
 
         return $data;
     }
@@ -132,13 +157,13 @@ abstract class BaseModel
      * @param array $updateData
      *
      * @return int
-     * @throws \Exception
+     * @throws Exception
      */
     public function update($id, $updateData)
     {
         $updateData = $this->getFilteredArray($updateData, $this->getEditFields());
         $response = $this->SDK->dsUpdate($this::$table, $id, $updateData);
-        if (!is_numeric($response)) throw new \Exception('Unexpected response when attempting to update model: ' . $response, 400);
+        if (! is_numeric($response)) throw new Exception('Unexpected response when attempting to update model: ' . $response, 400);
 
         return $response;
     }
@@ -195,13 +220,18 @@ abstract class BaseModel
      */
     public function getFieldsWithAccess($accessType, $withDefinition = false)
     {
-        $returnFields = array ();
+        $returnFields = array();
         $tableDefinition = $this->getDefinition();
-        foreach ($tableDefinition::$fields as $fieldName => $fieldDetails) {
-            if (is_array($fieldDetails['access']) && in_array($accessType, $fieldDetails['access'])) {
-                if ($withDefinition) {
+        foreach ($tableDefinition::$fields as $fieldName => $fieldDetails)
+        {
+            if (is_array($fieldDetails['access']) && in_array($accessType, $fieldDetails['access']))
+            {
+                if ($withDefinition)
+                {
                     $returnFields[$fieldName] = $fieldDetails;
-                } else {
+                }
+                else
+                {
                     $returnFields[] = $fieldName;
                 }
             }
@@ -229,12 +259,14 @@ abstract class BaseModel
     {
         $tableDefinition = $this->getDefinition();
         $fieldList = $tableDefinition::$fields;
-        if (!array_key_exists($fieldName, $fieldList)) {
-            return array ('string', 150, 'mods' => ['nullable']);
+        if (! array_key_exists($fieldName, $fieldList))
+        {
+            return array('string', 150, 'mods' => ['nullable']);
         } // If
-        $return = array ();
-        $fieldOptions = array_key_exists('options', $fieldList[$fieldName]) ? $fieldList[$fieldName]['options'] : array ();
-        switch ($fieldList[$fieldName]['type']) {
+        $return = array();
+        $fieldOptions = array_key_exists('options', $fieldList[$fieldName]) ? $fieldList[$fieldName]['options'] : array();
+        switch ($fieldList[$fieldName]['type'])
+        {
             case 'Integer':
                 $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'integer';
                 break;
@@ -253,7 +285,8 @@ abstract class BaseModel
                 if ($return[0] == 'string') $return[1] = array_key_exists('length', $fieldOptions) ? $fieldOptions['length'] : 150;
                 break;
         }
-        foreach (['primary', 'unsigned', 'index', 'unique', 'nullable', 'default'] as $modName) {
+        foreach (['primary', 'unsigned', 'index', 'unique', 'nullable', 'default'] as $modName)
+        {
             if (in_array($modName, $fieldOptions)) $return['mods'][$modName] = $modName;
             if (array_key_exists($modName, $fieldOptions)) $return['mods'][$modName] = [$modName => $fieldOptions[$modName]];
         }
@@ -287,7 +320,8 @@ abstract class BaseModel
             23 => 70, // Drilldown
         ];
         $doubles = [3, 4, 6, 11]; // Currency, Percent, Yes/No, Decimal Number
-        if (array_key_exists($fieldTypeId, $strings)) {
+        if (array_key_exists($fieldTypeId, $strings))
+        {
             $return[0] = 'string';
             $return[1] = $strings[$fieldTypeId]; // Set the max length as defined above for this sring
         }
@@ -311,19 +345,30 @@ abstract class BaseModel
     public function filterArrayKeys($fieldMap, $inputArray)
     {
         $ifsArray = [];
-        foreach ($fieldMap as $ifsField => $localField) {
-            if (is_array($localField)) {
-                foreach ($localField as $localFieldName) {
-                    if (isset($inputArray[$localFieldName])) {
+        foreach ($fieldMap as $ifsField => $localField)
+        {
+            if (is_array($localField))
+            {
+                foreach ($localField as $localFieldName)
+                {
+                    if (isset($inputArray[$localFieldName]))
+                    {
                         $ifsArray[$ifsField] = $inputArray[$localFieldName];
-                    } else {
+                    }
+                    else
+                    {
                         $ifsArray[$ifsField] = isset($ifsArray[$ifsField]) ? $ifsArray[$ifsField] : null;
                     }
                 }
-            } else {
-                if (isset($inputArray[$localField])) {
+            }
+            else
+            {
+                if (isset($inputArray[$localField]))
+                {
                     $ifsArray[$ifsField] = $inputArray[$localField];
-                } else {
+                }
+                else
+                {
                     $ifsArray[$ifsField] = isset($ifsArray[$ifsField]) ? $ifsArray[$ifsField] : null;
                 }
             }
@@ -356,9 +401,11 @@ abstract class BaseModel
      */
     protected function getFilteredArray($originalArray, $filterArray)
     {
-        $returnArray = array ();
-        foreach ($originalArray as $key => $value) {
-            if (strpos($key, '_') === 0) {
+        $returnArray = array();
+        foreach ($originalArray as $key => $value)
+        {
+            if (strpos($key, '_') === 0)
+            {
                 $returnArray[$key] = $value;
                 continue;
             }
@@ -371,8 +418,9 @@ abstract class BaseModel
     public function getIdArray($array)
     {
         $returnArray = [];
-        foreach ($array as $value) {
-            if (!empty($value['Id'])) $returnArray[$value['Id']] = $value;
+        foreach ($array as $value)
+        {
+            if (! empty($value['Id'])) $returnArray[$value['Id']] = $value;
         }
 
         return $returnArray;
