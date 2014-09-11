@@ -1,8 +1,14 @@
 {
     "name": "marketingmavens/maven-infusionsoft-sdk",
     "description": "Marketing Mavens Infusionsoft SDK",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:marketingmavens/php-isdk.git"
+        }
+    ],
 	"require": {
-		"infusionsoft/php-isdk": "dev-master"
+		"marketingmavens/php-isdk": "1.9.0"
 	},
 	"autoload": {
 		"psr-0": {
@@ -10,10 +16,6 @@
 		}
 	},
     "authors": [
-        {
-            "name": "Andrew Steele",
-            "email": "andrew@marketingmavens.com"
-        },
 		{
 			"name": "Dustin Lunt",
    			"email": "dustin@marketingmavens.com"
