@@ -1,5 +1,7 @@
 <?php namespace Maven\Infusionsoft\Models;
 
+use Exception;
+
 /**
  * Class CreditCard
  *
@@ -41,13 +43,13 @@ class CreditCard extends BaseModel {
      * @param $userInput
      *
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function validateAndAddCreditCard($contactId, $userInput)
     {
         $validationResponse = $this->SDK->validateCard($this->getFilteredArray($userInput, $this->getAddFields()));
-        if (! $validationResponse || ! is_array($validationResponse)) throw new \Exception('Bad response from CRM when validating credit card: ' . $validationResponse, 400);
-        if ($validationResponse['Valid'] !== 'true') throw new \Exception('Credit card validation failed: ' . $validationResponse['Message']);
+        if (! $validationResponse || ! is_array($validationResponse)) throw new Exception('Bad response from CRM when validating credit card: ' . $validationResponse, 400);
+        if ($validationResponse['Valid'] !== 'true') throw new Exception('Credit card validation failed: ' . $validationResponse['Message']);
 
         return $this->getOrAddCreditCard($contactId, $userInput);
     }
@@ -57,14 +59,14 @@ class CreditCard extends BaseModel {
      * @param $creditCardData
      *
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function getOrAddCreditCard($contactId, $creditCardData)
     {
         $creditCardData['ContactId'] = $contactId; // Add ContactID to CC Data
         $insertArray = $this->getFilteredArray($creditCardData, $this->getAddFields()); // Get proper array for insertion
         $cardLast4 = substr($insertArray['CardNumber'], - 4);
-        if (strlen($cardLast4) < 4) throw new \Exception('Unable to find credit card number in data', 400);
+        if (strlen($cardLast4) < 4) throw new Exception('Unable to find credit card number in data', 400);
         $existingCardId = $this->SDK->locateCard($contactId, $cardLast4);
         if ($existingCardId)
         {
@@ -75,7 +77,7 @@ class CreditCard extends BaseModel {
         {
             $creditCardId = $this->SDK->dsAdd('CreditCard', $insertArray);
         }
-        if (! is_numeric($creditCardId)) throw new \Exception('Unable to update or add credit card: ' . $creditCardId, 400);
+        if (! is_numeric($creditCardId)) throw new Exception('Unable to update or add credit card: ' . $creditCardId, 400);
 
         return ['Id' => $creditCardId] + $insertArray;
     }
@@ -84,14 +86,14 @@ class CreditCard extends BaseModel {
      * @param $contactId
      *
      * @return array
-     * @throws \Exception
+     * @throws Exception
      */
     public function getNewestByContact($contactId)
     {
         $creditCard = $this->SDK->dsQueryOrderBy($this::$table, 1, 0, ['ContactId' => $contactId, 'Status' => 3], $this->getReadFields(), 'Id', false);
         if (! is_array($creditCard))
         {
-            throw new \Exception('Unexpected response when attempting to find most recent credit card for contact ' . $contactId . ': ' . $creditCard);
+            throw new Exception('Unexpected response when attempting to find most recent credit card for contact ' . $contactId . ': ' . $creditCard);
         }
 
         return $creditCard ? $creditCard[0] : [];
@@ -102,7 +104,7 @@ class CreditCard extends BaseModel {
      * @param $creditCardData
      *
      * @return mixed
-     * @throws \Exception
+     * @throws Exception
      */
     public function updateAndValidateCard($creditCardId, $creditCardData)
     {
@@ -113,12 +115,12 @@ class CreditCard extends BaseModel {
         $validationResponse = $this->SDK->validateCard($creditCardId);
         if (! $validationResponse || ! is_array($validationResponse))
         {
-            throw new \Exception('Error when validating credit card: ' . $validationResponse, 400);
+            throw new Exception('Error when validating credit card: ' . $validationResponse, 400);
         }
 
         if ($validationResponse['Valid'] !== 'true')
         {
-            throw new \Exception('Credit card validation failed: ' . $validationResponse['Message']);
+            throw new Exception('Credit card validation failed: ' . $validationResponse['Message']);
         }
 
         $creditCardData = $this->find($creditCardId);
