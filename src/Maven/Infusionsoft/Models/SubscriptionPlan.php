@@ -37,6 +37,7 @@ class SubscriptionPlan extends BaseModel {
      */
     protected function subscriptionName($products, $subscription, $subscriptionList)
     {
+        if(!isset($products[$subscription['ProductId']])) return $subscriptionList;
         $existingProduct = $products[$subscription['ProductId']];
         $selectedCycle = strtolower($this->subscriptionCycles[$subscription['Cycle']]);
         $lengthTag = $subscription['Frequency'] == 1 ? $selectedCycle : $subscription['Frequency'] . ' ' . $selectedCycle . 's';
