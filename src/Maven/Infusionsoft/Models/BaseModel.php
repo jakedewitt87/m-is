@@ -386,6 +386,19 @@ abstract class BaseModel {
             }
         }
 
+        $editFields = $this->getEditFields();
+        $customFields = $this->getCustomFields();
+        foreach($inputArray as $field => $value)
+        {
+            if(in_array($field, $editFields) || in_array($field, $customFields))
+            {
+                if(!array_key_exists($field, $ifsArray))
+                {
+                    $ifsArray[$field] = $value;
+                }
+            }
+        }
+
         return $this->removeNullValues($ifsArray);
     }
 
