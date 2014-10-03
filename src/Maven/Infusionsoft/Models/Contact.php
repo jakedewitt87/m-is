@@ -16,7 +16,7 @@ class Contact extends BaseModel
 		'StreetAddress2' => ['address2', 'street_address_2'],
 		'City' => 'city',
 		'State' => 'state',
-		'PostalCode' => ['zip', 'zipcode'],
+		'PostalCode' => ['zip', 'zipcode', 'billing_zip'],
 		'Country' => 'country',
 		'Website' => ['website', 'website_url'],
 		'JobTitle' => 'job_title',
