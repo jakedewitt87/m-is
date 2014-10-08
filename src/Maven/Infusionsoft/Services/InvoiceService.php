@@ -93,24 +93,25 @@ class InvoiceService extends BaseService
      * @param int    $merchantAccountId
      * @param int    $numberOfPayments
      * @param int    $daysBetween
-     * @param string $orderNotes
+     * @param string $orderTitle
      * @param int    $affiliateId
+     * @param array  $miscItems
      *
-     * @return int
      * @throws \Exception
+     * @return int
      */
 
-    public function addAndChargePaymentPlan($contactId, $products, $creditCardId, $merchantAccountId, $numberOfPayments = 1, $daysBetween = 30, $orderNotes = '', $affiliateId = 0)
+    public function addAndChargePaymentPlan($contactId, $products, $creditCardId, $merchantAccountId, $numberOfPayments = 1, $daysBetween = 30, $orderTitle = '', $affiliateId = 0, $miscItems = [])
 	{
 		$defaultMaxRetry = $this->SDK->dsGetSetting('Order', 'defaultmaxretry');
 		$defaultDays = $this->SDK->dsGetSetting('Order', 'defaultnumdaysbetween');
 
-		$orderId = $this->addOrder($contactId, $products, $orderNotes, $affiliateId);
+		$orderId = $this->addOrder($contactId, $products, $orderTitle, $affiliateId, $miscItems);
 		if (!$orderId) throw new \Exception('Unable to create new order during addAndChargeOrder: '.$orderId);
 		$added = $this->SDK->payPlan($orderId, true, $creditCardId, $merchantAccountId, intval($defaultMaxRetry), intval($defaultDays), (float) 0, $this->currentTime(), $this->currentTime(), $numberOfPayments, $daysBetween);
 		if (!$added) throw new \Exception('Unable to add payment plan to invoice '.$orderId.': '.$added);
 
-		$chargeResponse = $this->SDK->chargeInvoice($orderId, $orderNotes, $creditCardId, $merchantAccountId, false);
+		$chargeResponse = $this->SDK->chargeInvoice($orderId, $orderTitle, $creditCardId, $merchantAccountId, false);
 		if (!$chargeResponse || !is_array($chargeResponse)) throw new \Exception('Unexpected response when attempting to charge invoice: '.$chargeResponse);
 		if ($chargeResponse['Successful'] != true) {
 			throw new \Exception('Unable to charge payment on invoice: '.$chargeResponse['Message']);
