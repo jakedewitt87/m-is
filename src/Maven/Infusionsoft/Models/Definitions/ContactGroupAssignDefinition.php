@@ -154,10 +154,6 @@ class ContactGroupAssignDefinition extends BaseDefinition
             'access' => array ('Read'),
             'type'   => 'String'
         ),
-        'Contact.HTMLSignature'      => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
         'Contact.Id'                 => array (
             'access' => array ('Read'),
             'type'   => 'Integer'
@@ -267,10 +263,6 @@ class ContactGroupAssignDefinition extends BaseDefinition
             'type'   => 'String'
         ),
         'Contact.ReferralCode'       => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'Contact.Signature'          => array (
             'access' => array ('Read'),
             'type'   => 'String'
         ),
