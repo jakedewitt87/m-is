@@ -1,5 +1,4 @@
-<?php
-namespace Maven\Infusionsoft\Models;
+<?php namespace Maven\Infusionsoft\Models;
 
 use Exception;
 use Maven\Infusionsoft\Services\TableService;
@@ -25,7 +24,7 @@ abstract class BaseModel {
     public function find($id)
     {
         $response = $this->SDK->dsQuery($this::$table, 1, 0, ['Id' => $id], $this->getReadFields());
-        if (! is_array($response))
+        if ( ! is_array($response) )
         {
             throw new Exception('Unexpected response when attempting to locate model: ' . $response, 400);
         }
@@ -46,12 +45,12 @@ abstract class BaseModel {
         $fields = array_merge($this->getReadFields(), $extraFields);
         $response = $this->SDK->dsQueryOrderBy($this::$table, 1, 0, $query, $fields, 'Id', false);
 
-        if (! is_array($response))
+        if ( ! is_array($response) )
         {
             throw new Exception('Unexpected response when attempting to locate model: ' . $response, 400);
         }
 
-        return !empty($response) ? $response[0] : [];
+        return ! empty($response) ? $response[0] : [];
 
     }
 
@@ -64,7 +63,7 @@ abstract class BaseModel {
     public function findWithCustom($id)
     {
         $response = $this->SDK->dsLoad($this::$table, $id, array_merge($this->getReadFields(), $this->getCustomFields()));
-        if (! is_array($response)) throw new Exception('Unexpected response when loading this object');
+        if ( ! is_array($response) ) throw new Exception('Unexpected response when loading this object');
 
         return $response;
     }
@@ -83,14 +82,14 @@ abstract class BaseModel {
     {
         $page = 0;
         $data = [];
-        $table = $table ? : $this::$table;
-        $returnFields = $returnFields ? : $this->getReadFields();
+        $table = $table ?: $this::$table;
+        $returnFields = $returnFields ?: $this->getReadFields();
         do
         {
             $response = $this->SDK->dsQuery($table, 1000, $page ++, $query, $returnFields);
-            if (! is_array($response)) throw new Exception('Error: ' . $response);
+            if ( ! is_array($response) ) throw new Exception('Error: ' . $response);
             $data = array_merge($data, $response);
-        } while (sizeof($response) == 1000);
+        } while ( sizeof($response) == 1000 );
 
         return $data;
     }
@@ -113,24 +112,24 @@ abstract class BaseModel {
     {
         $page = 0;
         $data = [];
-        $table = $table ? : $this::$table;
-        $returnFields = $returnFields ? : $this->getReadFields();
+        $table = $table ?: $this::$table;
+        $returnFields = $returnFields ?: $this->getReadFields();
         do
         {
             $response = $this->SDK->dsQueryOrderBy($table, 1000, $page ++, $query, $returnFields, $orderBy, $ascending);
-            if (! is_array($response)) throw new Exception('Error: ' . $response);
+            if ( ! is_array($response) ) throw new Exception('Error: ' . $response);
             $data = array_merge($data, $response);
-        } while (sizeof($response) == 1000);
+        } while ( sizeof($response) == 1000 );
 
         return $data;
     }
 
     public function getFirstBy(array $query, $orderBy, $ascending = true, $table = null, $returnFields = [])
     {
-        $table = $table ? : $this::$table;
-        $returnFields = $returnFields ? : $this->getReadFields();
+        $table = $table ?: $this::$table;
+        $returnFields = $returnFields ?: $this->getReadFields();
         $response = $this->SDK->dsQueryOrderBy($table, 1, 0, $query, $returnFields, $orderBy, $ascending);
-        if (!is_array($response)) throw new \Exception('Error: ' . $response);
+        if ( ! is_array($response) ) throw new \Exception('Error: ' . $response);
 
         return isset($response[0]) ? $response[0] : [];
     }
@@ -148,7 +147,7 @@ abstract class BaseModel {
     public function getWithCustom(array $query, $orderBy = 'Id', $asc = true)
     {
         $fields = array_merge($this->getReadFields(), $this->getCustomFields());
-        $sort = in_array($orderBy, $fields) ? : false;
+        $sort = in_array($orderBy, $fields) ?: false;
         $page = 0;
         $data = [];
         $fields = array_merge($this->getReadFields(), $this->getCustomFields());
@@ -157,9 +156,9 @@ abstract class BaseModel {
             $response = $sort ?
                 $this->SDK->dsQueryOrderBy($this::$table, 1000, $page ++, $query, $fields, $orderBy, $asc) :
                 $this->SDK->dsQuery($this::$table, 1000, $page ++, $query, $fields);
-            if (! is_array($response)) throw new Exception('Error: ' . $response);
+            if ( ! is_array($response) ) throw new Exception('Error: ' . $response);
             $data = array_merge($data, $response);
-        } while (sizeof($response) == 1000);
+        } while ( sizeof($response) == 1000 );
 
         return $data;
     }
@@ -175,7 +174,7 @@ abstract class BaseModel {
     {
         $updateData = $this->getFilteredArray($updateData, $this->getEditFields());
         $response = $this->SDK->dsUpdate($this::$table, $id, $updateData);
-        if (! is_numeric($response)) throw new Exception('Unexpected response when attempting to update model: ' . $response, 400);
+        if ( ! is_numeric($response) ) throw new Exception('Unexpected response when attempting to update model: ' . $response, 400);
 
         return $response;
     }
@@ -215,6 +214,8 @@ abstract class BaseModel {
     }
 
     /**
+     * Returns array of just the the custom fields names
+     *
      * @return array
      */
     public function getCustomFields()
@@ -222,6 +223,45 @@ abstract class BaseModel {
         $TableService = new TableService($this->SDK);
 
         return $TableService->getTableCustomFields($this::$table);
+    }
+
+    /**
+     * Gets an array of custom fields for a drop down
+     *
+     * @param string $value
+     * @param string $key
+     * @param bool   $prependKey
+     *
+     * @return array
+     */
+    public function getCustomFieldList($value = 'Label', $key = 'Name', $prependKey = true)
+    {
+        $TableService = new TableService($this->SDK);
+        $tableFormId = $TableService->getFormIdByTableName($this::$table);
+
+        // This table does not have custom fields.
+        if ( ! $tableFormId )
+        {
+            return [];
+        }
+
+        $customFields = $this->SDK->dsQuery('DataFormField', 1000, 0, ['FormId' => $tableFormId], $TableService->getTableFields('DataFormField', 'Read'));
+        $list = [];
+
+        if(is_array($customFields))
+        {
+            foreach($customFields as $field)
+            {
+                if(isset($field[$value]))
+                {
+                    $keyValue = $prependKey ? '_' : '';
+                    $keyValue .= isset($field[$key]) ? $field[$key]: null;
+                    $list[$keyValue] = $field[$value];
+                }
+            }
+        }
+
+        return $list;
     }
 
     /**
@@ -234,11 +274,11 @@ abstract class BaseModel {
     {
         $returnFields = array();
         $tableDefinition = $this->getDefinition();
-        foreach ($tableDefinition::$fields as $fieldName => $fieldDetails)
+        foreach ( $tableDefinition::$fields as $fieldName => $fieldDetails )
         {
-            if (is_array($fieldDetails['access']) && in_array($accessType, $fieldDetails['access']))
+            if ( is_array($fieldDetails['access']) && in_array($accessType, $fieldDetails['access']) )
             {
-                if ($withDefinition)
+                if ( $withDefinition )
                 {
                     $returnFields[$fieldName] = $fieldDetails;
                 }
@@ -271,20 +311,20 @@ abstract class BaseModel {
     {
         $tableDefinition = $this->getDefinition();
         $fieldList = $tableDefinition::$fields;
-        if (! array_key_exists($fieldName, $fieldList))
+        if ( ! array_key_exists($fieldName, $fieldList) )
         {
             return array('string', 150, 'mods' => ['nullable']);
         } // If
         $return = array();
         $fieldOptions = array_key_exists('options', $fieldList[$fieldName]) ? $fieldList[$fieldName]['options'] : array();
-        switch ($fieldList[$fieldName]['type'])
+        switch ( $fieldList[$fieldName]['type'] )
         {
             case 'Integer':
                 $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'integer';
                 break;
             case 'String':
                 $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'string';
-                if ($return[0] == 'string') $return[1] = array_key_exists('length', $fieldOptions) ? $fieldOptions['length'] : 150;
+                if ( $return[0] == 'string' ) $return[1] = array_key_exists('length', $fieldOptions) ? $fieldOptions['length'] : 150;
                 break;
             case 'Date':
                 $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'date';
@@ -294,15 +334,15 @@ abstract class BaseModel {
                 break;
             default:
                 $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'string';
-                if ($return[0] == 'string') $return[1] = array_key_exists('length', $fieldOptions) ? $fieldOptions['length'] : 150;
+                if ( $return[0] == 'string' ) $return[1] = array_key_exists('length', $fieldOptions) ? $fieldOptions['length'] : 150;
                 break;
         }
-        foreach (['primary', 'unsigned', 'index', 'unique', 'nullable', 'default'] as $modName)
+        foreach ( ['primary', 'unsigned', 'index', 'unique', 'nullable', 'default'] as $modName )
         {
-            if (in_array($modName, $fieldOptions)) $return['mods'][$modName] = $modName;
-            if (array_key_exists($modName, $fieldOptions)) $return['mods'][$modName] = [$modName => $fieldOptions[$modName]];
+            if ( in_array($modName, $fieldOptions) ) $return['mods'][$modName] = $modName;
+            if ( array_key_exists($modName, $fieldOptions) ) $return['mods'][$modName] = [$modName => $fieldOptions[$modName]];
         }
-        if ($fieldName !== 'Id') $return['mods']['nullable'] = 'nullable'; // Force all fields besides Id to allow null
+        if ( $fieldName !== 'Id' ) $return['mods']['nullable'] = 'nullable'; // Force all fields besides Id to allow null
         return $return;
     }
 
@@ -332,16 +372,16 @@ abstract class BaseModel {
             23 => 70, // Drilldown
         ];
         $doubles = [3, 4, 6, 11]; // Currency, Percent, Yes/No, Decimal Number
-        if (array_key_exists($fieldTypeId, $strings))
+        if ( array_key_exists($fieldTypeId, $strings) )
         {
             $return[0] = 'string';
             $return[1] = $strings[$fieldTypeId]; // Set the max length as defined above for this sring
         }
-        if (array_key_exists($fieldTypeId, $doubles)) $return[0] = 'double'; // Check for all double types
-        if ($fieldTypeId == 12) $return[0] = 'integer'; // Whole Number
-        if ($fieldTypeId == 13) $return[0] = 'date'; // Date
-        if ($fieldTypeId == 14) $return[0] = 'dateTime'; // Date/Time
-        if ($fieldTypeId == 16) $return[0] = 'text'; // Text Area
+        if ( array_key_exists($fieldTypeId, $doubles) ) $return[0] = 'double'; // Check for all double types
+        if ( $fieldTypeId == 12 ) $return[0] = 'integer'; // Whole Number
+        if ( $fieldTypeId == 13 ) $return[0] = 'date'; // Date
+        if ( $fieldTypeId == 14 ) $return[0] = 'dateTime'; // Date/Time
+        if ( $fieldTypeId == 16 ) $return[0] = 'text'; // Text Area
         $return['mods'] = ['nullable' => 'nullable']; // All custom fields are nullable by default
         return $return;
     }
@@ -357,13 +397,13 @@ abstract class BaseModel {
     public function filterArrayKeys($fieldMap, $inputArray)
     {
         $ifsArray = [];
-        foreach ($fieldMap as $ifsField => $localField)
+        foreach ( $fieldMap as $ifsField => $localField )
         {
-            if (is_array($localField))
+            if ( is_array($localField) )
             {
-                foreach ($localField as $localFieldName)
+                foreach ( $localField as $localFieldName )
                 {
-                    if (isset($inputArray[$localFieldName]))
+                    if ( isset($inputArray[$localFieldName]) )
                     {
                         $ifsArray[$ifsField] = $inputArray[$localFieldName];
                     }
@@ -375,7 +415,7 @@ abstract class BaseModel {
             }
             else
             {
-                if (isset($inputArray[$localField]))
+                if ( isset($inputArray[$localField]) )
                 {
                     $ifsArray[$ifsField] = $inputArray[$localField];
                 }
@@ -388,11 +428,11 @@ abstract class BaseModel {
 
         $editFields = $this->getEditFields();
         $customFields = $this->getCustomFields();
-        foreach($inputArray as $field => $value)
+        foreach ( $inputArray as $field => $value )
         {
-            if(in_array($field, $editFields) || in_array($field, $customFields))
+            if ( in_array($field, $editFields) || in_array($field, $customFields) )
             {
-                if(!array_key_exists($field, $ifsArray))
+                if ( ! array_key_exists($field, $ifsArray) )
                 {
                     $ifsArray[$field] = $value;
                 }
@@ -411,7 +451,7 @@ abstract class BaseModel {
      */
     protected function removeNullValues($array)
     {
-        foreach ($array as $field => $value) if ($value === null) unset($array[$field]);
+        foreach ( $array as $field => $value ) if ( $value === null ) unset($array[$field]);
 
         return $array;
     }
@@ -427,14 +467,14 @@ abstract class BaseModel {
     protected function getFilteredArray($originalArray, $filterArray)
     {
         $returnArray = array();
-        foreach ($originalArray as $key => $value)
+        foreach ( $originalArray as $key => $value )
         {
-            if (strpos($key, '_') === 0)
+            if ( strpos($key, '_') === 0 )
             {
                 $returnArray[$key] = $value;
                 continue;
             }
-            if (in_array($key, $filterArray)) $returnArray[$key] = $value;
+            if ( in_array($key, $filterArray) ) $returnArray[$key] = $value;
         }
 
         return $returnArray;
@@ -443,9 +483,9 @@ abstract class BaseModel {
     public function getIdArray($array)
     {
         $returnArray = [];
-        foreach ($array as $value)
+        foreach ( $array as $value )
         {
-            if (! empty($value['Id'])) $returnArray[$value['Id']] = $value;
+            if ( ! empty($value['Id']) ) $returnArray[$value['Id']] = $value;
         }
 
         return $returnArray;
