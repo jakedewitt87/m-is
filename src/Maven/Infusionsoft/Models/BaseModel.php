@@ -245,7 +245,7 @@ abstract class BaseModel {
             return [];
         }
 
-        $customFields = $this->SDK->dsQuery('DataFormField', 1000, 0, ['FormId' => $tableFormId], $TableService->getTableFields('DataFormField', 'Read'));
+        $customFields = $this->SDK->dsQueryOrderBy('DataFormField', 1000, 0, ['FormId' => $tableFormId], $TableService->getTableFields('DataFormField', 'Read'), 'Label');
         $list = [];
 
         if(is_array($customFields))
