@@ -49,7 +49,7 @@ class CreditCard extends BaseModel {
     {
         $validationResponse = $this->SDK->validateCard($this->getFilteredArray($userInput, $this->getAddFields()));
         if (! $validationResponse || ! is_array($validationResponse)) throw new Exception('Bad response from CRM when validating credit card: ' . $validationResponse, 400);
-        if ($validationResponse['Valid'] !== 'true') throw new Exception('Credit card validation failed: ' . $validationResponse['Message']);
+        if ($validationResponse['Valid'] !== 'true') throw new Exception('Unfortunately it looks like your credit card number is not correct.');
 
         return $this->getOrAddCreditCard($contactId, $userInput);
     }
