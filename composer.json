@@ -2,7 +2,7 @@
     "name": "marketingmavens/maven-infusionsoft-sdk",
     "description": "Marketing Mavens Infusionsoft SDK",
     "require": {
-        "infusionsoft/php-isdk": "1.9"
+        "infusionsoft/php-isdk": "1.9.1"
     },
     "autoload": {
         "psr-0": {
