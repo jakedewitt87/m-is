@@ -2,13 +2,19 @@
     "name": "marketingmavens/maven-infusionsoft-sdk",
     "description": "Marketing Mavens Infusionsoft SDK",
     "require": {
-        "infusionsoft/php-isdk": "dev-master"
+        "infusionsoft/php-isdk": "1.9"
     },
     "autoload": {
         "psr-0": {
             "Maven": "src/"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@bitbucket.org:marketingmavens/infusionsoft-isdk.git"
+        }
+    ],
     "authors": [
         {
             "name": "Dustin Lunt",
