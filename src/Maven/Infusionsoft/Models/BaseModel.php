@@ -322,9 +322,24 @@ abstract class BaseModel {
             case 'Integer':
                 $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'integer';
                 break;
+            case 'Boolean':
+                $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'boolean';
+                break;
+            case 'TinyInteger':
+                $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'tinyInteger';
+                break;
+            case 'MediumInteger':
+                $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'mediumInteger';
+                break;
+            case 'Double':
+                $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'double';
+                break;
             case 'String':
                 $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'string';
                 if ( $return[0] == 'string' ) $return[1] = array_key_exists('length', $fieldOptions) ? $fieldOptions['length'] : 150;
+                break;
+            case 'Text':
+                $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'text';
                 break;
             case 'Date':
                 $return[0] = array_key_exists('type', $fieldOptions) ? $fieldOptions['type'] : 'date';

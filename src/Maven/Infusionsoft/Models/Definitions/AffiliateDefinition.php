@@ -1,76 +1,83 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class AffiliateDefinition extends BaseDefinition
-{
+class AffiliateDefinition extends BaseDefinition {
 
     public static $table = 'Affiliate';
-    public static $fields = array (
-        'Id'                => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ContactId'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'ParentId'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'LeadAmt'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+    public static $fields = [
+        'Id'                => [
+            'access'  => ['Read'],
+            'type'    => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'ContactId'         => [
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
+            'options' => ['index', 'unsigned'],
+        ],
+        'ParentId'          => [
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
+            'options' => ['index', 'unsigned'],
+        ],
+        'LeadAmt'           => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'LeadPercent'       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'LeadPercent'       => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'SaleAmt'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'SaleAmt'           => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'SalePercent'       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'SalePercent'       => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'PayoutType'        => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'PayoutType'        => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Integer'
-        ),
-        'DefCommissionType' => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'DefCommissionType' => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Integer'
-        ),
-        'Status'            => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'AffName'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Password'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'AffCode'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'NotifyLead'        => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'NotifySale'        => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'LeadCookieFor'     => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-    );
+        ],
+        'Status'            => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'MediumInteger',
+            'options' => ['unsigned']
+        ],
+        'AffName'           => [
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 50],
+        ],
+        'Password'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 40],
+        ],
+        'AffCode'           => [
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 30],
+        ],
+        'NotifyLead'        => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'TinyInteger'
+        ],
+        'NotifySale'        => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'TinyInteger'
+        ],
+        'LeadCookieFor'     => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'MediumInteger',
+            'options' => ['unsigned']
+        ],
+    ];
 
 }
 

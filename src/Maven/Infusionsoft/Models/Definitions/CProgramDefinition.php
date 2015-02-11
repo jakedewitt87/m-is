@@ -5,72 +5,83 @@ class CProgramDefinition extends BaseDefinition
 {
 
     public static $table = 'CProgram';
-    public static $fields = array (
-        'Id'               => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ProgramName'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'DefaultPrice'     => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+    public static $fields = [
+        'Id'               => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'ProgramName'      => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 80],
+        ],
+        'DefaultPrice'     => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'DefaultCycle'     => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'DefaultFrequency' => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Sku'              => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShortDescription' => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'BillingType'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Description'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'HideInStore'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Status'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Active'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'DefaultCycle'     => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 30],
+        ],
+        'DefaultFrequency' => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'MediumInteger'
+        ],
+        'Sku'              => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+        ],
+        'ShortDescription' => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+        ],
+        'BillingType'      => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 30],
+        ],
+        'Description'      => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Text'
+        ],
+        'HideInStore'      => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'TinyInteger',
+            'options' => ['unsigned']
+        ],
+        'Status'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'TinyInteger',
+            'options' => ['index']
+        ],
+        'Active'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Boolean',
+            'options' => ['index']
+        ],
+        'LargeImage'       => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Text'
+        ],
+        'Taxable'          => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Boolean'
-        ),
-        'LargeImage'       => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Binary'
-        ),
-        'Taxable'          => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Family'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ProductId'        => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-    );
+        ],
+        'Family'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 40]
+        ],
+        'ProductId'        => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+        ],
+    ];
 
 }
 

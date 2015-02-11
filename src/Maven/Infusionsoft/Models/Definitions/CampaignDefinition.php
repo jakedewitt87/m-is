@@ -5,20 +5,20 @@ class CampaignDefinition extends BaseDefinition
 {
 
     public static $table = 'Campaign';
-    public static $fields = array (
-        'Id'     => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'     => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'Name'   => array (
-            'access' => array ('Read'),
+        ],
+        'Name'   => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Status' => array (
-            'access' => array ('Read'),
+        ],
+        'Status' => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-    );
+        ],
+    ];
 
 }
 
