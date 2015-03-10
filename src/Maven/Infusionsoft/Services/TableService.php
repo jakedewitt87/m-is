@@ -1,19 +1,30 @@
 <?php namespace Maven\Infusionsoft\Services;
 
 use Maven\Infusionsoft\Definitions\TablesDefinition;
+use Maven\Infusionsoft\Exceptions\InfusionsoftException;
 use Maven\Infusionsoft\Models\BaseModel;
 
+/**
+ * Class TableService
+ *
+ * @package Maven\Infusionsoft\Services
+ */
 class TableService extends BaseService {
 
     /**
      * Get all tables and their fields including custom fields
      *
      * @return array
+     * @throws InfusionsoftException
      */
     public function getAllTablesWithCustomFields()
     {
         $fullTables = $this->getAllTablesWithFields();
         $customFields = $this->SDK->dsQuery('DataFormField', 1000, 0, ['Id' => '%'], $this->getTableFields('DataFormField', 'Read'));
+        if ( ! is_array($customFields) )
+        {
+            throw new InfusionsoftException('Error getting custom fields for table' . $tableName . ' client ' . $this->SDK->client);
+        }
         foreach ( $customFields as $customField )
         {
             $formName = $this->getTableNameByFormId($customField['FormId']);
@@ -26,6 +37,13 @@ class TableService extends BaseService {
         return $fullTables;
     }
 
+    /**
+     * @param        $tableName
+     * @param string $accessType
+     *
+     * @return array
+     * @throws InfusionsoftException
+     */
     public function getAllTableFields($tableName, $accessType = 'Add')
     {
         $tableFields = $this->getTableFields($tableName, $accessType);
@@ -34,6 +52,12 @@ class TableService extends BaseService {
         return array_merge($tableFields, $customFields);
     }
 
+    /**
+     * @param $tableName
+     *
+     * @return array
+     * @throws InfusionsoftException
+     */
     public function getTableCustomFields($tableName)
     {
         $tableFormId = $this->getFormIdByTableName($tableName);
@@ -42,6 +66,10 @@ class TableService extends BaseService {
             return [];
         } // This table does not have custom fields.
         $customFields = $this->SDK->dsQuery('DataFormField', 1000, 0, ['FormId' => $tableFormId], $this->getTableFields('DataFormField', 'Read'));
+        if ( ! is_array($customFields) )
+        {
+            throw new InfusionsoftException('Error getting custom fields for table' . $tableName . ' client ' . $this->SDK->client);
+        }
         $fieldsArray = [];
         foreach ( $customFields as $customField )
         {
@@ -52,11 +80,21 @@ class TableService extends BaseService {
     }
 
 
+    /**
+     * @param $tableName
+     *
+     * @return array
+     * @throws InfusionsoftException
+     */
     public function getTableCustomFieldsWithDefinition($tableName)
     {
         $tableFormId = $this->getFormIdByTableName($tableName);
         if ( ! $tableFormId ) return []; // This table does not have custom fields.
         $customFields = $this->SDK->dsQueryOrderBy('DataFormField', 1000, 0, ['FormId' => $tableFormId], $this->getTableFields('DataFormField', 'Read'), 'Label');
+        if ( ! is_array($customFields) )
+        {
+            throw new InfusionsoftException('Error getting custom fields for table' . $tableName . ' client ' . $this->SDK->client);
+        }
         $fieldsArray = [];
         foreach ( $customFields as $customField )
         {
@@ -73,6 +111,12 @@ class TableService extends BaseService {
     }
 
 
+    /**
+     * @param $tableName
+     *
+     * @return array
+     * @throws InfusionsoftException
+     */
     public function getAllTableFieldsByGroup($tableName)
     {
         $defaultFields = $this->getTableFieldsWithDefinition($tableName, 'Add');
@@ -170,6 +214,12 @@ class TableService extends BaseService {
         return $tableFields;
     }
 
+    /**
+     * @param        $tableName
+     * @param string $accessType
+     *
+     * @return array
+     */
     public function getTableFieldsWithDefinition($tableName, $accessType = 'Read')
     {
         $model = $this->getTableModel($tableName);
