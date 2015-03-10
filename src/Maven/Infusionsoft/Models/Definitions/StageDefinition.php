@@ -1,20 +1,19 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class StageDefinition extends BaseDefinition
-{
+class StageDefinition extends BaseDefinition {
 
     public static $table = 'Stage';
     public static $fields = [
         'Id'            => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'StageName'     => [
-            'access' => ['Read'],
-            'type'   => 'String',
+            'access'  => ['Read'],
+            'type'    => 'String',
             'options' => ['length' => 30],
 
         ],

@@ -1,235 +1,235 @@
 <?php
 namespace Maven\Infusionsoft\Definitions;
 
-class TablesDefinition
-{
-    public static $tables = array (
+class TablesDefinition {
 
-        'ActionSequence'             => array (
+    public static $tables = array(
+
+        'ActionSequence'             => array(
             'name'  => 'ActionSequence',
             'label' => 'ActionSequence',
         ),
-        'AffResource'                => array (
+        'AffResource'                => array(
             'name'  => 'AffResource',
             'label' => 'AffResource',
         ),
-        'Affiliate'                  => array (
+        'Affiliate'                  => array(
             'name'  => 'Affiliate',
             'label' => 'Affiliate',
         ),
-        'CCharge'                    => array (
+        'CCharge'                    => array(
             'name'  => 'CCharge',
             'label' => 'CCharge',
         ),
-        'CProgram'                   => array (
+        'CProgram'                   => array(
             'name'  => 'CProgram',
             'label' => 'CProgram',
         ),
-        'Campaign'                   => array (
+        'Campaign'                   => array(
             'name'  => 'Campaign',
             'label' => 'Campaign',
         ),
-        'CampaignStep'               => array (
+        'CampaignStep'               => array(
             'name'  => 'CampaignStep',
             'label' => 'CampaignStep',
         ),
-        'Campaignee'                 => array (
+        'Campaignee'                 => array(
             'name'  => 'Campaignee',
             'label' => 'Campaignee',
         ),
-        'Company'                    => array (
+        'Company'                    => array(
             'name'  => 'Company',
             'label' => 'Company',
         ),
-        'Contact'                    => array (
+        'Contact'                    => array(
             'name'  => 'Contact',
             'label' => 'Contact',
         ),
-        'ContactAction'              => array (
+        'ContactAction'              => array(
             'name'  => 'ContactAction',
             'label' => 'ContactAction',
         ),
-        'ContactGroup'               => array (
+        'ContactGroup'               => array(
             'name'  => 'ContactGroup',
             'label' => 'ContactGroup',
         ),
-        'ContactGroupAssign'         => array (
+        'ContactGroupAssign'         => array(
             'name'  => 'ContactGroupAssign',
             'label' => 'ContactGroupAssign',
         ),
-        'ContactGroupCategory'       => array (
+        'ContactGroupCategory'       => array(
             'name'  => 'ContactGroupCategory',
             'label' => 'ContactGroupCategory',
         ),
-        'CreditCard'                 => array (
+        'CreditCard'                 => array(
             'name'  => 'CreditCard',
             'label' => 'CreditCard',
         ),
-        'DataFormField'              => array (
+        'DataFormField'              => array(
             'name'  => 'DataFormField',
             'label' => 'DataFormField',
         ),
-        'DataFormGroup'              => array (
+        'DataFormGroup'              => array(
             'name'  => 'DataFormGroup',
             'label' => 'DataFormGroup',
         ),
-        'DataFormTab'                => array (
+        'DataFormTab'                => array(
             'name'  => 'DataFormTab',
             'label' => 'DataFormTab',
         ),
-        'Expense'                    => array (
+        'Expense'                    => array(
             'name'  => 'Expense',
             'label' => 'Expense',
         ),
-        'FileBox'                    => array (
+        'FileBox'                    => array(
             'name'  => 'FileBox',
             'label' => 'FileBox',
         ),
-        'GroupAssign'                => array (
+        'GroupAssign'                => array(
             'name'  => 'GroupAssign',
             'label' => 'GroupAssign',
         ),
-        'Invoice'                    => array (
+        'Invoice'                    => array(
             'name'  => 'Invoice',
             'label' => 'Invoice',
         ),
-        'InvoiceItem'                => array (
+        'InvoiceItem'                => array(
             'name'  => 'InvoiceItem',
             'label' => 'InvoiceItem',
         ),
-        'InvoicePayment'             => array (
+        'InvoicePayment'             => array(
             'name'  => 'InvoicePayment',
             'label' => 'InvoicePayment',
         ),
-        'Job'                        => array (
+        'Job'                        => array(
             'name'  => 'Job',
             'label' => 'Job',
         ),
-        'JobRecurringInstance'       => array (
+        'JobRecurringInstance'       => array(
             'name'  => 'JobRecurringInstance',
             'label' => 'JobRecurringInstance',
         ),
-        'Lead'                       => array (
+        'Lead'                       => array(
             'name'  => 'Lead',
             'label' => 'Lead',
         ),
-        'LeadSource'                 => array (
+        'LeadSource'                 => array(
             'name'  => 'LeadSource',
             'label' => 'LeadSource',
         ),
-        'LeadSourceCategory'         => array (
+        'LeadSourceCategory'         => array(
             'name'  => 'LeadSourceCategory',
             'label' => 'LeadSourceCategory',
         ),
-        'LeadSourceExpense'          => array (
+        'LeadSourceExpense'          => array(
             'name'  => 'LeadSourceExpense',
             'label' => 'LeadSourceExpense',
         ),
-        'LeadSourceRecurringExpense' => array (
+        'LeadSourceRecurringExpense' => array(
             'name'  => 'LeadSourceRecurringExpense',
             'label' => 'LeadSourceRecurringExpense',
         ),
-        'MtgLead'                    => array (
+        'MtgLead'                    => array(
             'name'  => 'MtgLead',
             'label' => 'MtgLead',
         ),
-        'OrderItem'                  => array (
+        'OrderItem'                  => array(
             'name'  => 'OrderItem',
             'label' => 'OrderItem',
         ),
-        'PayPlan'                    => array (
+        'PayPlan'                    => array(
             'name'  => 'PayPlan',
             'label' => 'PayPlan',
         ),
-        'PayPlanItem'                => array (
+        'PayPlanItem'                => array(
             'name'  => 'PayPlanItem',
             'label' => 'PayPlanItem',
         ),
-        'Payment'                    => array (
+        'Payment'                    => array(
             'name'  => 'Payment',
             'label' => 'Payment',
         ),
-        'Product'                    => array (
+        'Product'                    => array(
             'name'  => 'Product',
             'label' => 'Product',
         ),
-        'ProductCategory'            => array (
+        'ProductCategory'            => array(
             'name'  => 'ProductCategory',
             'label' => 'ProductCategory',
         ),
-        'ProductCategoryAssign'      => array (
+        'ProductCategoryAssign'      => array(
             'name'  => 'ProductCategoryAssign',
             'label' => 'ProductCategoryAssign',
         ),
-        'ProductInterest'            => array (
+        'ProductInterest'            => array(
             'name'  => 'ProductInterest',
             'label' => 'ProductInterest',
         ),
-        'ProductInterestBundle'      => array (
+        'ProductInterestBundle'      => array(
             'name'  => 'ProductInterestBundle',
             'label' => 'ProductInterestBundle',
         ),
-        'ProductOptValue'            => array (
+        'ProductOptValue'            => array(
             'name'  => 'ProductOptValue',
             'label' => 'ProductOptValue',
         ),
-        'ProductOption'              => array (
+        'ProductOption'              => array(
             'name'  => 'ProductOption',
             'label' => 'ProductOption',
         ),
-        'RecurringOrder'             => array (
+        'RecurringOrder'             => array(
             'name'  => 'RecurringOrder',
             'label' => 'RecurringOrder',
         ),
-        'RecurringOrderWithContact'  => array (
+        'RecurringOrderWithContact'  => array(
             'name'  => 'RecurringOrderWithContact',
             'label' => 'RecurringOrderWithContact',
         ),
-        'Referral'                   => array (
+        'Referral'                   => array(
             'name'  => 'Referral',
             'label' => 'Referral',
         ),
-        'SavedFilter'                => array (
+        'SavedFilter'                => array(
             'name'  => 'SavedFilter',
             'label' => 'SavedFilter',
         ),
-        'Stage'                      => array (
+        'Stage'                      => array(
             'name'  => 'Stage',
             'label' => 'Stage',
         ),
-        'StageMove'                  => array (
+        'StageMove'                  => array(
             'name'  => 'StageMove',
             'label' => 'StageMove',
         ),
-        'Status'                     => array (
+        'Status'                     => array(
             'name'  => 'Status',
             'label' => 'Status',
         ),
-        'SubscriptionPlan'           => array (
+        'SubscriptionPlan'           => array(
             'name'  => 'SubscriptionPlan',
             'label' => 'SubscriptionPlan',
         ),
-        'Template'                   => array (
+        'Template'                   => array(
             'name'  => 'Template',
             'label' => 'Template',
         ),
-        'Ticket'                     => array (
+        'Ticket'                     => array(
             'name'  => 'Ticket',
             'label' => 'Ticket',
         ),
-        'TicketStage'                => array (
+        'TicketStage'                => array(
             'name'  => 'TicketStage',
             'label' => 'TicketStage',
         ),
-        'TicketType'                 => array (
+        'TicketType'                 => array(
             'name'  => 'TicketType',
             'label' => 'TicketType',
         ),
-        'User'                       => array (
+        'User'                       => array(
             'name'  => 'User',
             'label' => 'User',
         ),
-        'UserGroup'                  => array (
+        'UserGroup'                  => array(
             'name'  => 'UserGroup',
             'label' => 'UserGroup',
         ),

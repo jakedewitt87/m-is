@@ -1,20 +1,19 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class ProductDefinition extends BaseDefinition
-{
+class ProductDefinition extends BaseDefinition {
 
     public static $table = 'Product';
     public static $fields = [
         'Id'                   => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'ProductName'          => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 100],
 
         ],
@@ -23,8 +22,8 @@ class ProductDefinition extends BaseDefinition
             'type'   => 'Double'
         ],
         'Sku'                  => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 150],
 
         ],
@@ -69,8 +68,8 @@ class ProductDefinition extends BaseDefinition
             'type'   => 'TinyInteger'
         ],
         'Status'               => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'TinyInteger',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'TinyInteger',
             'options' => ['index']
 
         ],

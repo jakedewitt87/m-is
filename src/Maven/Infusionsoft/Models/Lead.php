@@ -1,8 +1,7 @@
 <?php
 namespace Maven\Infusionsoft\Models;
 
-class Lead extends BaseModel
-{
+class Lead extends BaseModel {
 
     public static $table = 'Lead';
 

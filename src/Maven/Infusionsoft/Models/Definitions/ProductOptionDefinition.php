@@ -1,26 +1,25 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class ProductOptionDefinition extends BaseDefinition
-{
+class ProductOptionDefinition extends BaseDefinition {
 
     public static $table = 'ProductOption';
     public static $fields = [
         'Id'           => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'ProductId'    => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'Label'        => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 150],
 
         ],
@@ -33,8 +32,8 @@ class ProductOptionDefinition extends BaseDefinition
             'type'   => 'MediumInteger'
         ],
         'Name'         => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 150],
 
         ],
@@ -55,26 +54,26 @@ class ProductOptionDefinition extends BaseDefinition
             'type'   => 'MediumInteger'
         ],
         'TextMessage'  => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['length' => 255],
 
         ],
         'OptionType'   => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 20],
 
         ],
         'CanContain'   => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 150],
 
         ],
         'CanStartWith' => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 150],
 
         ],

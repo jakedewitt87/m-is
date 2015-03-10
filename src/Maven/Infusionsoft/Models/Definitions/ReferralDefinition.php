@@ -1,26 +1,25 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class ReferralDefinition extends BaseDefinition
-{
+class ReferralDefinition extends BaseDefinition {
 
     public static $table = 'Referral';
     public static $fields = [
         'Id'          => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'ContactId'   => [
-            'access' => ['Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'AffiliateId' => [
-            'access' => ['Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
@@ -33,26 +32,26 @@ class ReferralDefinition extends BaseDefinition
             'type'   => 'Date'
         ],
         'IPAddress'   => [
-            'access' => ['Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 100],
 
         ],
         'Source'      => [
-            'access' => ['Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 50],
 
         ],
         'Info'        => [
-            'access' => ['Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 255],
 
         ],
         'Type'        => [
-            'access' => ['Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],

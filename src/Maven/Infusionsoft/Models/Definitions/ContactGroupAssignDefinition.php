@@ -1,14 +1,13 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class ContactGroupAssignDefinition extends BaseDefinition
-{
+class ContactGroupAssignDefinition extends BaseDefinition {
 
     public static $table = 'ContactGroupAssign';
     public static $fields = [
         'GroupId'                    => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned'],
         ],
         'ContactGroup'               => [
@@ -20,8 +19,8 @@ class ContactGroupAssignDefinition extends BaseDefinition
             'type'   => 'DateTime'
         ],
         'ContactId'                  => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned'],
         ],
         'Contact.Address1Type'       => [

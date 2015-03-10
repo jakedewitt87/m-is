@@ -1,32 +1,35 @@
 <?php
 namespace Maven\Infusionsoft\Services;
 
-class SettingService extends BaseService
-{
-	public function getCreditCards()
-	{
-		$ccList = $this->SDK->dsGetSetting('Order', 'optioncctypes');
-		$ccList = explode(',', $ccList);
-		$creditCards = [];
-		foreach ($ccList as $creditCard) {
-			if (!empty($creditCard)) {
-				$creditCards[] = $creditCard;
-			}
-		}
+class SettingService extends BaseService {
 
-		return $creditCards;
-	}
+    public function getCreditCards()
+    {
+        $ccList = $this->SDK->dsGetSetting('Order', 'optioncctypes');
+        $ccList = explode(',', $ccList);
+        $creditCards = [];
+        foreach ( $ccList as $creditCard )
+        {
+            if ( ! empty($creditCard) )
+            {
+                $creditCards[] = $creditCard;
+            }
+        }
 
-	public function getCreditCardsAsList()
-	{
-		$creditCards = $this->getCreditCards();
-		return array_combine($creditCards, $creditCards);
-	}
+        return $creditCards;
+    }
 
-	public function getDefaultMerchant()
-	{
-		$merchantId = $this->SDK->dsGetSetting('Order', 'defaultmerchant');
+    public function getCreditCardsAsList()
+    {
+        $creditCards = $this->getCreditCards();
 
-		return empty($merchantId) ? null : intval($merchantId);
-	}
+        return array_combine($creditCards, $creditCards);
+    }
+
+    public function getDefaultMerchant()
+    {
+        $merchantId = $this->SDK->dsGetSetting('Order', 'defaultmerchant');
+
+        return empty($merchantId) ? null : intval($merchantId);
+    }
 }

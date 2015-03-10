@@ -46,8 +46,8 @@ class AffiliateDefinition extends BaseDefinition {
             'type'   => 'Integer'
         ],
         'Status'            => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'MediumInteger',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'MediumInteger',
             'options' => ['unsigned']
         ],
         'AffName'           => [
@@ -56,8 +56,8 @@ class AffiliateDefinition extends BaseDefinition {
             'options' => ['length' => 100],
         ],
         'Password'          => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 100],
         ],
         'AffCode'           => [
@@ -74,8 +74,8 @@ class AffiliateDefinition extends BaseDefinition {
             'type'   => 'TinyInteger'
         ],
         'LeadCookieFor'     => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'MediumInteger',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'MediumInteger',
             'options' => ['unsigned']
         ],
     ];

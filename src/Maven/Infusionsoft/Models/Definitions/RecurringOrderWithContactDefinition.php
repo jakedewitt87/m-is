@@ -1,8 +1,7 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class RecurringOrderWithContactDefinition extends BaseDefinition
-{
+class RecurringOrderWithContactDefinition extends BaseDefinition {
 
     public static $table = 'RecurringOrderWithContact';
     public static $fields = [

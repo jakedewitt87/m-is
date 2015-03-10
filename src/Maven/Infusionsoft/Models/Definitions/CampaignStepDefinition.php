@@ -1,35 +1,34 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class CampaignStepDefinition extends BaseDefinition
-{
+class CampaignStepDefinition extends BaseDefinition {
 
     public static $table = 'CampaignStep';
     public static $fields = [
-        'Id'                => [
+        'Id'         => [
             'access'  => ['Read'],
             'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
         ],
-        'CampaignId'         => [
+        'CampaignId' => [
             'access'  => ['Read'],
-            'type'   => 'Integer',
-            'options' => ['unsigned','index']
+            'type'    => 'Integer',
+            'options' => ['unsigned', 'index']
         ],
-        'StepStatus'          => [
+        'StepStatus' => [
             'access'  => ['Read'],
             'type'    => 'String',
             'options' => ['length' => 20],
         ],
-        'StepTitle'          => [
+        'StepTitle'  => [
             'access'  => ['Read'],
             'type'    => 'String',
             'options' => ['length' => 255],
         ],
-        'TemplateId'          => [
+        'TemplateId' => [
             'access'  => ['Read'],
             'type'    => 'Integer',
-            'options' => ['unsigned','index']
+            'options' => ['unsigned', 'index']
         ],
     ];
 

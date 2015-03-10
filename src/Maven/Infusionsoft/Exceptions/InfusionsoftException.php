@@ -2,8 +2,7 @@
 
 use Exception;
 
-class InfusionsoftException extends Exception
-{
+class InfusionsoftException extends Exception {
 
 
 }

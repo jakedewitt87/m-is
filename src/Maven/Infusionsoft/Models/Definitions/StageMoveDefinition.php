@@ -1,20 +1,19 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class StageMoveDefinition extends BaseDefinition
-{
+class StageMoveDefinition extends BaseDefinition {
 
     public static $table = 'StageMove';
     public static $fields = [
         'Id'                => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'OpportunityId'     => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
@@ -23,14 +22,14 @@ class StageMoveDefinition extends BaseDefinition
             'type'   => 'DateTime'
         ],
         'MoveToStage'       => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'MoveFromStage'     => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
@@ -39,8 +38,8 @@ class StageMoveDefinition extends BaseDefinition
             'type'   => 'DateTime'
         ],
         'CreatedBy'         => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
@@ -49,8 +48,8 @@ class StageMoveDefinition extends BaseDefinition
             'type'   => 'DateTime'
         ],
         'UserId'            => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],

@@ -1,8 +1,7 @@
 <?php
 namespace Maven\Infusionsoft\Models;
 
-class AffResource extends BaseModel
-{
+class AffResource extends BaseModel {
 
     public static $table = 'AffResource';
 

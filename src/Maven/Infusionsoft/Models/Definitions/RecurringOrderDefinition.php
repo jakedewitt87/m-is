@@ -1,44 +1,43 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class RecurringOrderDefinition extends BaseDefinition
-{
+class RecurringOrderDefinition extends BaseDefinition {
 
     public static $table = 'RecurringOrder';
     public static $fields = [
         'Id'                  => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'ContactId'           => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'OriginatingOrderId'  => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'ProgramId'           => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'SubscriptionPlanId'  => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'ProductId'           => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
@@ -63,8 +62,8 @@ class RecurringOrderDefinition extends BaseDefinition
             'type'   => 'Date'
         ],
         'BillingCycle'        => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 50],
 
         ],
@@ -77,32 +76,32 @@ class RecurringOrderDefinition extends BaseDefinition
             'type'   => 'Double'
         ],
         'Status'              => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 100],
 
         ],
         'ReasonStopped'       => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 255],
 
         ],
         'AutoCharge'          => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],
         'CC1'                 => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'CC2'                 => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
@@ -115,26 +114,26 @@ class RecurringOrderDefinition extends BaseDefinition
             'type'   => 'Integer'
         ],
         'MerchantAccountId'   => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'AffiliateId'         => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'PromoCode'           => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 150],
 
         ],
         'LeadAffiliateId'     => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
@@ -143,8 +142,8 @@ class RecurringOrderDefinition extends BaseDefinition
             'type'   => 'Integer'
         ],
         'ShippingOptionId'    => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],

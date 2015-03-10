@@ -1,26 +1,25 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class InvoiceItemDefinition extends BaseDefinition
-{
+class InvoiceItemDefinition extends BaseDefinition {
 
     public static $table = 'InvoiceItem';
     public static $fields = [
         'Id'               => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'InvoiceId'        => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'OrderItemId'      => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
@@ -37,8 +36,8 @@ class InvoiceItemDefinition extends BaseDefinition
             'type'   => 'DateTime'
         ],
         'Description'      => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 2048],
         ],
         'CommissionStatus' => [

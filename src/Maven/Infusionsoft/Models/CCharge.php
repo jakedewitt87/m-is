@@ -1,8 +1,7 @@
 <?php
 namespace Maven\Infusionsoft\Models;
 
-class CCharge extends BaseModel
-{
+class CCharge extends BaseModel {
 
     public static $table = 'CCharge';
 

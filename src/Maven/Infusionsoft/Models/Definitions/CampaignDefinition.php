@@ -1,22 +1,21 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class CampaignDefinition extends BaseDefinition
-{
+class CampaignDefinition extends BaseDefinition {
 
     public static $table = 'Campaign';
     public static $fields = [
-        'Id'                => [
+        'Id'     => [
             'access'  => ['Read'],
             'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
         ],
-        'Name'         => [
+        'Name'   => [
             'access'  => ['Read'],
             'type'    => 'String',
             'options' => ['length' => 75],
         ],
-        'Status'          => [
+        'Status' => [
             'access'  => ['Read'],
             'type'    => 'String',
             'options' => ['length' => 25],

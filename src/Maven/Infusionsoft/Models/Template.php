@@ -1,8 +1,7 @@
 <?php
 namespace Maven\Infusionsoft\Models;
 
-class Template extends BaseModel
-{
+class Template extends BaseModel {
 
     public static $table = 'Template';
 

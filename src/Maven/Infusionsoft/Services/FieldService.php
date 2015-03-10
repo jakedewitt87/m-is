@@ -1,8 +1,7 @@
 <?php
 namespace Maven\Infusionsoft\Services;
 
-class FieldService extends BaseService
-{
+class FieldService extends BaseService {
 
     /**
      * Updates Dates and DateTimes received by Infusionsoft, to be stored in MySQL
@@ -15,27 +14,31 @@ class FieldService extends BaseService
     {
         $dateTimeFields = ['LastUpdated', 'DateCreated'];
         $dateFields = ['Anniversary', 'Birthday'];
-        foreach ($results as $resultId => $result) // Loop through all results
+        foreach ( $results as $resultId => $result ) // Loop through all results
         {
-            foreach ($result as $fieldName => $fieldValue) // Loop through all fields on this result
+            foreach ( $result as $fieldName => $fieldValue ) // Loop through all fields on this result
             {
-                foreach ($dateTimeFields as $dtField) // Replace all standard DateTime fields
+                foreach ( $dateTimeFields as $dtField ) // Replace all standard DateTime fields
                 {
-                    if ($dtField == $fieldName && $fieldValue) {
+                    if ( $dtField == $fieldName && $fieldValue )
+                    {
                         $results[$resultId][$dtField] = date('Y-m-d H:i:s', strtotime($result[$dtField]));
                     }
                 }
-                foreach ($dateFields as $dtField) // Replace all standard Date Fields
+                foreach ( $dateFields as $dtField ) // Replace all standard Date Fields
                 {
-                    if ($dtField == $fieldName && $fieldValue) {
+                    if ( $dtField == $fieldName && $fieldValue )
+                    {
                         $results[$resultId][$dtField] = date('Y-m-d', strtotime($result[$dtField]));
                     }
                 }
 
-                if ($this->valueIsDate($fieldValue)) {
+                if ( $this->valueIsDate($fieldValue) )
+                {
                     $results[$resultId][$fieldName] = date('Y-m-d', strtotime($result[$fieldName]));
                 }
-                if ($this->valueIsDateTime($fieldValue)) {
+                if ( $this->valueIsDateTime($fieldValue) )
+                {
                     $results[$resultId][$fieldName] = date('Y-m-d H:i:s', strtotime($result[$fieldName]));
                 }
             }
@@ -46,7 +49,8 @@ class FieldService extends BaseService
 
     protected function valueIsDate($value)
     {
-        if (!$this->valueIsDateTime($value)) {
+        if ( ! $this->valueIsDateTime($value) )
+        {
             return false;
         }
 

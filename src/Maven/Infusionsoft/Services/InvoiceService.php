@@ -1,8 +1,7 @@
 <?php
 namespace Maven\Infusionsoft\Services;
 
-class InvoiceService extends BaseService
-{
+class InvoiceService extends BaseService {
 
     /**
      *
@@ -32,30 +31,32 @@ class InvoiceService extends BaseService
      * @throws \Exception
      */
     public function addOrder($contactId, $products, $orderTitle = '', $affiliateId = 0, $miscItems = [])
-	{
-		$orderId = $this->SDK->blankOrder($contactId, $orderTitle, $this->currentTime(), $affiliateId, $affiliateId);
-		if (!is_numeric($orderId) || $orderId <= 0) throw new \Exception('Unable to create new order: '.$orderId, 400);
+    {
+        $orderId = $this->SDK->blankOrder($contactId, $orderTitle, $this->currentTime(), $affiliateId, $affiliateId);
+        if ( ! is_numeric($orderId) || $orderId <= 0 ) throw new \Exception('Unable to create new order: ' . $orderId, 400);
 
-		foreach ($products as $product)
+        foreach ( $products as $product )
         {
-			$status = $this->SDK->addOrderItem($orderId, $product['id'], 4, (float) $product['price'], $product['qty'], $product['description'], isset($product['notes']) ? $product['notes'] : '');
-			if (!$status) {
-				$this->SDK->deleteInvoice($orderId);
-				throw new \Exception('Problem when adding item to order: '.$status);
-			}
-		}
-
-        foreach($miscItems as $item)
-        {
-            $status = $this->SDK->addOrderItem($orderId, 0, $item['typeId'], (float) $item['amount'], 1, $item['description'], isset($item['notes']) ? $item['notes'] : '');
-            if (!$status) {
+            $status = $this->SDK->addOrderItem($orderId, $product['id'], 4, (float)$product['price'], $product['qty'], $product['description'], isset($product['notes']) ? $product['notes'] : '');
+            if ( ! $status )
+            {
                 $this->SDK->deleteInvoice($orderId);
-                throw new \Exception('Problem when adding item to order: '.$status);
+                throw new \Exception('Problem when adding item to order: ' . $status);
             }
         }
 
-		return $orderId;
-	}
+        foreach ( $miscItems as $item )
+        {
+            $status = $this->SDK->addOrderItem($orderId, 0, $item['typeId'], (float)$item['amount'], 1, $item['description'], isset($item['notes']) ? $item['notes'] : '');
+            if ( ! $status )
+            {
+                $this->SDK->deleteInvoice($orderId);
+                throw new \Exception('Problem when adding item to order: ' . $status);
+            }
+        }
+
+        return $orderId;
+    }
 
     /**
      *
@@ -74,17 +75,18 @@ class InvoiceService extends BaseService
      * @throws \Exception
      */
     public function addAndChargeOrder($contactId, $products, $creditCardId, $merchantAccountId, $orderTitle = '', $affiliateId = 0, $miscItems = [])
-	{
-		$orderId = $this->addOrder($contactId, $products, $orderTitle, $affiliateId, $miscItems);
-		if (!$orderId) throw new \Exception('Unable to create new order during addAndChargeOrder: '.$orderId);
-		$chargeResponse = $this->SDK->chargeInvoice($orderId, $orderTitle, $creditCardId, $merchantAccountId, false);
-		if (!$chargeResponse || !is_array($chargeResponse) || empty($chargeResponse)) throw new \Exception('Unexpected response when attempting to charge invoice id: '.$orderId);
-		if ($chargeResponse['Successful'] != true) {
-			throw new \Exception('Unable to charge payment on invoice: '.$chargeResponse['Message']);
-		}
+    {
+        $orderId = $this->addOrder($contactId, $products, $orderTitle, $affiliateId, $miscItems);
+        if ( ! $orderId ) throw new \Exception('Unable to create new order during addAndChargeOrder: ' . $orderId);
+        $chargeResponse = $this->SDK->chargeInvoice($orderId, $orderTitle, $creditCardId, $merchantAccountId, false);
+        if ( ! $chargeResponse || ! is_array($chargeResponse) || empty($chargeResponse) ) throw new \Exception('Unexpected response when attempting to charge invoice id: ' . $orderId);
+        if ( $chargeResponse['Successful'] != true )
+        {
+            throw new \Exception('Unable to charge payment on invoice: ' . $chargeResponse['Message']);
+        }
 
-		return $orderId;
-	}
+        return $orderId;
+    }
 
     /**
      * @param int    $contactId
@@ -102,23 +104,24 @@ class InvoiceService extends BaseService
      */
 
     public function addAndChargePaymentPlan($contactId, $products, $creditCardId, $merchantAccountId, $numberOfPayments = 1, $daysBetween = 30, $orderTitle = '', $affiliateId = 0, $miscItems = [])
-	{
-		$defaultMaxRetry = $this->SDK->dsGetSetting('Order', 'defaultmaxretry');
-		$defaultDays = $this->SDK->dsGetSetting('Order', 'defaultnumdaysbetween');
+    {
+        $defaultMaxRetry = $this->SDK->dsGetSetting('Order', 'defaultmaxretry');
+        $defaultDays = $this->SDK->dsGetSetting('Order', 'defaultnumdaysbetween');
 
-		$orderId = $this->addOrder($contactId, $products, $orderTitle, $affiliateId, $miscItems);
-		if (!$orderId) throw new \Exception('Unable to create new order during addAndChargeOrder: '.$orderId);
-		$added = $this->SDK->payPlan($orderId, true, $creditCardId, $merchantAccountId, intval($defaultMaxRetry), intval($defaultDays), (float) 0, $this->currentTime(), $this->currentTime(), $numberOfPayments, $daysBetween);
-		if (!$added) throw new \Exception('Unable to add payment plan to invoice '.$orderId.': '.$added);
+        $orderId = $this->addOrder($contactId, $products, $orderTitle, $affiliateId, $miscItems);
+        if ( ! $orderId ) throw new \Exception('Unable to create new order during addAndChargeOrder: ' . $orderId);
+        $added = $this->SDK->payPlan($orderId, true, $creditCardId, $merchantAccountId, intval($defaultMaxRetry), intval($defaultDays), (float)0, $this->currentTime(), $this->currentTime(), $numberOfPayments, $daysBetween);
+        if ( ! $added ) throw new \Exception('Unable to add payment plan to invoice ' . $orderId . ': ' . $added);
 
-		$chargeResponse = $this->SDK->chargeInvoice($orderId, $orderTitle, $creditCardId, $merchantAccountId, false);
-		if (!$chargeResponse || !is_array($chargeResponse)) throw new \Exception('Unexpected response when attempting to charge invoice: '.$chargeResponse);
-		if ($chargeResponse['Successful'] != true) {
-			throw new \Exception('Unable to charge payment on invoice: '.$chargeResponse['Message']);
-		}
+        $chargeResponse = $this->SDK->chargeInvoice($orderId, $orderTitle, $creditCardId, $merchantAccountId, false);
+        if ( ! $chargeResponse || ! is_array($chargeResponse) ) throw new \Exception('Unexpected response when attempting to charge invoice: ' . $chargeResponse);
+        if ( $chargeResponse['Successful'] != true )
+        {
+            throw new \Exception('Unable to charge payment on invoice: ' . $chargeResponse['Message']);
+        }
 
-		return $orderId;
-	}
+        return $orderId;
+    }
 
 
     /**
@@ -131,14 +134,12 @@ class InvoiceService extends BaseService
     public function updateJobByInvoiceId($invoiceId, $jobData = [])
     {
         $invoice = $this->SDK->dsLoad('Invoice', $invoiceId, ['JobId']);
-        if(!isset($invoice['JobId'])) throw new \Exception('Error updating order');
+        if ( ! isset($invoice['JobId']) ) throw new \Exception('Error updating order');
 
         $jobId = $this->SDK->dsUpdate('Job', $invoice['JobId'], $jobData);
         $jobData['Id'] = $jobId;
 
         return $jobData;
     }
-
-
 
 }

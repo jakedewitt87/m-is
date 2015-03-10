@@ -15,9 +15,9 @@ class SubscriptionPlan extends BaseModel {
     public function getAllAsList()
     {
         $subscriptions = $this->get(['Id' => '%']);
-        if ( !is_array($subscriptions) ) throw new \Exception('Unexpected response when attempting to find all subscriptions: ' . $subscriptions);
+        if ( ! is_array($subscriptions) ) throw new \Exception('Unexpected response when attempting to find all subscriptions: ' . $subscriptions);
         $products = $this->get(['Id' => '%'], 'Product', ['Id', 'ProductName']);
-        if ( !is_array($products) ) throw new \Exception('Unexpected response when attempting to find all products: ' . $products);
+        if ( ! is_array($products) ) throw new \Exception('Unexpected response when attempting to find all products: ' . $products);
         $products = $this->getIdArray($products);
         $subscriptionList = [];
         foreach ( $subscriptions as $subscription )
@@ -37,7 +37,7 @@ class SubscriptionPlan extends BaseModel {
      */
     protected function subscriptionName($products, $subscription, $subscriptionList)
     {
-        if(!isset($products[$subscription['ProductId']])) return $subscriptionList;
+        if ( ! isset($products[$subscription['ProductId']]) ) return $subscriptionList;
         $existingProduct = $products[$subscription['ProductId']];
         $selectedCycle = strtolower($this->subscriptionCycles[$subscription['Cycle']]);
         $lengthTag = $subscription['Frequency'] == 1 ? $selectedCycle : $subscription['Frequency'] . ' ' . $selectedCycle . 's';

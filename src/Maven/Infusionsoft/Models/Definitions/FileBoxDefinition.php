@@ -1,25 +1,24 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class FileBoxDefinition extends BaseDefinition
-{
+class FileBoxDefinition extends BaseDefinition {
 
     public static $table = 'FileBox';
     public static $fields = [
         'Id'        => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'FileName'  => [
-            'access' => ['Read'],
-            'type'   => 'String',
+            'access'  => ['Read'],
+            'type'    => 'String',
             'options' => ['length' => 200],
         ],
         'Extension' => [
-            'access' => ['Read'],
-            'type'   => 'String',
+            'access'  => ['Read'],
+            'type'    => 'String',
             'options' => ['length' => 4],
         ],
         'FileSize'  => [
@@ -27,8 +26,8 @@ class FileBoxDefinition extends BaseDefinition
             'type'   => 'BigInteger'
         ],
         'ContactId' => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],

@@ -1,38 +1,37 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class TicketDefinition extends BaseDefinition
-{
+class TicketDefinition extends BaseDefinition {
 
     public static $table = 'Ticket';
     public static $fields = [
         'Id'                   => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'IssueId'              => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'ContactId'            => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'UserId'               => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'DevId'                => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
@@ -45,14 +44,14 @@ class TicketDefinition extends BaseDefinition
             'type'   => 'String'
         ],
         'TicketCategory'       => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],
         'TicketTypeId'         => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],
@@ -61,20 +60,20 @@ class TicketDefinition extends BaseDefinition
             'type'   => 'String'
         ],
         'Stage'                => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],
         'Priority'             => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],
         'Ordering'             => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],
@@ -83,8 +82,8 @@ class TicketDefinition extends BaseDefinition
             'type'   => 'DateTime'
         ],
         'CreatedBy'            => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],
@@ -93,8 +92,8 @@ class TicketDefinition extends BaseDefinition
             'type'   => 'DateTime'
         ],
         'LastUpdatedBy'        => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],

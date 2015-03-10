@@ -1,20 +1,19 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class PayPlanDefinition extends BaseDefinition
-{
+class PayPlanDefinition extends BaseDefinition {
 
     public static $table = 'PayPlan';
     public static $fields = [
         'Id'          => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'InvoiceId'   => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
@@ -27,8 +26,8 @@ class PayPlanDefinition extends BaseDefinition
             'type'   => 'Double'
         ],
         'Type'        => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],

@@ -1,20 +1,19 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class SavedFilterDefinition extends BaseDefinition
-{
+class SavedFilterDefinition extends BaseDefinition {
 
     public static $table = 'SavedFilter';
     public static $fields = [
         'Id'               => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'FilterName'       => [
-            'access' => ['Read'],
-            'type'   => 'String',
+            'access'  => ['Read'],
+            'type'    => 'String',
             'options' => ['length' => 100],
 
         ],
@@ -24,8 +23,8 @@ class SavedFilterDefinition extends BaseDefinition
 
         ],
         'UserId'           => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],

@@ -1,38 +1,37 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class OrderItemDefinition extends BaseDefinition
-{
+class OrderItemDefinition extends BaseDefinition {
 
     public static $table = 'OrderItem';
     public static $fields = [
         'Id'                 => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'OrderId'            => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'ProductId'          => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'SubscriptionPlanId' => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'ItemName'           => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 100],
 
         ],
@@ -49,14 +48,14 @@ class OrderItemDefinition extends BaseDefinition
             'type'   => 'Double'
         ],
         'ItemDescription'    => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 100],
 
         ],
         'ItemType'           => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],

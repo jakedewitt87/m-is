@@ -1,11 +1,9 @@
-<?php
-namespace Maven\Infusionsoft\Services;
+<?php namespace Maven\Infusionsoft\Services;
 
 use Maven\Infusionsoft\Definitions\TablesDefinition;
 use Maven\Infusionsoft\Models\BaseModel;
 
-class TableService extends BaseService
-{
+class TableService extends BaseService {
 
     /**
      * Get all tables and their fields including custom fields
@@ -16,9 +14,11 @@ class TableService extends BaseService
     {
         $fullTables = $this->getAllTablesWithFields();
         $customFields = $this->SDK->dsQuery('DataFormField', 1000, 0, ['Id' => '%'], $this->getTableFields('DataFormField', 'Read'));
-        foreach ($customFields as $customField) {
+        foreach ( $customFields as $customField )
+        {
             $formName = $this->getTableNameByFormId($customField['FormId']);
-            if ($formName) {
+            if ( $formName )
+            {
                 $fullTables[$formName][] = '_' . $customField['Name'];
             }
         }
@@ -26,22 +26,25 @@ class TableService extends BaseService
         return $fullTables;
     }
 
-	public function getAllTableFields($tableName, $accessType = 'Add')
-	{
-		$tableFields = $this->getTableFields($tableName, $accessType);
-		$customFields = $this->getTableCustomFields($tableName);
-		return array_merge($tableFields, $customFields);
-	}
+    public function getAllTableFields($tableName, $accessType = 'Add')
+    {
+        $tableFields = $this->getTableFields($tableName, $accessType);
+        $customFields = $this->getTableCustomFields($tableName);
+
+        return array_merge($tableFields, $customFields);
+    }
 
     public function getTableCustomFields($tableName)
     {
         $tableFormId = $this->getFormIdByTableName($tableName);
-        if (!$tableFormId) {
+        if ( ! $tableFormId )
+        {
             return [];
         } // This table does not have custom fields.
         $customFields = $this->SDK->dsQuery('DataFormField', 1000, 0, ['FormId' => $tableFormId], $this->getTableFields('DataFormField', 'Read'));
         $fieldsArray = [];
-        foreach ($customFields as $customField) {
+        foreach ( $customFields as $customField )
+        {
             $fieldsArray[] = '_' . $customField['Name'];
         }
 
@@ -52,10 +55,11 @@ class TableService extends BaseService
     public function getTableCustomFieldsWithDefinition($tableName)
     {
         $tableFormId = $this->getFormIdByTableName($tableName);
-        if (!$tableFormId) return []; // This table does not have custom fields.
+        if ( ! $tableFormId ) return []; // This table does not have custom fields.
         $customFields = $this->SDK->dsQueryOrderBy('DataFormField', 1000, 0, ['FormId' => $tableFormId], $this->getTableFields('DataFormField', 'Read'), 'Label');
         $fieldsArray = [];
-        foreach ($customFields as $customField) {
+        foreach ( $customFields as $customField )
+        {
             $fieldsArray['_' . $customField['Name']] = [
                 'Id'       => $customField['Id'],
                 'Name'     => $customField['Name'],
@@ -75,25 +79,32 @@ class TableService extends BaseService
         $customFields = $this->getTableCustomFieldsWithDefinition($tableName);
 
         $fields = [];
-        foreach ($defaultFields as $fieldName => $fieldDefinition) {
-            if (isset($fieldDefinition['Label'])) {
+        foreach ( $defaultFields as $fieldName => $fieldDefinition )
+        {
+            if ( isset($fieldDefinition['Label']) )
+            {
                 $fields['General'][$fieldName] = $fieldDefinition['Label'];
-            } else {
+            }
+            else
+            {
                 $fields['General'][$fieldName] = $fieldName;
             }
         }
 
-        foreach ($customFields as $fieldName => $fieldDefinition) {
-            if (isset($fieldDefinition['Label'])) {
+        foreach ( $customFields as $fieldName => $fieldDefinition )
+        {
+            if ( isset($fieldDefinition['Label']) )
+            {
                 $fields['Custom Fields'][$fieldName] = $fieldDefinition['Label'];
-            } else {
+            }
+            else
+            {
                 $fields['Custom Fields'][$fieldName] = $fieldName;
             }
         }
 
 
         return $fields;
-
 
     }
 
@@ -105,8 +116,9 @@ class TableService extends BaseService
      */
     public function getAllTablesWithFields()
     {
-        $fullTables = array ();
-        foreach ($this->getAllTables() as $table) {
+        $fullTables = array();
+        foreach ( $this->getAllTables() as $table )
+        {
             $tableFields = $this->getTableFields($table['name']);
             $fullTables[$table['name']] = $tableFields;
         }
@@ -136,7 +148,7 @@ class TableService extends BaseService
     public function getTableModel($tableName)
     {
         $className = 'Maven\Infusionsoft\Models\\' . $tableName; // Determine name of desired class
-        if (!class_exists($className)) return null; // Unable to find model for this table
+        if ( ! class_exists($className) ) return null; // Unable to find model for this table
         /** @var BaseModel $infModel */
         $infModel = new $className($this->SDK); // Load instance of this Infusionsoft model
         return $infModel;
@@ -153,7 +165,7 @@ class TableService extends BaseService
     public function getTableFields($tableName, $accessType = 'Read')
     {
         $model = $this->getTableModel($tableName);
-        if (!$model) return [];
+        if ( ! $model ) return [];
         $tableFields = $model->getFieldsWithAccess($accessType); // Get fields on the table
         return $tableFields;
     }
@@ -161,7 +173,7 @@ class TableService extends BaseService
     public function getTableFieldsWithDefinition($tableName, $accessType = 'Read')
     {
         $model = $this->getTableModel($tableName);
-        if (!$model) return [];
+        if ( ! $model ) return [];
         $tableFields = $model->getFieldsWithAccess($accessType, true); // Get fields on the table
         return $tableFields;
     }
@@ -175,18 +187,19 @@ class TableService extends BaseService
      */
     public function getTableNameByFormId($formId)
     {
-        switch ($formId) {
-            case -1:
+        switch ( $formId )
+        {
+            case - 1:
                 return 'Contact';
-            case -3:
+            case - 3:
                 return 'Affiliate';
-            case -4:
+            case - 4:
                 return 'Lead';
-            case -5:
+            case - 5:
                 return 'ContactAction';
-            case -6:
+            case - 6:
                 return 'Company';
-            case -9:
+            case - 9:
                 return 'Job';
             default:
                 return false;
@@ -202,19 +215,20 @@ class TableService extends BaseService
      */
     public function getFormIdByTableName($tableName)
     {
-        switch ($tableName) {
+        switch ( $tableName )
+        {
             case 'Contact':
-                return -1;
+                return - 1;
             case 'Affiliate':
-                return -3;
+                return - 3;
             case 'Lead':
-                return -4;
+                return - 4;
             case 'ContactAction':
-                return -5;
+                return - 5;
             case 'Company':
-                return -6;
+                return - 6;
             case 'Job':
-                return -9;
+                return - 9;
             default:
                 return false;
         }

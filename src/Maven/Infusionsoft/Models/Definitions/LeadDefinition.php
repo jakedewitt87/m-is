@@ -1,62 +1,61 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class LeadDefinition extends BaseDefinition
-{
+class LeadDefinition extends BaseDefinition {
 
     public static $table = 'Lead';
     public static $fields = [
         'Id'                   => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'OpportunityTitle'     => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 100],
 
         ],
         'ContactID'            => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'AffiliateId'          => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'UserID'               => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'StageID'              => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'StatusID'             => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'Leadsource'           => [
-            'access' => ['Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 50],
 
         ],
         'Objection'            => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 255],
 
         ],
@@ -81,14 +80,14 @@ class LeadDefinition extends BaseDefinition
             'type'   => 'DateTime'
         ],
         'LastUpdatedBy'        => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'CreatedBy'            => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],

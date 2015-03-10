@@ -1,7 +1,6 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class BaseDefinition
-{
+class BaseDefinition {
 
 }

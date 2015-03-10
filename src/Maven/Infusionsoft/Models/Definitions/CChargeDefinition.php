@@ -1,46 +1,45 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class CChargeDefinition extends BaseDefinition
-{
+class CChargeDefinition extends BaseDefinition {
 
     public static $table = 'CCharge';
     public static $fields = [
-        'Id'                => [
+        'Id'         => [
             'access'  => ['Read'],
             'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
         ],
-        'Amt'         => [
-            'access'  => ['Read'],
+        'Amt'        => [
+            'access' => ['Read'],
             'type'   => 'Double',
         ],
-        'ApprCode'          => [
+        'ApprCode'   => [
             'access'  => ['Read'],
             'type'    => 'String',
             'options' => ['length' => 100],
         ],
-        'CCId'          => [
+        'CCId'       => [
             'access'  => ['Read'],
             'type'    => 'Integer',
-            'options' => ['unsigned','index']
+            'options' => ['unsigned', 'index']
         ],
-        'MerchantId'          => [
+        'MerchantId' => [
             'access'  => ['Read'],
             'type'    => 'Integer',
             'options' => ['unsigned']
         ],
-        'OrderNum'          => [
+        'OrderNum'   => [
             'access'  => ['Read'],
             'type'    => 'String',
             'options' => ['length' => 100],
         ],
-        'PaymentId'          => [
+        'PaymentId'  => [
             'access'  => ['Read'],
             'type'    => 'Integer',
-            'options' => ['unsigned','index']
+            'options' => ['unsigned', 'index']
         ],
-        'RefNum'          => [
+        'RefNum'     => [
             'access'  => ['Read'],
             'type'    => 'String',
             'options' => ['length' => 100],

@@ -1,14 +1,13 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class MtgLeadDefinition extends BaseDefinition
-{
+class MtgLeadDefinition extends BaseDefinition {
 
     public static $table = 'MtgLead';
     public static $fields = [
         'Id'                    => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],

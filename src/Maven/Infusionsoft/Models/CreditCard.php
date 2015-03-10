@@ -48,8 +48,8 @@ class CreditCard extends BaseModel {
     public function validateAndAddCreditCard($contactId, $userInput)
     {
         $validationResponse = $this->SDK->validateCard($this->getFilteredArray($userInput, $this->getAddFields()));
-        if (! $validationResponse || ! is_array($validationResponse)) throw new Exception('Bad response from CRM when validating credit card: ' . $validationResponse, 400);
-        if ($validationResponse['Valid'] !== 'true') throw new Exception('Unfortunately it looks like your credit card number is not correct.');
+        if ( ! $validationResponse || ! is_array($validationResponse) ) throw new Exception('Bad response from CRM when validating credit card: ' . $validationResponse, 400);
+        if ( $validationResponse['Valid'] !== 'true' ) throw new Exception('Unfortunately it looks like your credit card number is not correct.');
 
         return $this->getOrAddCreditCard($contactId, $userInput);
     }
@@ -66,9 +66,9 @@ class CreditCard extends BaseModel {
         $creditCardData['ContactId'] = $contactId; // Add ContactID to CC Data
         $insertArray = $this->getFilteredArray($creditCardData, $this->getAddFields()); // Get proper array for insertion
         $cardLast4 = substr($insertArray['CardNumber'], - 4);
-        if (strlen($cardLast4) < 4) throw new Exception('Unable to find credit card number in data', 400);
+        if ( strlen($cardLast4) < 4 ) throw new Exception('Unable to find credit card number in data', 400);
         $existingCardId = $this->SDK->locateCard($contactId, $cardLast4);
-        if ($existingCardId)
+        if ( $existingCardId )
         {
             $insertArray = $this->getFilteredArray($creditCardData, $this->getEditFields());
             $creditCardId = $this->SDK->dsUpdate('CreditCard', $existingCardId, $insertArray);
@@ -77,7 +77,7 @@ class CreditCard extends BaseModel {
         {
             $creditCardId = $this->SDK->dsAdd('CreditCard', $insertArray);
         }
-        if (! is_numeric($creditCardId)) throw new Exception('Unable to update or add credit card: ' . $creditCardId, 400);
+        if ( ! is_numeric($creditCardId) ) throw new Exception('Unable to update or add credit card: ' . $creditCardId, 400);
 
         return ['Id' => $creditCardId] + $insertArray;
     }
@@ -91,7 +91,7 @@ class CreditCard extends BaseModel {
     public function getNewestByContact($contactId)
     {
         $creditCard = $this->SDK->dsQueryOrderBy($this::$table, 1, 0, ['ContactId' => $contactId, 'Status' => 3], $this->getReadFields(), 'Id', false);
-        if (! is_array($creditCard))
+        if ( ! is_array($creditCard) )
         {
             throw new Exception('Unexpected response when attempting to find most recent credit card for contact ' . $contactId . ': ' . $creditCard);
         }
@@ -113,12 +113,12 @@ class CreditCard extends BaseModel {
         $creditCardId = $this->SDK->dsUpdate('CreditCard', $creditCardId, $insertArray);
 
         $validationResponse = $this->SDK->validateCard($creditCardId);
-        if (! $validationResponse || ! is_array($validationResponse))
+        if ( ! $validationResponse || ! is_array($validationResponse) )
         {
             throw new Exception('Error when validating credit card: ' . $validationResponse, 400);
         }
 
-        if ($validationResponse['Valid'] !== 'true')
+        if ( $validationResponse['Valid'] !== 'true' )
         {
             throw new Exception('Credit card validation failed: ' . $validationResponse['Message']);
         }

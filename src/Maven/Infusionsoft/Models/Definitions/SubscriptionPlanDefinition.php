@@ -1,26 +1,25 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class SubscriptionPlanDefinition extends BaseDefinition
-{
+class SubscriptionPlanDefinition extends BaseDefinition {
 
     public static $table = 'SubscriptionPlan';
     public static $fields = [
         'Id'                 => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'ProductId'          => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'Cycle'              => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 30],
 
         ],

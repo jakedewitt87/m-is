@@ -1,26 +1,25 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class LeadSourceRecurringExpenseDefinition extends BaseDefinition
-{
+class LeadSourceRecurringExpenseDefinition extends BaseDefinition {
 
     public static $table = 'LeadSourceRecurringExpense';
     public static $fields = [
         'Id'              => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'LeadSourceId'    => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'Title'           => [
-            'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 150],
 
         ],

@@ -1,38 +1,37 @@
 <?php
 namespace Maven\Infusionsoft\Models\Definitions;
 
-class JobRecurringInstanceDefinition extends BaseDefinition
-{
+class JobRecurringInstanceDefinition extends BaseDefinition {
 
     public static $table = 'JobRecurringInstance';
     public static $fields = [
         'Id'            => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
 
         ],
         'RecurringId'   => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'InvoiceItemId' => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index', 'unsigned']
 
         ],
         'Status'        => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],
         'AutoCharge'    => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'Integer',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'Integer',
             'options' => ['index']
 
         ],
@@ -49,8 +48,8 @@ class JobRecurringInstanceDefinition extends BaseDefinition
             'type'   => 'DateTime'
         ],
         'Description'   => [
-            'access' => ['Edit', 'Add', 'Read'],
-            'type'   => 'String',
+            'access'  => ['Edit', 'Add', 'Read'],
+            'type'    => 'String',
             'options' => ['length' => 255],
 
         ],

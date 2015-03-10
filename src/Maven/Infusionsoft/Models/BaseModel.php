@@ -248,14 +248,14 @@ abstract class BaseModel {
         $customFields = $this->SDK->dsQueryOrderBy('DataFormField', 1000, 0, ['FormId' => $tableFormId], $TableService->getTableFields('DataFormField', 'Read'), 'Label');
         $list = [];
 
-        if(is_array($customFields))
+        if ( is_array($customFields) )
         {
-            foreach($customFields as $field)
+            foreach ( $customFields as $field )
             {
-                if(isset($field[$value]))
+                if ( isset($field[$value]) )
                 {
                     $keyValue = $prependKey ? '_' : '';
-                    $keyValue .= isset($field[$key]) ? $field[$key]: null;
+                    $keyValue .= isset($field[$key]) ? $field[$key] : null;
                     $list[$keyValue] = $field[$value];
                 }
             }
