@@ -194,6 +194,16 @@ class ContactDefinition extends BaseDefinition {
             'type'    => 'Integer',
             'options' => ['unsigned']
         ],
+        'Leadsource'         => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+        ],
+        'LeadSourceId'       => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['unsigned', 'index']
+        ],
         'MiddleName'         => [
             'access'  => ['Edit', 'Delete', 'Add', 'Read'],
             'type'    => 'String',
