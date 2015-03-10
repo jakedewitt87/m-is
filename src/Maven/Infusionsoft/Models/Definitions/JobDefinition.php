@@ -5,104 +5,138 @@ class JobDefinition extends BaseDefinition
 {
 
     public static $table = 'Job';
-    public static $fields = array (
-        'Id'             => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'             => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'JobTitle'       => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'ContactId'      => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Integer'
-        ),
-        'JobTitle'       => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ContactId'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'StartDate'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'StartDate'      => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Date'
-        ),
-        'DueDate'        => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'DueDate'        => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Date'
-        ),
-        'JobNotes'       => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ProductId'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'JobStatus'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'DateCreated'    => array (
-            'access' => array ('Read'),
+        ],
+        'JobNotes'       => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Text'
+        ],
+        'ProductId'      => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'JobStatus'      => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+
+        ],
+        'DateCreated'    => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'JobRecurringId' => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'OrderType'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'OrderStatus'    => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'ShipFirstName'  => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipMiddleName' => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipLastName'   => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipCompany'    => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipPhone'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipStreet1'    => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipStreet2'    => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipCity'       => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipState'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipZip'        => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipCountry'    => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'LastUpdated'    => array (
-            'access' => array ('Read'),
+        ],
+        'JobRecurringId' => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'OrderType'      => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+
+        ],
+        'OrderStatus'    => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'TinyInteger'
+        ],
+        'ShipFirstName'  => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+
+        ],
+        'ShipMiddleName' => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+
+        ],
+        'ShipLastName'   => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+
+        ],
+        'ShipCompany'    => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'ShipPhone'      => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 30],
+
+        ],
+        'ShipStreet1'    => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'ShipStreet2'    => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'ShipCity'       => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+
+        ],
+        'ShipState'      => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+
+        ],
+        'ShipZip'        => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 30],
+
+        ],
+        'ShipCountry'    => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 60],
+
+        ],
+        'LastUpdated'    => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-    );
+        ],
+    ];
 
 }
 

@@ -5,24 +5,32 @@ class TemplateDefinition extends BaseDefinition
 {
 
     public static $table = 'Template';
-    public static $fields = array (
-        'Id'         => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'PieceType'  => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'PieceTitle' => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'Categories' => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-    );
+    public static $fields = [
+        'Id'         => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'PieceType'  => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+        'PieceTitle' => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+        'Categories' => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 200],
+
+        ],
+    ];
 
 }
 

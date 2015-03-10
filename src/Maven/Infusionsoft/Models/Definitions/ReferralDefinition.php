@@ -5,44 +5,58 @@ class ReferralDefinition extends BaseDefinition
 {
 
     public static $table = 'Referral';
-    public static $fields = array (
-        'Id'          => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ContactId'   => array (
-            'access' => array ('Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'AffiliateId' => array (
-            'access' => array ('Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'DateSet'     => array (
-            'access' => array ('Add', 'Read'),
+    public static $fields = [
+        'Id'          => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'ContactId'   => [
+            'access' => ['Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'AffiliateId' => [
+            'access' => ['Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'DateSet'     => [
+            'access' => ['Add', 'Read'],
             'type'   => 'Date'
-        ),
-        'DateExpires' => array (
-            'access' => array ('Add', 'Read'),
+        ],
+        'DateExpires' => [
+            'access' => ['Add', 'Read'],
             'type'   => 'Date'
-        ),
-        'IPAddress'   => array (
-            'access' => array ('Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Source'      => array (
-            'access' => array ('Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Info'        => array (
-            'access' => array ('Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Type'        => array (
-            'access' => array ('Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-    );
+        ],
+        'IPAddress'   => [
+            'access' => ['Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'Source'      => [
+            'access' => ['Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+
+        ],
+        'Info'        => [
+            'access' => ['Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 255],
+
+        ],
+        'Type'        => [
+            'access' => ['Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index']
+
+        ],
+    ];
 
 }
 

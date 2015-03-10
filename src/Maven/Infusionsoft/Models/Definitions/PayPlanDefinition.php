@@ -5,40 +5,46 @@ class PayPlanDefinition extends BaseDefinition
 {
 
     public static $table = 'PayPlan';
-    public static $fields = array (
-        'Id'          => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'InvoiceId'   => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'DateDue'     => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'          => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'InvoiceId'   => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'DateDue'     => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'AmtDue'      => array (
-            'access' => array ('Read'),
+        ],
+        'AmtDue'      => [
+            'access' => ['Read'],
             'type'   => 'Double'
-        ),
-        'Type'        => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'InitDate'    => array (
-            'access' => array ('Read'),
+        ],
+        'Type'        => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index']
+
+        ],
+        'InitDate'    => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'StartDate'   => array (
-            'access' => array ('Read'),
+        ],
+        'StartDate'   => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'FirstPayAmt' => array (
-            'access' => array ('Read'),
+        ],
+        'FirstPayAmt' => [
+            'access' => ['Read'],
             'type'   => 'Double'
-        ),
-    );
+        ],
+    ];
 
 }
 

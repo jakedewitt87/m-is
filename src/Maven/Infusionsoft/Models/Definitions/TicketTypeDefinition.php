@@ -5,20 +5,24 @@ class TicketTypeDefinition extends BaseDefinition
 {
 
     public static $table = 'TicketType';
-    public static $fields = array (
-        'Id'         => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'CategoryId' => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'Label'      => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'         => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'CategoryId' => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'Label'      => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-    );
+        ],
+    ];
 
 }
 

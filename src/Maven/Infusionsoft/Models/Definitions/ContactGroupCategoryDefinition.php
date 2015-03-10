@@ -5,20 +5,22 @@ class ContactGroupCategoryDefinition extends BaseDefinition
 {
 
     public static $table = 'ContactGroupCategory';
-    public static $fields = array (
-        'Id'                  => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'CategoryName'        => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'CategoryDescription' => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-    );
+    public static $fields = [
+        'Id'                  => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'CategoryName'        => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+        ],
+        'CategoryDescription' => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Text'
+        ],
+    ];
 
 }
 

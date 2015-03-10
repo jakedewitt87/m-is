@@ -5,80 +5,88 @@ class ContactActionDefinition extends BaseDefinition
 {
 
     public static $table = 'ContactAction';
-    public static $fields = array (
-        'Id'                => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ContactId'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'OpportunityId'     => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'ActionType'        => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ActionDescription' => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'CreationDate'      => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+    public static $fields = [
+        'Id'                => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'ContactId'         => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned'],
+        ],
+        'OpportunityId'     => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned'],
+        ],
+        'ActionType'        => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+        ],
+        'ActionDescription' => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+        'CreationDate'      => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'DateTime'
-        ),
-        'CreationNotes'     => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'CompletionDate'    => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'CreationNotes'     => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Text'
+        ],
+        'CompletionDate'    => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'DateTime'
-        ),
-        'ActionDate'        => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'ActionDate'        => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'DateTime'
-        ),
-        'EndDate'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'EndDate'           => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'DateTime'
-        ),
-        'PopupDate'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'PopupDate'         => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'DateTime'
-        ),
-        'UserID'            => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Accepted'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'CreatedBy'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'LastUpdated'       => array (
-            'access' => array ('Read'),
+        ],
+        'UserID'            => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned'],
+        ],
+        'Accepted'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'MediumInteger'
+        ],
+        'CreatedBy'         => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned'],
+        ],
+        'LastUpdated'       => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'LastUpdatedBy'     => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'Priority'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'IsAppointment'     => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-    );
+        ],
+        'LastUpdatedBy'     => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned'],
+        ],
+        'Priority'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'MediumInteger'
+        ],
+        'IsAppointment'     => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'MediumInteger'
+        ],
+    ];
 
 }
 

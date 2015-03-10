@@ -5,152 +5,187 @@ class CreditCardDefinition extends BaseDefinition
 {
 
     public static $table = 'CreditCard';
-    public static $fields = array (
-        'Id'                 => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ContactId'          => array (
-            'access' => array ('Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'BillName'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'FirstName'          => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'LastName'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'PhoneNumber'        => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Email'              => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'BillAddress1'       => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'BillAddress2'       => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'BillCity'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'BillState'          => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'BillZip'            => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'BillCountry'        => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipFirstName'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipMiddleName'     => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipLastName'       => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipCompanyName'    => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipPhoneNumber'    => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipAddress1'       => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipAddress2'       => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipCity'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipState'          => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipZip'            => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipCountry'        => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ShipName'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'NameOnCard'         => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'CardNumber'         => array (
-            'access' => array ('Add'),
-            'type'   => 'String'
-        ),
-        'Last4'              => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'ExpirationMonth'    => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ExpirationYear'     => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'CVV2'               => array (
-            'access' => array ('Edit', 'Add'),
-            'type'   => 'String'
-        ),
-        'Status'             => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'CardType'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'StartDateMonth'     => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'StartDateYear'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'MaestroIssueNumber' => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-    );
+    public static $fields = [
+        'Id'                 => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'ContactId'          => [
+            'access' => ['Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+        ],
+        'BillName'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+        'FirstName'          => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 60],
+        ],
+        'LastName'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 60],
+        ],
+        'PhoneNumber'        => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+        ],
+        'Email'              => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+        'BillAddress1'       => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+        'BillAddress2'       => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+        'BillCity'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+        ],
+        'BillState'          => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+        ],
+        'BillZip'            => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 30],
+        ],
+        'BillCountry'        => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 60],
+        ],
+        'ShipFirstName'      => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+        ],
+        'ShipMiddleName'     => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+        ],
+        'ShipLastName'       => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+        ],
+        'ShipCompanyName'    => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+        'ShipPhoneNumber'    => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 30],
+        ],
+        'ShipAddress1'       => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+        'ShipAddress2'       => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+        'ShipCity'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+        ],
+        'ShipState'          => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+        ],
+        'ShipZip'            => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 30],
+        ],
+        'ShipCountry'        => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 60],
+        ],
+        'ShipName'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+        'NameOnCard'         => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+        'CardNumber'         => [
+            'access' => ['Add'],
+            'type'   => 'String',
+            'options' => ['length' => 30],
+        ],
+        'Last4'              => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 20],
+        ],
+        'ExpirationMonth'    => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 10],
+        ],
+        'ExpirationYear'     => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 10],
+        ],
+        'CVV2'               => [
+            'access' => ['Edit', 'Add'],
+            'type'   => 'String',
+            'options' => ['length' => 10],
+        ],
+        'Status'             => [
+            'access' => ['Read'],
+            'type'   => 'MediumInteger'
+        ],
+        'CardType'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+        ],
+        'StartDateMonth'     => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 60],
+        ],
+        'StartDateYear'      => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 60],
+        ],
+        'MaestroIssueNumber' => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+    ];
 
 }
 

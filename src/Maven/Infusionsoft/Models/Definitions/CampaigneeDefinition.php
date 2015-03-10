@@ -5,28 +5,33 @@ class CampaigneeDefinition extends BaseDefinition
 {
 
     public static $table = 'Campaignee';
-    public static $fields = array (
-        'Id'         => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'CampaignId' => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'Status'     => array (
-            'access' => array ('Read'),
-            'type'   => 'Enum'
-        ),
-        'Campaign'   => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'ContactId'  => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-    );
+    public static $fields = [
+        'Id'                => [
+            'access'  => ['Read'],
+            'type'    => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'Campaign'          => [
+            'access'  => ['Read'],
+            'type'    => 'String',
+            'options' => ['length' => 75],
+        ],
+        'CampaignId'         => [
+            'access'  => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['unsigned','index']
+        ],
+        'ContactId'         => [
+            'access'  => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['unsigned','index']
+        ],
+        'Status'          => [
+            'access'  => ['Read'],
+            'type'    => 'String',
+            'options' => ['length' => 15],
+        ],
+    ];
 
 }
 

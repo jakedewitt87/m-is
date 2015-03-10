@@ -5,44 +5,51 @@ class InvoiceItemDefinition extends BaseDefinition
 {
 
     public static $table = 'InvoiceItem';
-    public static $fields = array (
-        'Id'               => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'InvoiceId'        => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'OrderItemId'      => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'InvoiceAmt'       => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+    public static $fields = [
+        'Id'               => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'InvoiceId'        => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'OrderItemId'      => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'InvoiceAmt'       => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'Discount'         => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'Discount'         => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'DateCreated'      => array (
-            'access' => array ('Read'),
+        ],
+        'DateCreated'      => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'Description'      => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'CommissionStatus' => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'LastUpdated'      => array (
-            'access' => array ('Read'),
+        ],
+        'Description'      => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 2048],
+        ],
+        'CommissionStatus' => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'TinyInteger'
+        ],
+        'LastUpdated'      => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-    );
+        ],
+    ];
 
 }
 

@@ -5,316 +5,318 @@ class ContactGroupAssignDefinition extends BaseDefinition
 {
 
     public static $table = 'ContactGroupAssign';
-    public static $fields = array (
-        'GroupId'                    => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ContactGroup'               => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'GroupId'                    => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned'],
+        ],
+        'ContactGroup'               => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'DateCreated'                => array (
-            'access' => array ('Read'),
+        ],
+        'DateCreated'                => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'ContactId'                  => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'Contact.Address1Type'       => array (
-            'access' => array ('Read'),
+        ],
+        'ContactId'                  => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned'],
+        ],
+        'Contact.Address1Type'       => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Address2Street1'    => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Address2Street1'    => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Address2Street2'    => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Address2Street2'    => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Address2Type'       => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Address2Type'       => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Address3Street1'    => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Address3Street1'    => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Address3Street2'    => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Address3Street2'    => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Address3Type'       => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Address3Type'       => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Anniversary'        => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Anniversary'        => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'Contact.AssistantName'      => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.AssistantName'      => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.AssistantPhone'     => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.AssistantPhone'     => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.BillingInformation' => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.BillingInformation' => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Birthday'           => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Birthday'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.City'               => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.City'               => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.City2'              => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.City2'              => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.City3'              => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.City3'              => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Company'            => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Company'            => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.CompanyID'          => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.CompanyID'          => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'Contact.ContactNotes'       => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.ContactNotes'       => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.ContactType'        => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.ContactType'        => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Country'            => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Country'            => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Country2'           => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Country2'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Country3'           => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Country3'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.CreatedBy'          => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.CreatedBy'          => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'Contact.DateCreated'        => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.DateCreated'        => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'Contact.Email'              => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Email'              => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.EmailAddress2'      => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.EmailAddress2'      => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.EmailAddress3'      => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.EmailAddress3'      => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Fax1'               => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Fax1'               => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Fax1Type'           => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Fax1Type'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Fax2'               => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Fax2'               => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Fax2Type'           => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Fax2Type'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.FirstName'          => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.FirstName'          => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Groups'             => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Groups'             => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Id'                 => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Id'                 => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'Contact.JobTitle'           => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.JobTitle'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.LastName'           => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.LastName'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.LastUpdated'        => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.LastUpdated'        => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.LastUpdatedBy'      => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.LastUpdatedBy'      => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Leadsource'         => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Leadsource'         => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.MiddleName'         => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.MiddleName'         => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Nickname'           => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Nickname'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.OwnerID'            => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.OwnerID'            => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'Contact.Phone1'             => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone1'             => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone1Ext'          => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone1Ext'          => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone1Type'         => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone1Type'         => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone2'             => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone2'             => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone2Ext'          => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone2Ext'          => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone2Type'         => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone2Type'         => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone3'             => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone3'             => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone3Ext'          => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone3Ext'          => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone3Type'         => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone3Type'         => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone4'             => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone4'             => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone4Ext'          => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone4Ext'          => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone4Type'         => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone4Type'         => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone5'             => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone5'             => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone5Ext'          => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone5Ext'          => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Phone5Type'         => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Phone5Type'         => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.PostalCode'         => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.PostalCode'         => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.PostalCode2'        => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.PostalCode2'        => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.PostalCode3'        => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.PostalCode3'        => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.ReferralCode'       => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.ReferralCode'       => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.SpouseName'         => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.SpouseName'         => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.State'              => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.State'              => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.State2'             => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.State2'             => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.State3'             => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.State3'             => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.StreetAddress1'     => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.StreetAddress1'     => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.StreetAddress2'     => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.StreetAddress2'     => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Suffix'             => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Suffix'             => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Title'              => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Title'              => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.Website'            => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.Website'            => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.ZipFour1'           => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.ZipFour1'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.ZipFour2'           => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.ZipFour2'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Contact.ZipFour3'           => array (
-            'access' => array ('Read'),
+        ],
+        'Contact.ZipFour3'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-    );
+        ],
+    ];
 
 }
 

@@ -5,28 +5,34 @@ class ProductCategoryDefinition extends BaseDefinition
 {
 
     public static $table = 'ProductCategory';
-    public static $fields = array (
-        'Id'                  => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'CategoryDisplayName' => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'CategoryImage'       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+    public static $fields = [
+        'Id'                  => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'CategoryDisplayName' => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'CategoryImage'       => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Binary'
-        ),
-        'CategoryOrder'       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'CategoryOrder'       => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Integer'
-        ),
-        'ParentId'            => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-    );
+        ],
+        'ParentId'            => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+    ];
 
 }
 

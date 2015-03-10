@@ -5,32 +5,40 @@ class ExpenseDefinition extends BaseDefinition
 {
 
     public static $table = 'Expense';
-    public static $fields = array (
-        'Id'           => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ContactId'    => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ExpenseType'  => array (
-            'access' => array ('Read'),
-            'type'   => 'Enum'
-        ),
-        'TypeId'       => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ExpenseAmt'   => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'           => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'ContactId'    => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'ExpenseType'  => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 30],
+
+        ],
+        'TypeId'       => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'ExpenseAmt'   => [
+            'access' => ['Read'],
             'type'   => 'Double'
-        ),
-        'DateIncurred' => array (
-            'access' => array ('Read'),
+        ],
+        'DateIncurred' => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-    );
+        ],
+    ];
 
 }
 

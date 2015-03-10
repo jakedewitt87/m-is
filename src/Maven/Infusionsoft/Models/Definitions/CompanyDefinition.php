@@ -5,312 +5,377 @@ class CompanyDefinition extends BaseDefinition
 {
 
     public static $table = 'Company';
-    public static $fields = array (
-        'Id'                 => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'Address1Type'       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Address2Street1'    => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Address2Street2'    => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Address2Type'       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Address3Street1'    => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Address3Street2'    => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Address3Type'       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Anniversary'        => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Date'
-        ),
-        'AssistantName'      => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'AssistantPhone'     => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'BillingInformation' => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Birthday'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Date'
-        ),
-        'City'               => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'City2'              => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'City3'              => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Company'            => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'AccountId'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'CompanyID'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'ContactNotes'       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ContactType'        => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Country'            => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Country2'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Country3'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'CreatedBy'          => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'DateCreated'        => array (
-            'access' => array ('Read'),
-            'type'   => 'DateTime'
-        ),
-        'Email'              => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'EmailAddress2'      => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'EmailAddress3'      => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Fax1'               => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Fax1Type'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Fax2'               => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Fax2Type'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'FirstName'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Groups'             => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'JobTitle'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'LastName'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'LastUpdated'        => array (
-            'access' => array ('Read'),
-            'type'   => 'DateTime'
-        ),
-        'LastUpdatedBy'      => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'MiddleName'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Nickname'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'OwnerID'            => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Password'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone1'             => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone1Ext'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone1Type'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone2'             => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone2Ext'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone2Type'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone3'             => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone3Ext'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone3Type'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone4'             => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone4Ext'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone4Type'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone5'             => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone5Ext'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Phone5Type'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'PostalCode'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'PostalCode2'        => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'PostalCode3'        => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ReferralCode'       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'SpouseName'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'State'              => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'State2'             => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'State3'             => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'StreetAddress1'     => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'StreetAddress2'     => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Suffix'             => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Title'              => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Username'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Validated'          => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'Website'            => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ZipFour1'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ZipFour2'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ZipFour3'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-    );
+    public static $fields = [
+        'Id'                => [
+            'access'  => ['Read'],
+            'type'    => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'AccountId'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
+            'options' => ['unsigned','index']
+        ],
+        'Address1Type'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'Address2Street1'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'Address2Street1'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'Address2Type'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 50],
+        ],
+        'Address3Street1'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'Address3Street2'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'Address3Type'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'Anniversary'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Date',
+        ],
+        'AssistantName'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 20],
+        ],
+        'AssistantPhone'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 15],
+        ],
+        'BillingInformation'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'Birthday'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'DateTime',
+        ],
+        'City'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 50],
+        ],
+        'City2'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 50],
+        ],
+        'City3'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 50],
+        ],
+        'Company'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 50],
+        ],
+        'CompanyID'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
+            'options' => ['unsigned','index']
+        ],
+        'ContactNotes'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Text'
+        ],
+        'ContactType'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 150],
+        ],
+        'Country'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'Country2'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'Country3'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'CreatedBy'          => [
+            'access' => ['Read'],
+            'type'    => 'Integer',
+            'options' => ['unsigned','index']
+        ],
+        'DateCreated'          => [
+            'access' => ['Read'],
+            'type'    => 'DateTime',
+        ],
+        'Email'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 75],
+        ],
+        'EmailAddress2'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'EmailAddress3'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'Fax1'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 20],
+        ],
+        'Fax1Type'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 15],
+        ],
+        'Fax2'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 20],
+        ],
+        'Fax2Type'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 15],
+        ],
+        'FirstName'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 40],
+        ],
+        'Groups'          => [
+            'access' => ['Read'],
+            'type'    => 'Text'
+        ],
+        'JobTitle'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 50],
+        ],
+        'LastName'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 40],
+        ],
+        'LastUpdated'          => [
+            'access' => ['Read'],
+            'type'    => 'DateTime'
+        ],
+        'LastUpdatedBy'          => [
+            'access' => ['Read'],
+            'type'    => 'Integer',
+            'options' => ['unsigned']
+        ],
+        'MiddleName'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'Nickname'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'OwnerID'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'Integer',
+            'options' => ['unsigned','index']
+        ],
+        'Password'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'Phone1'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 20],
+        ],
+        'Phone1Ext'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 10],
+        ],
+        'Phone1Type'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 15],
+        ],
+        'Phone2'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 20],
+        ],
+        'Phone2Ext'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 10],
+        ],
 
+        'Phone2Type'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 15],
+        ],
+        'Phone3'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 20],
+        ],
+        'Phone3Ext'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 10],
+        ],
+        'Phone3Type'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 15],
+        ],
+        'Phone4'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 20],
+        ],
+        'Phone4Ext'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 10],
+        ],
+        'Phone4Type'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 15],
+        ],
+        'Phone5'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 20],
+        ],
+        'Phone5Ext'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 10],
+        ],
+        'Phone5Type'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 15],
+        ],
+        'PostalCode'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 15],
+        ],
+        'PostalCode2'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 20],
+        ],
+        'PostalCode3'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 15],
+        ],
+        'SpouseName'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'State'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 50],
+        ],
+        'State2'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 50],
+        ],
+        'State3'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 50],
+        ],
+        'StreetAddress1'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 75],
+        ],
+        'StreetAddress2'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 75],
+        ],
+        'Suffix'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 15],
+        ],
+        'Title'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 30],
+        ],
+        'Username'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 75],
+        ],
+        'Validated'          => [
+            'access' => ['Read'],
+            'type'    => 'String',
+            'options' => ['length' => 20],
+        ],
+        'Website'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
+        ],
+        'ZipFour1'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 10],
+        ],
+        'ZipFour2'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 10],
+        ],
+        'ZipFour3'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'    => 'String',
+            'options' => ['length' => 10],
+        ],
+    ];
 }
 

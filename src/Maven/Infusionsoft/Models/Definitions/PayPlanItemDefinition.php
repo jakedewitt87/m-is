@@ -5,32 +5,38 @@ class PayPlanItemDefinition extends BaseDefinition
 {
 
     public static $table = 'PayPlanItem';
-    public static $fields = array (
-        'Id'        => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'PayPlanId' => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'DateDue'   => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'        => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'PayPlanId' => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'DateDue'   => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'AmtDue'    => array (
-            'access' => array ('Read'),
+        ],
+        'AmtDue'    => [
+            'access' => ['Read'],
             'type'   => 'Double'
-        ),
-        'Status'    => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'AmtPaid'   => array (
-            'access' => array ('Read'),
+        ],
+        'Status'    => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index']
+
+        ],
+        'AmtPaid'   => [
+            'access' => ['Read'],
             'type'   => 'Double'
-        ),
-    );
+        ],
+    ];
 
 }
 

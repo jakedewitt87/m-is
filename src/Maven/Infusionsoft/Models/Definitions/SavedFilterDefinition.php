@@ -5,24 +5,31 @@ class SavedFilterDefinition extends BaseDefinition
 {
 
     public static $table = 'SavedFilter';
-    public static $fields = array (
-        'Id'               => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'FilterName'       => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'ReportStoredName' => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'UserId'           => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-    );
+    public static $fields = [
+        'Id'               => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'FilterName'       => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'ReportStoredName' => [
+            'access' => ['Read'],
+            'type'   => 'Text'
+
+        ],
+        'UserId'           => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+    ];
 
 }
 

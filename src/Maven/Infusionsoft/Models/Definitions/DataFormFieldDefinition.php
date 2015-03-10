@@ -5,44 +5,59 @@ class DataFormFieldDefinition extends BaseDefinition
 {
 
     public static $table = 'DataFormField';
-    public static $fields = array (
-        'Id'           => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'           => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'DataType'     => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index']
+
+        ],
+        'FormId'       => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'GroupId'      => [
+            'access' => ['Edit', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'Name'         => [
+            'access' => ['Edit', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'Label'        => [
+            'access' => ['Edit', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+        'DefaultValue' => [
+            'access' => ['Edit', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'Values'       => [
+            'access' => ['Edit', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+        'ListRows'     => [
+            'access' => ['Edit', 'Read'],
             'type'   => 'Integer'
-        ),
-        'DataType'     => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'FormId'       => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'GroupId'      => array (
-            'access' => array ('Edit', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Name'         => array (
-            'access' => array ('Edit', 'Read'),
-            'type'   => 'String'
-        ),
-        'Label'        => array (
-            'access' => array ('Edit', 'Read'),
-            'type'   => 'String'
-        ),
-        'DefaultValue' => array (
-            'access' => array ('Edit', 'Read'),
-            'type'   => 'String'
-        ),
-        'Values'       => array (
-            'access' => array ('Edit', 'Read'),
-            'type'   => 'String'
-        ),
-        'ListRows'     => array (
-            'access' => array ('Edit', 'Read'),
-            'type'   => 'Integer'
-        ),
-    );
+        ],
+    ];
 
 }
 

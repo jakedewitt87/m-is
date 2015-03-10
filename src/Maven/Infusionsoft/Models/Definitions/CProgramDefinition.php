@@ -14,7 +14,7 @@ class CProgramDefinition extends BaseDefinition
         'ProgramName'      => [
             'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'String',
-            'options' => ['length' => 80],
+            'options' => ['length' => 100],
         ],
         'DefaultPrice'     => [
             'access' => ['Edit', 'Add', 'Read'],
@@ -32,7 +32,7 @@ class CProgramDefinition extends BaseDefinition
         'Sku'              => [
             'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'String',
-            'options' => ['length' => 50],
+            'options' => ['length' => 100],
         ],
         'ShortDescription' => [
             'access' => ['Edit', 'Add', 'Read'],
@@ -42,7 +42,7 @@ class CProgramDefinition extends BaseDefinition
         'BillingType'      => [
             'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'String',
-            'options' => ['length' => 30],
+            'options' => ['length' => 20],
         ],
         'Description'      => [
             'access' => ['Edit', 'Add', 'Read'],
@@ -74,7 +74,7 @@ class CProgramDefinition extends BaseDefinition
         'Family'           => [
             'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'String',
-            'options' => ['length' => 40]
+            'options' => ['length' => 50]
         ],
         'ProductId'        => [
             'access' => ['Edit', 'Add', 'Read'],

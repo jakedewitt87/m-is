@@ -5,20 +5,26 @@ class ProductInterestBundleDefinition extends BaseDefinition
 {
 
     public static $table = 'ProductInterestBundle';
-    public static $fields = array (
-        'Id'          => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'BundleName'  => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Description' => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-    );
+    public static $fields = [
+        'Id'          => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'BundleName'  => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+        'Description' => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+    ];
 
 }
 

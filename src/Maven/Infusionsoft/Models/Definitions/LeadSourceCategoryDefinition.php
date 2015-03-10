@@ -5,20 +5,24 @@ class LeadSourceCategoryDefinition extends BaseDefinition
 {
 
     public static $table = 'LeadSourceCategory';
-    public static $fields = array (
-        'Id'          => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'Name'        => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Description' => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-    );
+    public static $fields = [
+        'Id'          => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'Name'        => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+        'Description' => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Text'
+        ],
+    ];
 
 }
 

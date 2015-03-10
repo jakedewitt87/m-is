@@ -5,20 +5,26 @@ class ProductCategoryAssignDefinition extends BaseDefinition
 {
 
     public static $table = 'ProductCategoryAssign';
-    public static $fields = array (
-        'Id'                => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ProductId'         => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'ProductCategoryId' => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-    );
+    public static $fields = [
+        'Id'                => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'ProductId'         => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'ProductCategoryId' => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+    ];
 
 }
 

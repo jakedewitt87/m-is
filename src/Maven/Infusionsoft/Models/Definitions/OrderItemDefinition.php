@@ -5,56 +5,70 @@ class OrderItemDefinition extends BaseDefinition
 {
 
     public static $table = 'OrderItem';
-    public static $fields = array (
-        'Id'                 => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'                 => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'OrderId'            => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'ProductId'          => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'SubscriptionPlanId' => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'ItemName'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'Qty'                => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Integer'
-        ),
-        'OrderId'            => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'ProductId'          => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'SubscriptionPlanId' => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'ItemName'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Qty'                => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'CPU'                => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'CPU'                => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'PPU'                => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'PPU'                => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'ItemDescription'    => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ItemType'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Notes'              => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'LastUpdated'        => array (
-            'access' => array ('Read'),
+        ],
+        'ItemDescription'    => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'ItemType'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index']
+
+        ],
+        'Notes'              => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Text'
+        ],
+        'LastUpdated'        => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-    );
+        ],
+    ];
 
 }
 

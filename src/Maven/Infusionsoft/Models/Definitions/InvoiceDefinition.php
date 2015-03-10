@@ -5,84 +5,109 @@ class InvoiceDefinition extends BaseDefinition
 {
 
     public static $table = 'Invoice';
-    public static $fields = array (
-        'Id'              => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ContactId'       => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'JobId'           => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'DateCreated'     => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'              => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'ContactId'       => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'JobId'           => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'DateCreated'     => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'InvoiceTotal'    => array (
-            'access' => array ('Read'),
+        ],
+        'InvoiceTotal'    => [
+            'access' => ['Read'],
             'type'   => 'Double'
-        ),
-        'TotalPaid'       => array (
-            'access' => array ('Read'),
+        ],
+        'TotalPaid'       => [
+            'access' => ['Read'],
             'type'   => 'Double'
-        ),
-        'TotalDue'        => array (
-            'access' => array ('Read'),
+        ],
+        'TotalDue'        => [
+            'access' => ['Read'],
             'type'   => 'Double'
-        ),
-        'PayStatus'       => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'CreditStatus'    => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'RefundStatus'    => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'PayPlanStatus'   => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'AffiliateId'     => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'LeadAffiliateId' => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'PromoCode'       => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'InvoiceType'     => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'Description'     => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'ProductSold'     => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'Synced'          => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'LastUpdated'     => array (
-            'access' => array ('Read'),
+        ],
+        'PayStatus'       => [
+            'access' => ['Read'],
+            'type'   => 'MediumInteger',
+            'options' => ['index']
+
+        ],
+        'CreditStatus'    => [
+            'access' => ['Read'],
+            'type'   => 'MediumInteger',
+            'options' => ['index']
+
+        ],
+        'RefundStatus'    => [
+            'access' => ['Read'],
+            'type'   => 'MediumInteger',
+            'options' => ['index']
+
+        ],
+        'PayPlanStatus'   => [
+            'access' => ['Read'],
+            'type'   => 'MediumInteger',
+            'options' => ['index']
+
+        ],
+        'AffiliateId'     => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'LeadAffiliateId' => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'PromoCode'       => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+
+        ],
+        'InvoiceType'     => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'Description'     => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 255],
+
+        ],
+        'ProductSold'     => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 255],
+
+        ],
+        'Synced'          => [
+            'access' => ['Read'],
+            'type'   => 'TinyInteger'
+        ],
+        'LastUpdated'     => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-    );
+        ],
+    ];
 
 }
 

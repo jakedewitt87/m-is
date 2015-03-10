@@ -5,40 +5,48 @@ class AffResourceDefinition extends BaseDefinition
 {
 
     public static $table = 'AffResource';
-    public static $fields = array (
-        'Id'            => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Title'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ResourceType'  => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ResourceOrder' => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ResourceHTML'  => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ResourceHREF'  => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Notes'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ProgramIds'    => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-    );
+    public static $fields = [
+        'Id'            => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'Title'         => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+        'ResourceType'  => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['length' => 11],
+        ],
+        'ResourceOrder' => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 11],
+        ],
+        'ResourceHTML'  => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'LongText',
+
+        ],
+        'ResourceHREF'  => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 255],
+        ],
+        'Notes'         => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Text',
+
+        ],
+        'ProgramIds'    => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 255],
+        ],
+    ];
 
 }
 

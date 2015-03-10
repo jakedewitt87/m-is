@@ -5,40 +5,46 @@ class LeadSourceRecurringExpenseDefinition extends BaseDefinition
 {
 
     public static $table = 'LeadSourceRecurringExpense';
-    public static $fields = array (
-        'Id'              => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'LeadSourceId'    => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Title'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Notes'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Amount'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+    public static $fields = [
+        'Id'              => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'LeadSourceId'    => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'Title'           => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+        'Notes'           => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Text'
+        ],
+        'Amount'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'StartDate'       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'StartDate'       => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'DateTime'
-        ),
-        'EndDate'         => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'EndDate'         => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'DateTime'
-        ),
-        'NextExpenseDate' => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'NextExpenseDate' => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'DateTime'
-        ),
-    );
+        ],
+    ];
 
 }
 

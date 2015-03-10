@@ -5,40 +5,46 @@ class SubscriptionPlanDefinition extends BaseDefinition
 {
 
     public static $table = 'SubscriptionPlan';
-    public static $fields = array (
-        'Id'                 => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'                 => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'ProductId'          => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'Cycle'              => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 30],
+
+        ],
+        'Frequency'          => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Integer'
-        ),
-        'ProductId'          => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Cycle'              => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Frequency'          => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'PreAuthorizeAmount' => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'PreAuthorizeAmount' => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'Prorate'            => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'Prorate'            => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Boolean'
-        ),
-        'Active'             => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'Active'             => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Boolean'
-        ),
-        'PlanPrice'          => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'PlanPrice'          => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-    );
+        ],
+    ];
 
 }
 

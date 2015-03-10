@@ -5,32 +5,39 @@ class FileBoxDefinition extends BaseDefinition
 {
 
     public static $table = 'FileBox';
-    public static $fields = array (
-        'Id'        => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'FileName'  => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'Extension' => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'FileSize'  => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'        => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'FileName'  => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 200],
+        ],
+        'Extension' => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 4],
+        ],
+        'FileSize'  => [
+            'access' => ['Read'],
             'type'   => 'BigInteger'
-        ),
-        'ContactId' => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'Public'    => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-    );
+        ],
+        'ContactId' => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'Public'    => [
+            'access' => ['Read'],
+            'type'   => 'MediumInteger'
+
+        ],
+    ];
 
 }
 

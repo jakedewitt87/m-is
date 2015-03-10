@@ -5,40 +5,52 @@ class ProductOptValueDefinition extends BaseDefinition
 {
 
     public static $table = 'ProductOptValue';
-    public static $fields = array (
-        'Id'              => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'ProductOptionId' => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Label'           => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Sku'             => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'IsDefault'       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Name'            => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'OptionIndex'     => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'PriceAdjustment' => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+    public static $fields = [
+        'Id'              => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'ProductOptionId' => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'Label'           => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+        'Sku'             => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+        'IsDefault'       => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'TinyInteger'
+
+        ],
+        'Name'            => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+        'OptionIndex'     => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index']
+
+        ],
+        'PriceAdjustment' => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-    );
+        ],
+    ];
 
 }
 

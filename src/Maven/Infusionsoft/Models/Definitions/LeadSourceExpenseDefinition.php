@@ -5,36 +5,44 @@ class LeadSourceExpenseDefinition extends BaseDefinition
 {
 
     public static $table = 'LeadSourceExpense';
-    public static $fields = array (
-        'Id'                           => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'LeadSourceRecurringExpenseId' => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'LeadSourceId'                 => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Title'                        => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Notes'                        => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Amount'                       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+    public static $fields = [
+        'Id'                           => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'LeadSourceRecurringExpenseId' => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'LeadSourceId'                 => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'Title'                        => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+        'Notes'                        => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Text'
+        ],
+        'Amount'                       => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'DateIncurred'                 => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'DateIncurred'                 => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'DateTime'
-        ),
-    );
+        ],
+    ];
 
 }
 

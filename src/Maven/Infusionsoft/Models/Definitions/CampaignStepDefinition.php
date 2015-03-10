@@ -5,28 +5,33 @@ class CampaignStepDefinition extends BaseDefinition
 {
 
     public static $table = 'CampaignStep';
-    public static $fields = array (
-        'Id'         => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'CampaignId' => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'TemplateId' => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'StepStatus' => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'StepTitle'  => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-    );
+    public static $fields = [
+        'Id'                => [
+            'access'  => ['Read'],
+            'type'    => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'CampaignId'         => [
+            'access'  => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['unsigned','index']
+        ],
+        'StepStatus'          => [
+            'access'  => ['Read'],
+            'type'    => 'String',
+            'options' => ['length' => 20],
+        ],
+        'StepTitle'          => [
+            'access'  => ['Read'],
+            'type'    => 'String',
+            'options' => ['length' => 255],
+        ],
+        'TemplateId'          => [
+            'access'  => ['Read'],
+            'type'    => 'Integer',
+            'options' => ['unsigned','index']
+        ],
+    ];
 
 }
 

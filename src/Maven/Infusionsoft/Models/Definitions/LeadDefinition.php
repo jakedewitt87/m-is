@@ -5,84 +5,106 @@ class LeadDefinition extends BaseDefinition
 {
 
     public static $table = 'Lead';
-    public static $fields = array (
-        'Id'                   => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'OpportunityTitle'     => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ContactID'            => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'AffiliateId'          => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'UserID'               => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'StageID'              => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'StatusID'             => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Leadsource'           => array (
-            'access' => array ('Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Objection'            => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ProjectedRevenueLow'  => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+    public static $fields = [
+        'Id'                   => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'OpportunityTitle'     => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'ContactID'            => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'AffiliateId'          => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'UserID'               => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'StageID'              => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'StatusID'             => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'Leadsource'           => [
+            'access' => ['Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+
+        ],
+        'Objection'            => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 255],
+
+        ],
+        'ProjectedRevenueLow'  => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'ProjectedRevenueHigh' => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'ProjectedRevenueHigh' => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'OpportunityNotes'     => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'DateCreated'          => array (
-            'access' => array ('Edit', 'Delete', 'Read'),
+        ],
+        'OpportunityNotes'     => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Text'
+        ],
+        'DateCreated'          => [
+            'access' => ['Edit', 'Delete', 'Read'],
             'type'   => 'DateTime'
-        ),
-        'LastUpdated'          => array (
-            'access' => array ('Edit', 'Delete', 'Read'),
+        ],
+        'LastUpdated'          => [
+            'access' => ['Edit', 'Delete', 'Read'],
             'type'   => 'DateTime'
-        ),
-        'LastUpdatedBy'        => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'CreatedBy'            => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'EstimatedCloseDate'   => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'LastUpdatedBy'        => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'CreatedBy'            => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'EstimatedCloseDate'   => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'DateTime'
-        ),
-        'NextActionDate'       => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
+        ],
+        'NextActionDate'       => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'DateTime'
-        ),
-        'NextActionNotes'      => array (
-            'access' => array ('Edit', 'Delete', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-    );
+        ],
+        'NextActionNotes'      => [
+            'access' => ['Edit', 'Delete', 'Add', 'Read'],
+            'type'   => 'Text'
+        ],
+    ];
 
 }
 

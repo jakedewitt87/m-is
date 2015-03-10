@@ -22,7 +22,8 @@ class AffiliateDefinition extends BaseDefinition {
         ],
         'LeadAmt'           => [
             'access' => ['Edit', 'Delete', 'Add', 'Read'],
-            'type'   => 'Double'
+            'type'   => 'Double',
+
         ],
         'LeadPercent'       => [
             'access' => ['Edit', 'Delete', 'Add', 'Read'],
@@ -52,12 +53,12 @@ class AffiliateDefinition extends BaseDefinition {
         'AffName'           => [
             'access'  => ['Edit', 'Delete', 'Add', 'Read'],
             'type'    => 'String',
-            'options' => ['length' => 50],
+            'options' => ['length' => 100],
         ],
         'Password'          => [
             'access' => ['Edit', 'Delete', 'Add', 'Read'],
             'type'   => 'String',
-            'options' => ['length' => 40],
+            'options' => ['length' => 100],
         ],
         'AffCode'           => [
             'access'  => ['Edit', 'Delete', 'Add', 'Read'],

@@ -5,56 +5,58 @@ class MtgLeadDefinition extends BaseDefinition
 {
 
     public static $table = 'MtgLead';
-    public static $fields = array (
-        'Id'                    => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'DateAppraisalOrdered'  => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'                    => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'DateAppraisalOrdered'  => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'DateAppraisalDone'     => array (
-            'access' => array ('Read'),
+        ],
+        'DateAppraisalDone'     => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'DateAppraisalReceived' => array (
-            'access' => array ('Read'),
+        ],
+        'DateAppraisalReceived' => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'DateTitleOrdered'      => array (
-            'access' => array ('Read'),
+        ],
+        'DateTitleOrdered'      => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'DateTitleReceived'     => array (
-            'access' => array ('Read'),
+        ],
+        'DateTitleReceived'     => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'DateRateLocked'        => array (
-            'access' => array ('Read'),
+        ],
+        'DateRateLocked'        => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'DateRateLockExpires'   => array (
-            'access' => array ('Read'),
+        ],
+        'DateRateLockExpires'   => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'CreditReportDate'      => array (
-            'access' => array ('Read'),
+        ],
+        'CreditReportDate'      => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'ApplicationDate'       => array (
-            'access' => array ('Read'),
+        ],
+        'ApplicationDate'       => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'ActualCloseDate'       => array (
-            'access' => array ('Read'),
+        ],
+        'ActualCloseDate'       => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'FundingDate'           => array (
-            'access' => array ('Read'),
+        ],
+        'FundingDate'           => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-    );
+        ],
+    ];
 
 }
 

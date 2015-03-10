@@ -5,20 +5,23 @@ class DataFormGroupDefinition extends BaseDefinition
 {
 
     public static $table = 'DataFormGroup';
-    public static $fields = array (
-        'Id'    => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'TabId' => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'Name'  => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-    );
+    public static $fields = [
+        'Id'    => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'TabId' => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+        ],
+        'Name'  => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+        ],
+    ];
 
 }
 

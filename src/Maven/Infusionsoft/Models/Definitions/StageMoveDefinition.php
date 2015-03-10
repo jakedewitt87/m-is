@@ -5,44 +5,56 @@ class StageMoveDefinition extends BaseDefinition
 {
 
     public static $table = 'StageMove';
-    public static $fields = array (
-        'Id'                => array (
-            'access' => array ('Read'),
-            'type'   => 'BigInteger'
-        ),
-        'OpportunityId'     => array (
-            'access' => array ('Read'),
-            'type'   => 'BigInteger'
-        ),
-        'MoveDate'          => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'                => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'OpportunityId'     => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'MoveDate'          => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'MoveToStage'       => array (
-            'access' => array ('Read'),
-            'type'   => 'BigInteger'
-        ),
-        'MoveFromStage'     => array (
-            'access' => array ('Read'),
-            'type'   => 'BigInteger'
-        ),
-        'PrevStageMoveDate' => array (
-            'access' => array ('Read'),
+        ],
+        'MoveToStage'       => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'MoveFromStage'     => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'PrevStageMoveDate' => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'CreatedBy'         => array (
-            'access' => array ('Read'),
-            'type'   => 'BigInteger'
-        ),
-        'DateCreated'       => array (
-            'access' => array ('Read'),
+        ],
+        'CreatedBy'         => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'DateCreated'       => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-        'UserId'            => array (
-            'access' => array ('Read'),
-            'type'   => 'BigInteger'
-        ),
-    );
+        ],
+        'UserId'            => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+    ];
 
 }
 

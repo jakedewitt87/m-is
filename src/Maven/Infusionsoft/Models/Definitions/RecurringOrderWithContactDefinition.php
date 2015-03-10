@@ -5,208 +5,208 @@ class RecurringOrderWithContactDefinition extends BaseDefinition
 {
 
     public static $table = 'RecurringOrderWithContact';
-    public static $fields = array (
-        'RecurringOrderId'    => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'RecurringOrderId'    => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'ContactId'           => array (
-            'access' => array ('Read'),
+        ],
+        'ContactId'           => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'ProgramId'           => array (
-            'access' => array ('Read'),
+        ],
+        'ProgramId'           => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'SubscriptionPlanId'  => array (
-            'access' => array ('Read'),
+        ],
+        'SubscriptionPlanId'  => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'ProductId'           => array (
-            'access' => array ('Read'),
+        ],
+        'ProductId'           => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'StartDate'           => array (
-            'access' => array ('Read'),
+        ],
+        'StartDate'           => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'EndDate'             => array (
-            'access' => array ('Read'),
+        ],
+        'EndDate'             => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'LastBillDate'        => array (
-            'access' => array ('Read'),
+        ],
+        'LastBillDate'        => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'NextBillDate'        => array (
-            'access' => array ('Read'),
+        ],
+        'NextBillDate'        => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'PaidThruDate'        => array (
-            'access' => array ('Read'),
+        ],
+        'PaidThruDate'        => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'BillingCycle'        => array (
-            'access' => array ('Read'),
+        ],
+        'BillingCycle'        => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Frequency'           => array (
-            'access' => array ('Read'),
+        ],
+        'Frequency'           => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'BillingAmt'          => array (
-            'access' => array ('Read'),
+        ],
+        'BillingAmt'          => [
+            'access' => ['Read'],
             'type'   => 'Double'
-        ),
-        'Status'              => array (
-            'access' => array ('Read'),
+        ],
+        'Status'              => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'ReasonStopped'       => array (
-            'access' => array ('Read'),
+        ],
+        'ReasonStopped'       => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'AutoCharge'          => array (
-            'access' => array ('Read'),
+        ],
+        'AutoCharge'          => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'CC1'                 => array (
-            'access' => array ('Read'),
+        ],
+        'CC1'                 => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'CC2'                 => array (
-            'access' => array ('Read'),
+        ],
+        'CC2'                 => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'NumDaysBetweenRetry' => array (
-            'access' => array ('Read'),
+        ],
+        'NumDaysBetweenRetry' => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'MaxRetry'            => array (
-            'access' => array ('Read'),
+        ],
+        'MaxRetry'            => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'MerchantAccountId'   => array (
-            'access' => array ('Read'),
+        ],
+        'MerchantAccountId'   => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'AffiliateId'         => array (
-            'access' => array ('Read'),
+        ],
+        'AffiliateId'         => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'PromoCode'           => array (
-            'access' => array ('Read'),
+        ],
+        'PromoCode'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'LeadAffiliateId'     => array (
-            'access' => array ('Read'),
+        ],
+        'LeadAffiliateId'     => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'Qty'                 => array (
-            'access' => array ('Read'),
+        ],
+        'Qty'                 => [
+            'access' => ['Read'],
             'type'   => 'Integer'
-        ),
-        'City'                => array (
-            'access' => array ('Read'),
+        ],
+        'City'                => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Email'               => array (
-            'access' => array ('Read'),
+        ],
+        'Email'               => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'EmailAddress2'       => array (
-            'access' => array ('Read'),
+        ],
+        'EmailAddress2'       => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'EmailAddress3'       => array (
-            'access' => array ('Read'),
+        ],
+        'EmailAddress3'       => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'FirstName'           => array (
-            'access' => array ('Read'),
+        ],
+        'FirstName'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'HTMLSignature'       => array (
-            'access' => array ('Read'),
+        ],
+        'HTMLSignature'       => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'LastName'            => array (
-            'access' => array ('Read'),
+        ],
+        'LastName'            => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'MiddleName'          => array (
-            'access' => array ('Read'),
+        ],
+        'MiddleName'          => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Nickname'            => array (
-            'access' => array ('Read'),
+        ],
+        'Nickname'            => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Phone1'              => array (
-            'access' => array ('Read'),
+        ],
+        'Phone1'              => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Phone1Ext'           => array (
-            'access' => array ('Read'),
+        ],
+        'Phone1Ext'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Phone1Type'          => array (
-            'access' => array ('Read'),
+        ],
+        'Phone1Type'          => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Phone2'              => array (
-            'access' => array ('Read'),
+        ],
+        'Phone2'              => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Phone2Ext'           => array (
-            'access' => array ('Read'),
+        ],
+        'Phone2Ext'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Phone2Type'          => array (
-            'access' => array ('Read'),
+        ],
+        'Phone2Type'          => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'PostalCode'          => array (
-            'access' => array ('Read'),
+        ],
+        'PostalCode'          => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Signature'           => array (
-            'access' => array ('Read'),
+        ],
+        'Signature'           => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'SpouseName'          => array (
-            'access' => array ('Read'),
+        ],
+        'SpouseName'          => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'State'               => array (
-            'access' => array ('Read'),
+        ],
+        'State'               => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Country'             => array (
-            'access' => array ('Read'),
+        ],
+        'Country'             => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'StreetAddress1'      => array (
-            'access' => array ('Read'),
+        ],
+        'StreetAddress1'      => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'StreetAddress2'      => array (
-            'access' => array ('Read'),
+        ],
+        'StreetAddress2'      => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Suffix'              => array (
-            'access' => array ('Read'),
+        ],
+        'Suffix'              => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'Title'               => array (
-            'access' => array ('Read'),
+        ],
+        'Title'               => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-        'ZipFour1'            => array (
-            'access' => array ('Read'),
+        ],
+        'ZipFour1'            => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-    );
+        ],
+    ];
 
 }
 

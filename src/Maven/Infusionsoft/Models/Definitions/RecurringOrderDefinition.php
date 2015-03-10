@@ -5,116 +5,150 @@ class RecurringOrderDefinition extends BaseDefinition
 {
 
     public static $table = 'RecurringOrder';
-    public static $fields = array (
-        'Id'                  => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ContactId'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'OriginatingOrderId'  => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ProgramId'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'SubscriptionPlanId'  => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'ProductId'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'StartDate'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+    public static $fields = [
+        'Id'                  => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'ContactId'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'OriginatingOrderId'  => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'ProgramId'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'SubscriptionPlanId'  => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'ProductId'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'StartDate'           => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Date'
-        ),
-        'EndDate'             => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'EndDate'             => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Date'
-        ),
-        'LastBillDate'        => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'LastBillDate'        => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Date'
-        ),
-        'NextBillDate'        => array (
-            'access' => array ('Read'),
+        ],
+        'NextBillDate'        => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'PaidThruDate'        => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'PaidThruDate'        => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Date'
-        ),
-        'BillingCycle'        => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'Frequency'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'BillingCycle'        => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+
+        ],
+        'Frequency'           => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Integer'
-        ),
-        'BillingAmt'          => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'BillingAmt'          => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Double'
-        ),
-        'Status'              => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'ReasonStopped'       => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'AutoCharge'          => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'Status'              => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'ReasonStopped'       => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 255],
+
+        ],
+        'AutoCharge'          => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index']
+
+        ],
+        'CC1'                 => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'CC2'                 => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'NumDaysBetweenRetry' => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Integer'
-        ),
-        'CC1'                 => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'MaxRetry'            => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Integer'
-        ),
-        'CC2'                 => array (
-            'access' => array ('Edit', 'Add', 'Read'),
+        ],
+        'MerchantAccountId'   => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'AffiliateId'         => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'PromoCode'           => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'String',
+            'options' => ['length' => 150],
+
+        ],
+        'LeadAffiliateId'     => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'Qty'                 => [
+            'access' => ['Edit', 'Add', 'Read'],
             'type'   => 'Integer'
-        ),
-        'NumDaysBetweenRetry' => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'MaxRetry'            => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'MerchantAccountId'   => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'AffiliateId'         => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'PromoCode'           => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'String'
-        ),
-        'LeadAffiliateId'     => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'Qty'                 => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-        'ShippingOptionId'    => array (
-            'access' => array ('Edit', 'Add', 'Read'),
-            'type'   => 'Integer'
-        ),
-    );
+        ],
+        'ShippingOptionId'    => [
+            'access' => ['Edit', 'Add', 'Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+    ];
 
 }
 

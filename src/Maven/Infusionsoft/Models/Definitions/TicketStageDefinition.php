@@ -5,16 +5,18 @@ class TicketStageDefinition extends BaseDefinition
 {
 
     public static $table = 'TicketStage';
-    public static $fields = array (
-        'Id'        => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'StageName' => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'        => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'StageName' => [
+            'access' => ['Read'],
             'type'   => 'String'
-        ),
-    );
+        ],
+    ];
 
 }
 

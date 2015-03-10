@@ -5,20 +5,23 @@ class ActionSequenceDefinition extends BaseDefinition
 {
 
     public static $table = 'ActionSequence';
-    public static $fields = array (
-        'Id'                  => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'TemplateName'        => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'VisibleToTheseUsers' => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-    );
+    public static $fields = [
+        'Id'                  => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+        ],
+        'TemplateName'        => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 50],
+        ],
+        'VisibleToTheseUsers' => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 200],
+        ],
+    ];
 
 }
 

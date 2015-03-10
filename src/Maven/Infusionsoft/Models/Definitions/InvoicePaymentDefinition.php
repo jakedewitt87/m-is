@@ -5,40 +5,49 @@ class InvoicePaymentDefinition extends BaseDefinition
 {
 
     public static $table = 'InvoicePayment';
-    public static $fields = array (
-        'Id'             => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'InvoiceId'      => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'Amt'            => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'             => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'InvoiceId'      => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'Amt'            => [
+            'access' => ['Read'],
             'type'   => 'Double'
-        ),
-        'PayDate'        => array (
-            'access' => array ('Read'),
+        ],
+        'PayDate'        => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'PayStatus'      => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'PaymentId'      => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'SkipCommission' => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'LastUpdated'    => array (
-            'access' => array ('Read'),
+        ],
+        'PayStatus'      => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'PaymentId'      => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'SkipCommission' => [
+            'access' => ['Read'],
+            'type'   => 'TinyInteger',
+
+        ],
+        'LastUpdated'    => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-    );
+        ],
+    ];
 
 }
 

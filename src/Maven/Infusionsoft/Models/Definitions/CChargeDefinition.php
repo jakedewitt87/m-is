@@ -6,44 +6,44 @@ class CChargeDefinition extends BaseDefinition
 
     public static $table = 'CCharge';
     public static $fields = [
-        'Id'         => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
+        'Id'                => [
+            'access'  => ['Read'],
+            'type'    => 'Integer',
             'options' => ['primary', 'unsigned']
         ],
-        'CCId'       => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
-            'options' => ['index', 'unsigned']
+        'Amt'         => [
+            'access'  => ['Read'],
+            'type'   => 'Double',
         ],
-        'PaymentId'  => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
-            'options' => ['index', 'unsigned']
+        'ApprCode'          => [
+            'access'  => ['Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
         ],
-        'MerchantId' => [
-            'access' => ['Read'],
-            'type'   => 'Integer',
-            'options' => ['index', 'unsigned']
+        'CCId'          => [
+            'access'  => ['Read'],
+            'type'    => 'Integer',
+            'options' => ['unsigned','index']
         ],
-        'OrderNum'   => [
-            'access' => ['Read'],
-            'type'   => 'String',
-            'options' => ['length' => 11],
+        'MerchantId'          => [
+            'access'  => ['Read'],
+            'type'    => 'Integer',
+            'options' => ['unsigned']
         ],
-        'RefNum'     => [
-            'access' => ['Read'],
-            'type'   => 'String',
-            'options' => ['length' => 50],
+        'OrderNum'          => [
+            'access'  => ['Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
         ],
-        'ApprCode'   => [
-            'access' => ['Read'],
-            'type'   => 'String',
-            'options' => ['length' => 50],
+        'PaymentId'          => [
+            'access'  => ['Read'],
+            'type'    => 'Integer',
+            'options' => ['unsigned','index']
         ],
-        'Amt'        => [
-            'access' => ['Read'],
-            'type'   => 'Double'
+        'RefNum'          => [
+            'access'  => ['Read'],
+            'type'    => 'String',
+            'options' => ['length' => 100],
         ],
     ];
 

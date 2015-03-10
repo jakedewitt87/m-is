@@ -5,24 +5,28 @@ class GroupAssignDefinition extends BaseDefinition
 {
 
     public static $table = 'GroupAssign';
-    public static $fields = array (
-        'Id'      => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'UserId'  => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'GroupId' => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'Admin'   => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-    );
+    public static $fields = [
+        'Id'      => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'UserId'  => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+        ],
+        'GroupId' => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+        ],
+        'Admin'   => [
+            'access' => ['Read'],
+            'type'   => 'TinyInteger'
+        ],
+    ];
 
 }
 

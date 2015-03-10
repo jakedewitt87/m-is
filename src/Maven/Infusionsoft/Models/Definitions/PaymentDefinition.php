@@ -5,60 +5,76 @@ class PaymentDefinition extends BaseDefinition
 {
 
     public static $table = 'Payment';
-    public static $fields = array (
-        'Id'          => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'PayDate'     => array (
-            'access' => array ('Read'),
+    public static $fields = [
+        'Id'          => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['primary', 'unsigned']
+
+        ],
+        'PayDate'     => [
+            'access' => ['Read'],
             'type'   => 'Date'
-        ),
-        'UserId'      => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'PayAmt'      => array (
-            'access' => array ('Read'),
+        ],
+        'UserId'      => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'PayAmt'      => [
+            'access' => ['Read'],
             'type'   => 'Double'
-        ),
-        'PayType'     => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'ContactId'   => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'PayNote'     => array (
-            'access' => array ('Read'),
-            'type'   => 'String'
-        ),
-        'InvoiceId'   => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'RefundId'    => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'ChargeId'    => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'Commission'  => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'Synced'      => array (
-            'access' => array ('Read'),
-            'type'   => 'Integer'
-        ),
-        'LastUpdated' => array (
-            'access' => array ('Read'),
+        ],
+        'PayType'     => [
+            'access' => ['Read'],
+            'type'   => 'String',
+            'options' => ['length' => 100],
+
+        ],
+        'ContactId'   => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'PayNote'     => [
+            'access' => ['Read'],
+            'type'   => 'Text'
+        ],
+        'InvoiceId'   => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'RefundId'    => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'ChargeId'    => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index', 'unsigned']
+
+        ],
+        'Commission'  => [
+            'access' => ['Read'],
+            'type'   => 'Integer',
+            'options' => ['index']
+
+        ],
+        'Synced'      => [
+            'access' => ['Read'],
+            'type'   => 'TinyInteger'
+        ],
+        'LastUpdated' => [
+            'access' => ['Read'],
             'type'   => 'DateTime'
-        ),
-    );
+        ],
+    ];
 
 }
 
