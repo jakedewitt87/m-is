@@ -48,8 +48,7 @@ class DataFormFieldDefinition extends BaseDefinition {
         ],
         'Values'       => [
             'access'  => ['Edit', 'Read'],
-            'type'    => 'String',
-            'options' => ['length' => 150],
+            'type'    => 'Text',
 
         ],
         'ListRows'     => [
