@@ -313,7 +313,7 @@ abstract class BaseModel {
         $fieldList = $tableDefinition::$fields;
         if ( ! array_key_exists($fieldName, $fieldList) )
         {
-            return array('string', 150, 'mods' => ['nullable']);
+            return array('string', 150, 'mods' => ['nullable' => 'nullable']);
         } // If
         $return = array();
         $fieldOptions = array_key_exists('options', $fieldList[$fieldName]) ? $fieldList[$fieldName]['options'] : array();
