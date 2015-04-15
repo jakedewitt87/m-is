@@ -47,7 +47,8 @@ class JobDefinition extends BaseDefinition {
         ],
         'DateCreated'    => [
             'access' => ['Read'],
-            'type'   => 'DateTime'
+            'type'   => 'DateTime',
+            'options' => ['index']
         ],
         'JobRecurringId' => [
             'access'  => ['Read'],

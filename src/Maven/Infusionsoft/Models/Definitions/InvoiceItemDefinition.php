@@ -33,7 +33,8 @@ class InvoiceItemDefinition extends BaseDefinition {
         ],
         'DateCreated'      => [
             'access' => ['Read'],
-            'type'   => 'DateTime'
+            'type'   => 'DateTime',
+            'options' => ['index']
         ],
         'Description'      => [
             'access'  => ['Edit', 'Add', 'Read'],
@@ -46,7 +47,8 @@ class InvoiceItemDefinition extends BaseDefinition {
         ],
         'LastUpdated'      => [
             'access' => ['Read'],
-            'type'   => 'DateTime'
+            'type'   => 'DateTime',
+            'options' => ['index']
         ],
     ];
 

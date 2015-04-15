@@ -130,6 +130,7 @@ class ContactDefinition extends BaseDefinition {
         'DateCreated'        => [
             'access' => ['Read'],
             'type'   => 'DateTime',
+            'options' => ['index']
         ],
         'Email'              => [
             'access'  => ['Edit', 'Delete', 'Add', 'Read'],
@@ -187,7 +188,8 @@ class ContactDefinition extends BaseDefinition {
         ],
         'LastUpdated'        => [
             'access' => ['Read'],
-            'type'   => 'DateTime'
+            'type'   => 'DateTime',
+            'options' => ['index']
         ],
         'LastUpdatedBy'      => [
             'access'  => ['Read'],

@@ -24,7 +24,8 @@ class InvoiceDefinition extends BaseDefinition {
         ],
         'DateCreated'     => [
             'access' => ['Read'],
-            'type'   => 'DateTime'
+            'type'   => 'DateTime',
+            'options' => ['index']
         ],
         'InvoiceTotal'    => [
             'access' => ['Read'],
@@ -72,31 +73,26 @@ class InvoiceDefinition extends BaseDefinition {
             'access'  => ['Read'],
             'type'    => 'Integer',
             'options' => ['index', 'unsigned']
-
         ],
         'PromoCode'       => [
             'access'  => ['Read'],
             'type'    => 'String',
             'options' => ['length' => 50],
-
         ],
         'InvoiceType'     => [
             'access'  => ['Read'],
             'type'    => 'String',
             'options' => ['length' => 100],
-
         ],
         'Description'     => [
             'access'  => ['Read'],
             'type'    => 'String',
             'options' => ['length' => 255],
-
         ],
         'ProductSold'     => [
             'access'  => ['Read'],
             'type'    => 'String',
             'options' => ['length' => 255],
-
         ],
         'Synced'          => [
             'access' => ['Read'],
@@ -104,7 +100,8 @@ class InvoiceDefinition extends BaseDefinition {
         ],
         'LastUpdated'     => [
             'access' => ['Read'],
-            'type'   => 'DateTime'
+            'type'   => 'DateTime',
+            'options' => ['index']
         ],
     ];
 
