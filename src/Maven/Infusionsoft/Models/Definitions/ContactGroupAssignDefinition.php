@@ -16,7 +16,8 @@ class ContactGroupAssignDefinition extends BaseDefinition {
         ],
         'DateCreated'                => [
             'access' => ['Read'],
-            'type'   => 'DateTime'
+            'type'   => 'DateTime',
+            'options' => ['index']
         ],
         'ContactId'                  => [
             'access'  => ['Read'],
