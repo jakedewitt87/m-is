@@ -25,7 +25,7 @@ class ContactDefinition extends BaseDefinition {
             'type'    => 'String',
             'options' => ['length' => 100],
         ],
-        'Address2Street1'    => [
+        'Address2Street2'    => [
             'access'  => ['Edit', 'Delete', 'Add', 'Read'],
             'type'    => 'String',
             'options' => ['length' => 100],
