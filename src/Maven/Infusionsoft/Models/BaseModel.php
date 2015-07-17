@@ -370,33 +370,35 @@ abstract class BaseModel {
     {
         $return = ['string']; // Default field type
         $strings = [
-            1  => 20, // Phone
-            2  => 20, // SSN
-            5  => 40, // State
-            7  => 10, // Year
-            8  => 15, // Month
-            9  => 15, // Day of Week
+            1 => 20, // Phone
+            2 => 20, // SSN
+            5 => 40, // State
             10 => 50, // Name
             15 => 150, // Text
-            17 => 70, // List Box
             18 => 60, // Website
             19 => 80, // Email
             20 => 60, // Radio
             21 => 70, // Dropdown
-            22 => 30, // User
-            23 => 70, // Drilldown
+            23 => 70, // Drill down
         ];
-        $doubles = [3, 4, 6, 11]; // Currency, Percent, Yes/No, Decimal Number
-        if ( array_key_exists($fieldTypeId, $strings) )
+        $doubles = [3, 4, 11]; // Currency, Percent, Decimal Number
+        if (array_key_exists($fieldTypeId, $strings))
         {
             $return[0] = 'string';
             $return[1] = $strings[$fieldTypeId]; // Set the max length as defined above for this sring
         }
-        if ( array_key_exists($fieldTypeId, $doubles) ) $return[0] = 'double'; // Check for all double types
-        if ( $fieldTypeId == 12 ) $return[0] = 'integer'; // Whole Number
-        if ( $fieldTypeId == 13 ) $return[0] = 'date'; // Date
-        if ( $fieldTypeId == 14 ) $return[0] = 'dateTime'; // Date/Time
-        if ( $fieldTypeId == 16 ) $return[0] = 'text'; // Text Area
+        if (array_key_exists($fieldTypeId, $doubles)) $return[0] = 'double'; // Check for all double types
+        if ($fieldTypeId == 6) $return[0] = 'tinyInteger'; // Yes/No
+        if ($fieldTypeId == 12) $return[0] = 'integer'; // Whole Number
+        if ($fieldTypeId == 22) $return[0] = 'integer'; // User (Id)
+        if ($fieldTypeId == 7) $return[0] = 'integer'; // Year (Number)
+        if ($fieldTypeId == 8) $return[0] = 'integer'; // Month (Number)
+        if ($fieldTypeId == 9) $return[0] = 'integer'; // Day of Week (Number)
+        if ($fieldTypeId == 13) $return[0] = 'date'; // Date
+        if ($fieldTypeId == 14) $return[0] = 'dateTime'; // Date/Time
+        if ($fieldTypeId == 16) $return[0] = 'text'; // Text Area
+        if ($fieldTypeId == 17) $return[0] = 'text'; // List Box
+        if ($fieldTypeId == 25) $return[0] = 'text'; // User List Box
         $return['mods'] = ['nullable' => 'nullable']; // All custom fields are nullable by default
         return $return;
     }
