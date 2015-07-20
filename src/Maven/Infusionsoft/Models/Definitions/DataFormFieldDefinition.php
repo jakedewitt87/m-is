@@ -19,7 +19,7 @@ class DataFormFieldDefinition extends BaseDefinition {
         'FormId'       => [
             'access'  => ['Read'],
             'type'    => 'Integer',
-            'options' => ['index', 'unsigned']
+            'options' => ['index']
 
         ],
         'GroupId'      => [
