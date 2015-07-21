@@ -27,7 +27,7 @@ class TableService extends BaseService {
         }
         foreach ( $customFields as $customField )
         {
-            $formName = $this->getTableNameByFormId($customField['FormId']);
+            $formName = self::getTableNameByFormId($customField['FormId']);
             if ( $formName )
             {
                 $fullTables[$formName][] = '_' . $customField['Name'];
@@ -60,7 +60,7 @@ class TableService extends BaseService {
      */
     public function getTableCustomFields($tableName)
     {
-        $tableFormId = $this->getFormIdByTableName($tableName);
+        $tableFormId = self::getFormIdByTableName($tableName);
         if ( ! $tableFormId )
         {
             return [];
@@ -88,7 +88,7 @@ class TableService extends BaseService {
      */
     public function getTableCustomFieldsWithDefinition($tableName)
     {
-        $tableFormId = $this->getFormIdByTableName($tableName);
+        $tableFormId = self::getFormIdByTableName($tableName);
         if ( ! $tableFormId ) return []; // This table does not have custom fields.
         $customFields = $this->SDK->dsQueryOrderBy('DataFormField', 1000, 0, ['FormId' => $tableFormId], $this->getTableFields('DataFormField', 'Read'), 'Label');
         if ( ! is_array($customFields) )
@@ -235,7 +235,7 @@ class TableService extends BaseService {
      *
      * @return bool|string
      */
-    public function getTableNameByFormId($formId)
+    public static function getTableNameByFormId($formId)
     {
         switch ( $formId )
         {
@@ -263,7 +263,7 @@ class TableService extends BaseService {
      *
      * @return bool|int
      */
-    public function getFormIdByTableName($tableName)
+    public static function getFormIdByTableName($tableName)
     {
         switch ( $tableName )
         {
