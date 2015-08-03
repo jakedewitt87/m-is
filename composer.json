@@ -4,6 +4,12 @@
     "require": {
         "marketingmavens/php-isdk": "1.9.1"
     },
+    "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/marketingmavens/php-isdk.git"
+    }
+    ],
     "autoload": {
         "psr-0": {
             "Maven": "src/"
