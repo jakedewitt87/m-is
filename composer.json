@@ -7,7 +7,7 @@
     "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/marketingmavens/php-isdk.git"
+      "url": "git@github.com:marketingmavens/php-isdk.git"
     }
     ],
     "autoload": {
